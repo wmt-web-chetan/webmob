@@ -1,40 +1,23 @@
 @import "tailwindcss";
 
-body {
-  font-family: var(--font-inter), sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  color: var(--color-text-primary);
-}
-
+/* Custom Color Variables */
 @theme {
-
-   /* Primary & Secondary */
   --color-primary: #335fff;
   --color-secondary: #2c23e8;
-  
-  /* Accent Colors */
-  --color-accent-green: #28b673;
+  --color-accent-green: #280873;
   --color-accent-yellow: #ffd333;
   
-  /* Functional & BG */
   --color-dark-bg: #1b1b35;
-  --color-functional: #cb264d;
-  --color-functional-light: #ff744d;
+  --color-functional-red: #db264d;
+  --color-functional-orange: #ff744d;
   --color-light-bg: #f0f4ff;
   
-  /* Text Colors */
-  --color-text-primary: #24262b;
-  --color-text-secondary: #3d4048;
-  --color-text-disabled: #c4c7ce;
+  --color-primary-text: #24262b;
+  --color-secondary-text: #3d4048;
+  --color-disabled-text: #c4c7ce;
   
-  /* Gradient Colors */
   --color-gradient-start: #335fff;
   --color-gradient-end: #2c23e8;
-  
- /* break-point */
-  --breakpoint-2xl: 1536px;
-  --breakpoint-3xl: 1791px;
 }
 
 /* Custom Utility Classes */
@@ -49,10 +32,18 @@ body {
   background-clip: text;
 }
 
-.button-background-gradient {
+.group:hover .group-hover\:text-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.button-background-gradient{
   background: linear-gradient(49deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 67%);
 }
 
+/* Hero Heading Animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -97,4 +88,3 @@ body {
     transform: translateX(0);
   }
 }
-

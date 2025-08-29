@@ -1,0 +1,26 @@
+/* Case Study Card Styles */
+.case-study-card {
+  background-color: #f0f4ff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.case-study-tag {
+  background-color: #B4B4B433;
+}
+
+.case-study-tag:hover {
+  background-color: white;
+}
+
+.case-study-button {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.case-study-button:hover {
+  background-color: transparent;
+}
+
+.case-study-image-shadow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
