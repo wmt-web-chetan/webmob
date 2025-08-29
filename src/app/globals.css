@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: var(--font-inter), sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--color-text-primary);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+
+   /* Primary & Secondary */
+  --color-primary: #335fff;
+  --color-secondary: #2c23e8;
+  
+  /* Accent Colors */
+  --color-accent-green: #28b673;
+  --color-accent-yellow: #ffd333;
+  
+  /* Functional & BG */
+  --color-dark-bg: #1b1b35;
+  --color-functional: #cb264d;
+  --color-functional-light: #ff744d;
+  --color-light-bg: #f0f4ff;
+  
+  /* Text Colors */
+  --color-text-primary: #24262b;
+  --color-text-secondary: #3d4048;
+  --color-text-disabled: #c4c7ce;
+  
+  /* Gradient Colors */
+  --color-gradient-start: #335fff;
+  --color-gradient-end: #2c23e8;
+  
+ /* break-point */
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1791px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom Utility Classes */
+.bg-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-heading-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.hero-subtitle-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.hero-buttons-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+/* Marquee Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
