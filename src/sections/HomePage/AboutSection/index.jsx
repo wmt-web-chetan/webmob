@@ -52,12 +52,13 @@ export default function AboutSection({
 }) {
   return (
     <section className=" bg-gradient-to-br from-purple-100 via-purple-50 to-blue-50">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 xl:py-20 2xl:py-24 3xl:py-28">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {/* Left Column - Main Content */}
-          <div className="lg:w-2/5 space-y-6 lg:space-y-8">
-            <div className="space-y-4 lg:space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 3xl:py-28">
+        {/* Mobile & Tablet Layout: Stack content and cards */}
+        <div className="lg:hidden">
+          {/* Content Section - Full Width & Centered */}
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 {title.split("WebMob Technologies").map((part, index) => (
                   <span key={index}>
                     {part}
@@ -65,36 +66,87 @@ export default function AboutSection({
                   </span>
                 ))}
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl md:max-w-3xl mx-auto">
                 {subtitle}
               </p>
             </div>
           </div>
 
-          {/* Right Column - Dynamic Feature Cards Grid */}
-          <div className="lg:w-3/5 grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* Cards Grid - 2 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
             {features.map((feature) => (
               <Card
                 key={feature.id}
                 className="bg-white/90 backdrop-blur-sm border-0 right-icon shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-xl relative overflow-hidden"
               >
                 <div className="absolute top-2 right-2 w-16 h-16 opacity-30 "></div>
-                <CardContent className="p-4 flex flex-col space-y-3">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                    <div className="w-6 h-6">
+                <CardContent className="p-4 sm:p-4 md:p-5 flex flex-col space-y-3 md:space-y-4">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6">
                       {feature.icon}
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
                     {feature.highlighted ? (
-                      <span className="bg-cyan-100 px-2 py-1 rounded-full text-base">
+                      <span className="bg-cyan-100 px-2 py-1 rounded-full text-sm sm:text-base md:text-lg">
                         {feature.title}
                       </span>
                     ) : (
                       feature.title
                     )}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout: Side by side */}
+        <div className="hidden lg:flex flex-row gap-8 items-start">
+          {/* Left Column - Main Content */}
+          <div className="lg:w-2/5 space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                {title.split("WebMob Technologies").map((part, index) => (
+                  <span key={index}>
+                    {part}
+                    {index === 0 && <span className="text-gradient-primary">WebMob Technologies</span>}
+                  </span>
+                ))}
+              </h1>
+              <p className="text-xl xl:text-2xl text-gray-700 leading-relaxed max-w-2xl">
+                {subtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column - Dynamic Feature Cards Grid */}
+          <div className="lg:w-3/5 grid grid-cols-2 gap-6">
+            {features.map((feature) => (
+              <Card
+                key={feature.id}
+                className="bg-white/90 backdrop-blur-sm border-0 right-icon shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-xl relative overflow-hidden"
+              >
+                <div className="absolute top-2 right-2 w-16 h-16 opacity-30 "></div>
+                <CardContent className="p-5 flex flex-col space-y-4">
+                  <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-7 h-7">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {feature.highlighted ? (
+                      <span className="bg-cyan-100 px-2 py-1 rounded-full text-lg">
+                        {feature.title}
+                      </span>
+                    ) : (
+                      feature.title
+                    )}
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>
