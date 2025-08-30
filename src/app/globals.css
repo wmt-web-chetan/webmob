@@ -111,6 +111,6 @@ body {
 }
 
 .h2-description{
-  @apply text-sm md:text-lg xl:text-lg;
+  @apply text-sm md:text-lg xl:text-lg text-text-secondary;
 }
 

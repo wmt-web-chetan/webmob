@@ -71,31 +71,31 @@ export default function FaqSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-2">
+          <h2 className=" h2-heading font-bold  mb-2">
             <span className="text-balance">Your Questions, </span>
-            <span className="text-blue-600">Answered</span>
-          </h1>
+            <span className="text-gradient-primary">Answered</span>
+          </h2>
         </div>
 
         <div className="w-full space-y-0">
           {faqData.map((faq) => (
             <div
               key={faq.id}
-              className="border-b border-border bg-card hover:bg-accent/50 transition-colors"
+              className="border-b border-text-disabled bg-card hover:bg-accent/50 transition-colors"
             >
               <button
                 onClick={() => toggleItem(faq.id)}
                 className="w-full text-left text-sm sm:text-base lg:text-lg font-medium py-4 sm:py-5 lg:py-6 focus:outline-none"
               >
                 <div className="flex items-center justify-between w-full">
-                  <span className={`pr-4 text-pretty transition-colors ${openItem === faq.id ? 'text-blue-600' : 'text-foreground'}`}>{faq.question}</span>
+                  <span className={`pr-4 text-pretty transition-colors ${openItem === faq.id ? 'text-secondary' : 'text-foreground'}`}>{faq.question}</span>
                   <div className="flex-shrink-0 ml-4">
                     {openItem === faq.id ? (
-                      <div className="border border-border rounded-full p-1 sm:p-1.5">
+                      <div className="border  rounded-full p-1 sm:p-1.5">
                         <XIcon />
                       </div>
                     ) : (
-                      <div className="border border-border rounded-full p-1 sm:p-1.5">
+                      <div className="border  rounded-full p-1 sm:p-1.5">
                         <PlusIcon />
                       </div>
                     )}
