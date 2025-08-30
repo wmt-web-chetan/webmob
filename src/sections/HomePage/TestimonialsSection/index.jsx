@@ -7,7 +7,6 @@ import PrimaryButton from "@/components/PrimaryButton";
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const testimonials = [
     {
       id: 1,
@@ -61,7 +60,6 @@ const TestimonialsSection = () => {
     },
   ];
 
-  // Auto-change slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % testimonials.length);
@@ -70,15 +68,6 @@ const TestimonialsSection = () => {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
 
   const handleDotClick = (index) => {
     setCurrentSlide(index);
@@ -88,22 +77,20 @@ const TestimonialsSection = () => {
     <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-14 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-5 lg:mb-6">
             What <span className="text-gradient-primary">Our Clients</span> Say
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-gray-600 max-w-2xl mx-auto">
-            We've helped people turn houses into homes. See what they're saying
-            about us.
+          <p className="text-sm sm:text-base md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-gray-600 max-w-2xl mx-auto">
+            We've helped people turn houses into homes. See what they're saying about us.
           </p>
         </div>
 
-        {/* Desktop Layout (hidden on mobile) */}
-        <div className="hidden md:block">
-          <div className="flex items-start justify-center gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
+        {/* Desktop Layout (hidden on mobile, adjusted for tablets) */}
+        <div className="hidden md:block overflow-hidden">
+          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
             {[0, 1, 2].map((offset) => {
-              const testimonialIndex =
-                (currentSlide + offset) % testimonials.length;
+              const testimonialIndex = (currentSlide + offset) % testimonials.length;
               const testimonial = testimonials[testimonialIndex];
               const isCenter = offset === 1;
 
@@ -112,22 +99,22 @@ const TestimonialsSection = () => {
                   key={`${testimonial.id}-${currentSlide}`}
                   className={`flex-shrink-0 relative transition-all duration-500 ease-in-out ${
                     isCenter
-                      ? "w-80 lg:w-96 xl:w-112 2xl:w-128 3xl:w-144"
-                      : "w-64 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128 opacity-60 translate-y-8"
+                      ? "w-64 md:w-56 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128"
+                      : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-3 lg:translate-y-6"
                   }`}
                 >
                   <div
-                    className={`rounded-2xl lg:rounded-3xl transition-all duration-500 ${
+                    className={`rounded-2xl md:rounded-xl lg:rounded-3xl transition-all duration-500 ${
                       isCenter
-                        ? "bg-blue-600 text-white p-4 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 transform scale-105 lg:scale-110 shadow-2xl"
-                        : "bg-gray-50 p-3 lg:p-4 xl:p-6 2xl:p-8 3xl:p-10"
-                    } pb-8 lg:pb-10 xl:pb-12 2xl:pb-14 3xl:pb-16`}
+                        ? "bg-blue-600 text-white p-3 md:p-3 lg:p-5 xl:p-6 2xl:p-8 3xl:p-10 transform scale-105 md:scale-100 lg:scale-105 shadow-2xl"
+                        : "bg-gray-50 p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 3xl:p-8"
+                    } pb-6 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 3xl:pb-14`}
                   >
                     <div
-                      className={`transition-all duration-500 flex justify-center mb-3 ${
+                      className={`transition-all duration-500 flex justify-center mb-3 md:mb-2.5 lg:mb-3 ${
                         isCenter
-                          ? "text-white text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl"
-                          : "text-gradient-primary text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl"
+                          ? "text-white text-4xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl"
+                          : "text-gradient-primary text-3xl md:text-2.5xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl"
                       }`}
                     >
                       {isCenter ? (
@@ -139,24 +126,24 @@ const TestimonialsSection = () => {
                     <p
                       className={`leading-relaxed transition-all duration-500 ${
                         isCenter
-                          ? "text-white text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
-                          : "text-gray-700 text-xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
+                          ? "text-white text-sm md:text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
+                          : "text-gray-700 text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
                       }`}
                     >
                       {testimonial.text}
                     </p>
                   </div>
-                  {/* Avatar positioned at bottom center, half inside half outside */}
+                  {/* Avatar positioned at bottom center */}
                   <div
-                    className={`absolute left-1/2 bottom-24 transform -translate-x-1/2 transition-all duration-500`}
+                    className={`absolute left-1/2 bottom-20 md:bottom-16 lg:bottom-24 transform -translate-x-1/2 transition-all duration-500`}
                   >
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className={`rounded-full  shadow-lg transition-all duration-500 ${
+                      className={`rounded-full shadow-lg transition-all duration-500 ${
                         isCenter
-                          ? "w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 3xl:w-32 3xl:h-32"
-                          : "w-12 h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 3xl:w-28 3xl:h-28"
+                          ? "w-14 h-14 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 3xl:w-28 3xl:h-28"
+                          : "w-10 h-10 md:w-8 md:h-8 lg:w-12 lg:h-12 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 3xl:w-24 3xl:h-24"
                       }`}
                     />
                   </div>
@@ -164,15 +151,15 @@ const TestimonialsSection = () => {
                   <div
                     className={`text-center transition-all duration-500 ${
                       isCenter
-                        ? "mt-16 lg:mt-20 xl:mt-24 2xl:mt-28 3xl:mt-32"
-                        : "mt-12 lg:mt-16 xl:mt-20 2xl:mt-24 3xl:mt-28"
+                        ? "mt-16 md:mt-12 lg:mt-20 xl:mt-24 2xl:mt-28 3xl:mt-32"
+                        : "mt-12 md:mt-10 lg:mt-16 xl:mt-20 2xl:mt-24 3xl:mt-28"
                     }`}
                   >
                     <h4
                       className={`font-semibold text-gray-900 mb-1 transition-all duration-500 ${
                         isCenter
-                          ? "text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
-                          : "text-xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
+                          ? "text-sm md:text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
+                          : "text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
                       }`}
                     >
                       {testimonial.name}
@@ -180,8 +167,8 @@ const TestimonialsSection = () => {
                     <p
                       className={`text-gray-600 transition-all duration-500 ${
                         isCenter
-                          ? "text-xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
-                          : "text-xs lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg"
+                          ? "text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
+                          : "text-xs md:text-2xs lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg"
                       }`}
                     >
                       {testimonial.position}
@@ -193,14 +180,14 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Desktop Navigation Dots */}
-          <div className="flex justify-center mt-8 sm:mt-12 md:mt-16 space-x-3">
+          <div className="flex justify-center mt-8 md:mt-10 lg:mt-12 space-x-3 md:space-x-2.5 lg:space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-2 h-2 lg:w-3 lg:h-3 xl:w-3 xl:h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "bg-blue-600 scale-125"
+                    ? "bg-blue-600 "
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -251,19 +238,17 @@ const TestimonialsSection = () => {
                       {testimonial.text}
                     </p>
                   </div>
-                  {/* Avatar positioned at bottom center, half inside half outside */}
                   <div className="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2">
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className={`rounded-full  shadow-lg transition-all duration-500 ${
+                      className={`rounded-full shadow-lg transition-all duration-500 ${
                         index === currentSlide
-                          ? "w-12 h-12 sm:w-16 sm:h-16"
-                          : "w-10 h-10 sm:w-14 sm:h-14"
+                          ? "w-10 h-10 sm:w-12 sm:h-12"
+                          : "w-8 h-8 sm:w-10 sm:h-10"
                       }`}
                     />
                   </div>
-                  {/* Name and position below avatar */}
                   <div className="text-center mt-16 sm:mt-10 px-2">
                     <h4
                       className={`font-semibold text-sm sm:text-base mb-1 text-gray-900 transition-all duration-500 ${
@@ -301,7 +286,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+        <div className="text-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
           <PrimaryButton
             text={
               <>
@@ -321,7 +306,7 @@ const TestimonialsSection = () => {
                 </svg>
               </>
             }
-            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base md:text-base lg:text-base transition-colors duration-200 flex items-center mx-auto"
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base md:text-base lg:text-base transition-colors duration-200 flex items-center mx-auto"
           />
         </div>
       </div>

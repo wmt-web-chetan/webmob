@@ -1,6 +1,7 @@
 "use client"
 
 import PrimaryButton from "@/components/PrimaryButton"
+import styles from './GridSection.module.css'
 
 const technologies = [
   {
@@ -79,63 +80,7 @@ const technologies = [
 
 export function GridSection() {
   return (
-    <>
-      <style jsx>{`
-        @keyframes gradient-rotate {
-          0% {
-            background: linear-gradient(45deg, 
-              rgba(40, 184, 115, 1), 
-              rgba(255, 211, 51, 1), 
-              rgba(219, 38, 77, 1), 
-              rgba(255, 116, 77, 1), 
-              rgba(51, 95, 255, 1)
-            );
-          }
-          25% {
-            background: linear-gradient(135deg, 
-              rgba(255, 211, 51, 1), 
-              rgba(219, 38, 77, 1), 
-              rgba(255, 116, 77, 1), 
-              rgba(51, 95, 255, 1), 
-              rgba(40, 184, 115, 1)
-            );
-          }
-          50% {
-            background: linear-gradient(225deg, 
-              rgba(219, 38, 77, 1), 
-              rgba(255, 116, 77, 1), 
-              rgba(51, 95, 255, 1), 
-              rgba(40, 184, 115, 1), 
-              rgba(255, 211, 51, 1)
-            );
-          }
-          75% {
-            background: linear-gradient(315deg, 
-              rgba(255, 116, 77, 1), 
-              rgba(51, 95, 255, 1), 
-              rgba(40, 184, 115, 1), 
-              rgba(255, 211, 51, 1), 
-              rgba(219, 38, 77, 1)
-            );
-          }
-          100% {
-            background: linear-gradient(45deg, 
-              rgba(40, 184, 115, 1), 
-              rgba(255, 211, 51, 1), 
-              rgba(219, 38, 77, 1), 
-              rgba(255, 116, 77, 1), 
-              rgba(51, 95, 255, 1)
-            );
-          }
-        }
-        
-        .animate-gradient-border {
-          animation: gradient-rotate 4s ease-in-out infinite;
-          background-size: 400% 400%;
-        }
-      `}</style>
-
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-8">
+    <section className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#1b1b35' }}>
         <div className="max-w-6xl mx-auto text-center">
           {/* Header */}
           <div className="mb-12">
@@ -151,13 +96,13 @@ export function GridSection() {
           </div>
 
           <div className="relative">
-            <div className="p-[6px] rounded-3xl animate-gradient-border shadow-2xl shadow-white/20">
+            <div className={`p-[8px] rounded-3xl ${styles['animate-gradient-border']} ${styles['white-shadow']}`}>
               {/* Content Container */}
-              <div className="bg-white rounded-[calc(1.5rem-6px)] p-8 shadow-inner shadow-white/10">
+              <div className="bg-white rounded-[calc(1.5rem-3px)] p-8 shadow-inner shadow-white/10">
                 {/* Technology Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+                <div className={`${styles['tech-grid']} mb-8`}>
                   {technologies.map((tech, index) => (
-                    <div key={index} className="text-left">
+                    <div key={index} className={`${styles['tech-card']} text-left p-6`}>
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-2xl">{tech.icon}</span>
                         <h3 className="font-semibold text-gray-900">{tech.name}</h3>
@@ -178,7 +123,6 @@ export function GridSection() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+    </section>
   )
 }
