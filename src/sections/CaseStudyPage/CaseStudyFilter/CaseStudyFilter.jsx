@@ -155,56 +155,54 @@ const Dropdown = ({
   filterType,
   selectedFilter,
   handleFilterChange,
-}) => (
-  <div className="relative group">
-    <button
-      className={`px-6 py-2 rounded-full text-xl font-normal transition-all duration-300  flex justify-between items-center ${
-        selectedFilter === filterType
-          ? "button-background-gradient text-white"
-          : "text-text-primary border border-text-disabled bg-transparent"
-      }`}
-    >
-      {selectedFilter === filterType && value ? value.toUpperCase() : label}
-      {/* <svg
-        className="w-4 h-4 ml-2 transform transition-transform duration-200 group-hover:rotate-180"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.293 7.293a1 1 0 011.414 0L10 
-             10.586l3.293-3.293a1 1 0 
-             111.414 1.414l-4 4a1 1 0 
-             01-1.414 0l-4-4a1 1 0 
-             010-1.414z"
-          clipRule="evenodd"
-        />
-      </svg> */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-5 h-5 ml-1 transform transition-transform duration-200 group-hover:rotate-180"
-        viewBox="0 0 21 22"
-        fill="currentColor"
-      >
-        <path
-          d="M16.2556 7.20698C16.6076 6.85496 17.1785 6.85508 17.5306 7.20698C17.8827 7.55906 17.8827 8.12992 17.5306 8.48201L11.2196 14.793C10.8675 15.1451 10.2967 15.1451 9.94459 14.793L3.63361 8.48201C3.28169 8.12991 3.28158 7.55901 3.63361 7.20698C3.98565 6.85495 4.55654 6.85505 4.90864 7.20698L10.5821 12.8804L16.2556 7.20698Z"
-        />
-      </svg>
-    </button>
+}) => {
+  const [open, setOpen] = useState(false);
 
-    <div className="absolute left-0 mt-2 min-w-30 bg-white border border-text-disabled rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
-      {options.map((opt) => (
-        <div
-          key={opt}
-          onClick={() => handleFilterChange(filterType.toLowerCase(), opt)}
-          className="px-4 py-2 cursor-pointer rounded-xl "
+  const toggleDropdown = () => setOpen((prev) => !prev);
+
+  return (
+    <div className="relative">
+      <button
+        onClick={toggleDropdown}
+        className={`px-6 py-2 rounded-full text-xl font-normal transition-all duration-300 flex justify-between items-center ${
+          selectedFilter === filterType
+            ? "button-background-gradient text-white"
+            : "text-text-primary border border-text-disabled bg-transparent"
+        }`}
+      >
+        {selectedFilter === filterType && value ? value.toUpperCase() : label}
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className={`w-5 h-5 ml-1 transform transition-transform duration-200 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+          viewBox="0 0 21 22"
+          fill="currentColor"
         >
-          {opt.toUpperCase()}
+          <path d="M16.2556 7.20698C16.6076 6.85496 17.1785 6.85508 17.5306 7.20698C17.8827 7.55906 17.8827 8.12992 17.5306 8.48201L11.2196 14.793C10.8675 15.1451 10.2967 15.1451 9.94459 14.793L3.63361 8.48201C3.28169 8.12991 3.28158 7.55901 3.63361 7.20698C3.98565 6.85495 4.55654 6.85505 4.90864 7.20698L10.5821 12.8804L16.2556 7.20698Z" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute left-0 mt-2 min-w-30 bg-white border border-text-disabled rounded-xl shadow-lg z-10">
+          {options.map((opt) => (
+            <div
+              key={opt}
+              onClick={() => {
+                handleFilterChange(filterType.toLowerCase(), opt);
+                setOpen(false); // close after selection
+              }}
+              className="px-4 py-2 cursor-pointer hover:bg-gray-100 rounded-xl"
+            >
+              {opt.toUpperCase()}
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 const CaseStudyFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -265,8 +263,8 @@ const CaseStudyFilter = () => {
       {/* Filtered Case Studies */}
       <div className="flex flex-col pt-10 pb-20 gap-y-14">
         {/* Filter Section */}
-        <div className="px-20  flex flex-col items-center gap-y-4">
-          <div className="flex flex-wrap gap-4 justify-center items-center">
+        <div className="px-wrapper  flex flex-col items-center gap-y-4">
+          <div className="flex flex-wrap gap-4 sm:justify-center items-center">
             <button
               onClick={() => handleFilterChange("main", "All")}
               className={`px-6 py-2 rounded-full text-xl font-normal transition-all duration-300 cursor-pointer ${
@@ -311,7 +309,7 @@ const CaseStudyFilter = () => {
         </div>
         <div className="flex flex-col gap-y-14 ">
           <div
-            className={`px-20 grid gap-6 sm:gap-8 md:grid-cols-1 lg:grid-cols-2 transition-all duration-300 ${
+            className={`px-wrapper grid gap-6 sm:gap-8 md:grid-cols-1 lg:grid-cols-2 transition-all duration-300 ${
               isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"
             }`}
           >

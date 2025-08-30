@@ -32,7 +32,7 @@ const CaseStudy = () => {
   return (
     <div className=" pt-36 section-background h-screen">
       {/* Header */}
-      <div className="px-20 flex justify-between items-center ">
+      <div className="px-wrapper flex justify-between items-center ">
         <div className="flex flex-col items-start gap-y-4">
           <h1 className="text-gradient-secondry text-7xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold">
             Case Studies
@@ -48,7 +48,7 @@ const CaseStudy = () => {
       </div>
 
       {/* Latest Study */}
-      <div className="px-20 pt-16">
+      <div className="px-wrapper pt-16">
         <CaseStudyCard caseStudy={latestStudy} isFullWidth={true} />
       </div>
 
