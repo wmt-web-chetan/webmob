@@ -30,25 +30,25 @@ const latestStudy = {
 
 const CaseStudy = () => {
   return (
-    <div className=" pt-36 section-background h-screen">
+    <div className="pt-20 sm:pt-28 lg:pt-36 section-background min-h-screen">
       {/* Header */}
-      <div className="px-wrapper flex justify-between items-center ">
-        <div className="flex flex-col items-start gap-y-4">
-          <h1 className="text-gradient-secondry text-7xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold">
+      <div className="px-wrapper flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+        <div className="flex flex-col items-start gap-y-3 sm:gap-y-4">
+          <h1 className="text-gradient-secondry text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             Case Studies
           </h1>
-          <p className="text-text-text-secondary text-2xl">
+          <p className="text-text-text-secondary text-base sm:text-lg lg:text-xl xl:text-2xl leading-relaxed">
             Explore how our tailored solutions transformed complex problems into
             success stories.
           </p>
         </div>
-        <div className="pb-7">
-          <Image src={backdropImage} alt="backdrop-img" className="w-32 " />
+        <div className="pb-0 sm:pb-7 hidden sm:block self-center sm:self-auto">
+          <Image src={backdropImage} alt="backdrop-img" className="w-20 sm:w-24 lg:w-32" />
         </div>
       </div>
 
       {/* Latest Study */}
-      <div className="px-wrapper pt-16">
+      <div className="px-wrapper pt-8 sm:pt-12 lg:pt-16">
         <CaseStudyCard caseStudy={latestStudy} isFullWidth={true} />
       </div>
 

@@ -302,7 +302,7 @@ const CaseStudyFilter = () => {
             />
           </div>
 
-          <p className="text-text-secondary text-xl font-normal">
+          <p className="text-text-secondary text-center text-xl font-normal max-w-xl">
             Explore all our case studies showcasing diverse solutions,
             industries, and innovations.
           </p>
@@ -323,12 +323,15 @@ const CaseStudyFilter = () => {
                 } transition-all duration-300 ease-in-out`}
                 style={
                   mounted
-                    ? {
-                        animationDelay: `${index * 100}ms`,
-                        animation: isTransitioning
-                          ? "none"
-                          : "fadeInUp 0.6s ease-out forwards",
-                      }
+                    ? isTransitioning
+                      ? { animation: "none" }
+                      : {
+                          animationName: "fadeInUp",
+                          animationDuration: "0.6s",
+                          animationTimingFunction: "ease-out",
+                          animationFillMode: "forwards",
+                          animationDelay: `${index * 100}ms`,
+                        }
                     : {}
                 }
               >

@@ -52,14 +52,14 @@ const VerticalAwardScroll = ({ children, reverse = false }) => {
   }, [scrollPosition]);
 
   return (
-    <div className="relative max-h-[650px]">
+    <div className="relative max-h-[400px] sm:max-h-[500px] lg:max-h-[650px]">
       {/* Gradient overlays */}
-      <div className="absolute top-0 left-0 right-0 h-20 wrapper-gradient-top"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-20 wrapper-gradient-bottom"></div>
+      <div className="absolute top-0 left-0 right-0 h-12 sm:h-16 lg:h-20 wrapper-gradient-top"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 lg:h-20 wrapper-gradient-bottom"></div>
 
       {/* Scrolling container */}
-      <div ref={containerRef} className="h-full overflow-hidden py-8">
-        <div className="space-y-6">
+      <div ref={containerRef} className="h-full overflow-hidden py-6 sm:py-7 lg:py-8">
+        <div className="space-y-4 sm:space-y-5 lg:space-y-6">
           {extendedChildren.map((child, index) => (
             <div key={index} className="transition-all duration-300">
               {child}
