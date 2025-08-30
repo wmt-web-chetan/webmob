@@ -11,9 +11,9 @@ const HeroSection = (props) => {
   return (
     <div className="hero-background px-2 h-screen">
       <div className="flex flex-col items-center justify-center h-full">
-        <h1 className="hero-heading-animate text-3xl text-center md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold">
-          Think <span className="text-gradient-primary">Smarter</span>,Grow{" "}
-          <span className="text-gradient-primary">Faster</span>
+        <h1 className="hero-heading-animate text-center h1-heading">
+          Think <span className="text-gradient-primary font-bold">Smarter</span>,Grow{" "}
+          <span className="text-gradient-primary font-bold">Faster</span>
           {/* {props?.title} */}
         </h1>
         <p className="hero-subtitle-animate pt-2 md:pt-4 max-w-2xl text-center text-md md:text-lg tracking-wider">
