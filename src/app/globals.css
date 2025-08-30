@@ -32,10 +32,13 @@ body {
   --color-gradient-start: #335fff;
   --color-gradient-end: #2c23e8;
   
- /* break-point */
-  --breakpoint-2xl: 1536px;
+ /* break-points */
+ 
   --breakpoint-3xl: 1791px;
+ 
 }
+
+
 
 /* Custom Utility Classes */
 .bg-gradient-primary {
@@ -96,5 +99,18 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+.h1-heading{
+  @apply text-3xl  md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl;
+}
+
+
+.h2-heading{
+  @apply text-2xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl;
+}
+
+.h2-description{
+  @apply text-sm md:text-lg xl:text-lg;
 }
 

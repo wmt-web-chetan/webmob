@@ -84,11 +84,11 @@ const DepartmentSection = () => {
   return (
     <>
       <div className="pt-5 lg:pt-10 flex flex-col justify-center items-center">
-        <h2 className="text-center md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-6xl font-bold">
+        <h2 className="text-center h2-heading ">
           Unlock Growth with{" "}
-          <span className="text-gradient-primary">AI-Powered</span> Innovation
+          <span className="text-gradient-primary font-bold">AI-Powered</span> Innovation
         </h2>
-        <p className=" pt-2 md:pt-3 max-w-2xl text-center text-md md:text-lg tracking-wider">
+        <p className=" pt-2 md:pt-3 max-w-2xl text-center h2-description">
           Transform the way you work with intelligent, scalable solutions.
         </p>
 
