@@ -7,6 +7,15 @@ body {
   color: var(--color-text-primary);
 }
 
+.section-background{
+  background-image: url("../assets/images/double_corner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 100;
+  position: relative;
+}
+
 @theme {
 
    /* Primary & Secondary */
@@ -47,6 +56,13 @@ body {
 
 .text-gradient-primary {
   background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondry {
+  background: linear-gradient(139deg, #2A9FFF 14.05%, #2C23E8 71.87%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
