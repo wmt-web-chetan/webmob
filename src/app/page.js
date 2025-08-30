@@ -1,4 +1,3 @@
-
 import AboutSection from "@/sections/HomePage/AboutSection";
 import AICTASection from "@/sections/HomePage/AICTASection";
 import AwardsSection from "@/sections/HomePage/AwardsSection";
@@ -13,12 +12,27 @@ import MarqueeVideoSection from "@/sections/HomePage/MarqueeVideoSection";
 import ServicesSection from "@/sections/HomePage/ServicesSection";
 import StatisticsSection from "@/sections/HomePage/StatisticsSection";
 import TestimonialsSection from "@/sections/HomePage/TestimonialsSection";
+import { sectionRegistry } from "@/sections/sectionsRegistry";
+import { getPageData } from "@/utils/pageApi";
 
-
-export default function Home() {
+export default async function Home() {
+  const data = await getPageData("home");
+  const pageBlocks = data?.data?.pageBy?.pageBuilder?.pageBuilder || [];
+  console.log(pageBlocks, "ffffff");
   return (
     <>
-      <HeroSection />
+      {pageBlocks.map((block, i) => {
+        const key = Object.keys(block)[0];
+        const Component = sectionRegistry[key];
+
+        if (!Component) {
+          console.warn(`No component found for ${key}`);
+          return null;
+        }
+
+        return <Component key={i} {...block[key]} />;
+      })}
+      {/* <HeroSection /> */}
       <DepartmentSection />
       <BrandsSection />
       <ServicesSection />
@@ -32,9 +46,6 @@ export default function Home() {
       <GridSection />                      
       <AwardsSection />                                                                                                                                     
       <FaqSection />                                                                                                                                     
-
-
-
     </>
   );
 }

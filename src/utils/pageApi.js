@@ -1,4 +1,5 @@
-import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/caseStudiesSection";
+// import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/caseStudiesSection";
+import { HERO_SECTION_FRAGMENT } from "./sectionsQuery/home/heroSection";
 
 export async function getPageData(slug) {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
@@ -11,7 +12,7 @@ export async function getPageData(slug) {
           slug
           pageBuilder { 
             pageBuilder { 
-              ${CASE_STUDIES_FRAGMENT}
+              ${HERO_SECTION_FRAGMENT}
             } 
           } 
         } 
