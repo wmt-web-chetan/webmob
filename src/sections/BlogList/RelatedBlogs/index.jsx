@@ -74,20 +74,20 @@ const blogs = [
 
 const RelatedBlogs = () => {
   return (
-    <div className="w-full px-wrapper flex flex-col gap-12 items-center section-padding-y">
-      <h1 className="text-5xl to-text-primary font-normal">
+    <div className="w-full px-wrapper flex flex-col gap-8 md:gap-10 lg:gap-12 items-center section-padding-y">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl to-text-primary font-normal text-center px-4">
         Related <span className="font-bold">Blogs</span>
       </h1>
-      <div className="flex flex-col gap-8 items-center">
-        <div className=" grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 3xl:grid-cols-4 gap-6">
+      <div className="flex flex-col gap-6 md:gap-8 items-center w-full">
+        <div className="grid grid-cols-1  lg:grid-cols-3 xl:grid-cols-3 3xl:grid-cols-4 gap-4 md:gap-6 w-full ">
           {blogs.map((blog) => (
             <BlogCard key={blog.id} {...blog} />
           ))}
         </div>
-        <div className="text-center">
+        <div className="text-center mt-4">
             <button
             //   onClick={() => router.push("/case-study")}
-              className="bg-gradient-primary hover:bg-primary text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-base sm:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200"
+              className="bg-gradient-primary hover:bg-primary text-white px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-3.5 rounded-full text-sm sm:text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200"
             >
               View All
             </button>
