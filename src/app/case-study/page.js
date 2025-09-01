@@ -30,7 +30,7 @@ const latestStudy = {
 
 const CaseStudy = () => {
   return (
-    <div className="pt-20 sm:pt-28 lg:pt-36 section-background min-h-screen">
+    <div className="pt-28 section-background min-h-screen">
       {/* Header */}
       <div className="px-wrapper flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
         <div className="flex flex-col items-start gap-y-3 sm:gap-y-4">
@@ -49,7 +49,7 @@ const CaseStudy = () => {
 
       {/* Latest Study */}
       <div className="px-wrapper pt-8 sm:pt-12 lg:pt-16">
-        <CaseStudyCard caseStudy={latestStudy} isFullWidth={true} />
+        <CaseStudyCard caseStudy={latestStudy} isFullWidth={true} isLatest={true} />
       </div>
 
       <CaseStudyFilter />
