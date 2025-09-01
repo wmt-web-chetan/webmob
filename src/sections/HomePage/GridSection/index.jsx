@@ -1,5 +1,4 @@
-"use client"
-
+  
 import PrimaryButton from "@/components/PrimaryButton"
 import styles from './GridSection.module.css'
 

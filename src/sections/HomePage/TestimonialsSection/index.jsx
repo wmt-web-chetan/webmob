@@ -1,13 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import colon from "../../../assets/SVGs/collon.svg";
 import blue_colon from "../../../assets/SVGs/blue_colon.svg";
-import arrow from "@/assets/SVGs/arrow-up.svg";
 import Image from "next/image";
 import PrimaryButton from "@/components/PrimaryButton";
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [maxCardHeight, setMaxCardHeight] = useState(0); // State to store max height
+  const cardRefs = useRef([]); // Refs for all cards
+
   const testimonials = [
     {
       id: 1,
@@ -61,6 +63,14 @@ const TestimonialsSection = () => {
     },
   ];
 
+  // Calculate max height of cards
+  useEffect(() => {
+    const heights = cardRefs.current.map((ref) => ref?.getBoundingClientRect().height || 0);
+    const maxHeight = Math.max(...heights);
+    setMaxCardHeight(maxHeight);
+  }, [currentSlide]); // Recalculate when slide changes
+
+  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % testimonials.length);
@@ -69,13 +79,12 @@ const TestimonialsSection = () => {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-
   const handleDotClick = (index) => {
     setCurrentSlide(index);
   };
 
   return (
-    <section className="bg-white section-padding-y">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-14 lg:mb-20">
@@ -88,9 +97,9 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Desktop Layout (hidden on mobile, adjusted for tablets) */}
-        <div className="hidden md:block">
-          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2 py-4">
-            {[0, 1, 2].map((offset) => {
+        <div className="hidden md:block overflow-hidden">
+          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
+            {[0, 1, 2].map((offset, idx) => {
               const testimonialIndex = (currentSlide + offset) % testimonials.length;
               const testimonial = testimonials[testimonialIndex];
               const isCenter = offset === 1;
@@ -98,18 +107,20 @@ const TestimonialsSection = () => {
               return (
                 <div
                   key={`${testimonial.id}-${currentSlide}`}
+                  ref={(el) => (cardRefs.current[testimonialIndex] = el)} // Assign ref to card
                   className={`flex-shrink-0 relative transition-all duration-500 ease-in-out ${
                     isCenter
                       ? "w-64 md:w-56 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128"
                       : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-8 lg:translate-y-6"
                   }`}
+                  style={isCenter && maxCardHeight ? { height: `${maxCardHeight}px` } : {}} // Apply max height only to center card
                 >
                   <div
                     className={`rounded-2xl md:rounded-xl lg:rounded-3xl transition-all duration-500 ${
                       isCenter
                         ? "bg-blue-600 text-white p-3 md:p-3 lg:p-5 xl:p-6 2xl:p-8 3xl:p-10 transform scale-105 md:scale-100 lg:scale-105 shadow-2xl"
                         : "bg-gray-50 p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 3xl:p-8"
-                    } pb-6 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 3xl:pb-14`}
+                    } pb-6 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 3xl:pb-14 ${isCenter ? "h-full" : ""}`} // Apply h-full only to center card
                   >
                     <div
                       className={`transition-all duration-500 flex justify-center mb-3 md:mb-2.5 lg:mb-3 ${
@@ -138,9 +149,7 @@ const TestimonialsSection = () => {
                   <div
                     className={`absolute left-1/2 bottom-20 md:bottom-16 lg:bottom-24 transform -translate-x-1/2 transition-all duration-500`}
                   >
-                    <Image
-                     height={100}
-                     width={100}
+                    <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       className={`rounded-full shadow-lg transition-all duration-500 ${
@@ -190,7 +199,7 @@ const TestimonialsSection = () => {
                 onClick={() => handleDotClick(index)}
                 className={`w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "bg-blue-600 "
+                    ? "bg-blue-600"
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -209,6 +218,7 @@ const TestimonialsSection = () => {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.id}
+                  ref={(el) => (cardRefs.current[index] = el)} // Assign ref to card
                   className={`w-full flex-shrink-0 px-2 relative transition-all duration-500 ${
                     index === currentSlide ? "" : "opacity-60 translate-y-4"
                   }`}
@@ -242,9 +252,7 @@ const TestimonialsSection = () => {
                     </p>
                   </div>
                   <div className="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2">
-                    <Image
-                     height={100}
-                     width={100}
+                    <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       className={`rounded-full shadow-lg transition-all duration-500 ${
@@ -291,15 +299,27 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="flex justify-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
+        <div className="text-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
           <PrimaryButton
             text={
               <>
                 View All Testimonials
-                <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
+                <svg
+                  className="ml-2 w-4 h-4 sm:w-4 sm:h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </>
             }
-            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base md:text-base lg:text-base transition-colors duration-200 flex items-center mx-auto"
           />
         </div>
       </div>
