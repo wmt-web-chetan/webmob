@@ -16,10 +16,10 @@ import arrow from "@/assets/SVGs/arrow-up.svg";
 const TabButton = memo(({ tab, isActive, onClick }) => (
   <button
     onClick={onClick}
-    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-12 lg:py-4 rounded-full transition-colors duration-300 ${
+    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-12 lg:py-4 rounded-full transition-colors duration-300 text-sm sm:text-base md:text-lg font-normal ${
       isActive
-        ? "button-background-gradient text-white text-2xl font-medium"
-        : "text-text-primary text-sm sm:text-base md:text-lg font-normal"
+        ? "button-background-gradient text-white font-medium"
+        : "text-text-primary "
     }`}
   >
     {tab}
@@ -234,7 +234,7 @@ const DepartmentSection = () => {
         </p>
 
         <div className="mt-4 sm:mt-8 md:mt-16">
-          <div className="flex flex-wrap justify-center lg:border lg:border-text-disabled lg:rounded-full ">
+          <div className="flex flex-wrap gap-y-3 justify-center lg:border lg:border-text-disabled lg:rounded-full ">
             {items.map((tab) => (
               <TabButton
                 key={tab}
