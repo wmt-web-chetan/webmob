@@ -80,7 +80,7 @@ const technologies = [
 
 export function GridSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center p-8" style={{ backgroundColor: '#1b1b35' }}>
+    <section className="section-padding-y flex items-center justify-center p-8" style={{ backgroundColor: '#1b1b35' }}>
         <div className="max-w-6xl mx-auto text-center">
           {/* Header */}
           <div className="mb-12">

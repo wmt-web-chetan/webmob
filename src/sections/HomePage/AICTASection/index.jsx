@@ -3,19 +3,31 @@ import Image from 'next/image';
 import CTAImage from '../../../assets/images/CTA.png';
 import PrimaryButton from '@/components/PrimaryButton';
 import arrow from '@/assets/SVGs/arrow-up.svg';
+import bg1 from "@/assets/images/Frame.png"
+import bg2 from "@/assets/images/Frame2.png"
+import bg3 from "@/assets/images/Vector3.png"
+import ellipse from "@/assets/images/Ellipse_CTA.png"
+import spark from "../../../assets/SVGs/AI_spark.svg";
+import "./index.css"
 
 const AICTASection = () => {
   return (
     <section className="relative h-auto flex items-center justify-start overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
+      <div className="absolute inset-0 z-0 custom-bg">
+      <Image src={bg1} />
+      <Image src={bg2} className='right-[20%] absolute bottom-0' />
+      <Image src={ellipse} className='right-[2%] absolute bottom-0' />
+      <Image src={spark} className='right-[10%] absolute top-24' />
+      <Image src={bg3} className='right-0 absolute top-0 rotate-180 ' />
+
+        {/* <Image
           src={CTAImage}
           alt="CTA Background"
           fill
           className="object-cover"
           priority
-        />
+        /> */}
         {/* Gradient Overlay (optional, uncomment if needed) */}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-800/80"></div> */}
       </div>

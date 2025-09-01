@@ -87,7 +87,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white section-padding-y">
+    <div className="min-h-screen bg-[#F0F4FF] section-padding-y">
       <div className="w-full mx-auto lg:px-24">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 md:px-12 lg:px-16">
@@ -105,7 +105,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={`bg-white transition-all duration-500 ease-in-out group ${
+              className={`bg-[#F0F4FF] transition-all duration-500 ease-in-out group ${
                 index < services.length - 1 ? 'border-b border-gray-200' : ''
               }`}
               onMouseEnter={() => {
@@ -189,7 +189,7 @@ const ServicesSection = () => {
                             {service.tags.map((tag, tagIndex) => (
                               <span
                                 key={tagIndex}
-                                className="flex justify-center items-center h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 2xl:h-13 px-2 sm:px-3 md:px-3.5 lg:px-4 xl:px-4 2xl:px-5 py-1 sm:py-1.5 md:py-2 lg:py-2 xl:py-2 2xl:py-2.5 bg-white text-black border border-gray-300 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-base rounded-full hover:bg-gray-50 transition-colors duration-200"
+                                className="flex justify-center items-center h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 2xl:h-13 px-2 sm:px-3 md:px-3.5 lg:px-4 xl:px-4 2xl:px-5 py-1 sm:py-1.5 md:py-2 lg:py-2 xl:py-2 2xl:py-2.5 bg-[#F0F4FF] text-black border border-gray-300 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-base rounded-full hover:bg-gray-50 transition-colors duration-200"
                               >
                                 {tag}
                               </span>
