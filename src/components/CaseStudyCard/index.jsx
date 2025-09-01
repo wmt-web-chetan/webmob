@@ -67,7 +67,7 @@ export default function CaseStudyCard({
                   <div className="mt-6 sm:mt-10 lg:mt-12">
                     <PrimaryButton
                       text={
-                        <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2 sm:py-1">
+                        <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2">
                           <span>View Case Study</span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ export default function CaseStudyCard({
               <div className="flex justify-start sm:justify-between items-center mt-6 sm:mt-10 lg:mt-12">
                 <PrimaryButton
                   text={
-                    <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2 sm:py-1">
+                    <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2 ">
                       <span>View Case Study</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
