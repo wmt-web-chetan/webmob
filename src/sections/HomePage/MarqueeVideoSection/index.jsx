@@ -3,7 +3,8 @@
 import { useState, useRef } from "react"
 import "./index.css"
 
-export default function MarqueeVideoSection() {
+export default function MarqueeVideoSection(props) {
+  console.log(props,"hello")
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef(null)
 
