@@ -28,7 +28,7 @@ const TabButton = memo(({ tab, isActive, onClick }) => (
 
 // Memoized ToolItem to prevent re-rendering of tool icons
 const ToolItem = memo(({ tool }) => (
-  <div className="rounded-full justify-center flex text-center transition-transform duration-300">
+  <div className="rounded-full justify-center flex gap-6 text-center transition-transform duration-300">
     <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 p-2 sm:p-4 rounded-full bg-white flex justify-center items-center">
       <Image
         src={tool.icon}
@@ -296,7 +296,7 @@ const DepartmentSection = () => {
             <Image
               src={Demo}
               alt="demo"
-              className="w-full  object-cover transition-transform duration-500 hover:scale-105"
+              className="w-full  object-contain transition-transform duration-500 hover:scale-105"
               loading="lazy"
             />
           </div>
@@ -325,7 +325,7 @@ const DepartmentSection = () => {
             </p>
             </div>
 
-            <div className="w-full flex flex-wrap gap- sm:gap-4 md:gap-6 justify-center px-0 lg:px-8">
+            <div className="w-full flex flex-wrap gap- sm:gap-4 md:gap-6 justify-center px-0 lg:px-0 xl:px-0 2xl:px-8">
               {currentContent.tools.map((tool, index) => (
                 <div 
                   key={index} 
