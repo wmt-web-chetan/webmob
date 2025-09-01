@@ -1,0 +1,10 @@
+.wrapper-gradient-top {
+    background: linear-gradient(180deg, #1B1B35 0%, rgba(27, 27, 53, 0.00) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+.wrapper-gradient-bottom {
+    background: linear-gradient(0deg, #1B1B35 0%, rgba(27, 27, 53, 0.00) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
