@@ -1,46 +1,54 @@
 import Image from "next/image";
-import "./index.css"
-export default function BrandsSection() {
-  const brands = [
-    // First row
-    [
-      { name: 'Honeywell', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Honeywell_logo.webp' },
-      { name: 'Vibez', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Vibez-Logo.webp' },
-      { name: 'HouzQuest', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Houzquest_logo.webp' },
-      { name: 'Trinity', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/trinity_logo.webp' },
-      { name: 'Merkle Science', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Merkel_science_logo-.webp' },
-      { name: 'Brand Logo', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2025/07/logo2-1.png' },
-      { name: 'Primally Nourished', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Primally_nourished_logo.webp' },
-      { name: 'LPGA', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/LPGA_logo.webp' }
-    ],
-    // Second row
-    [
-      { name: 'Honeywell', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Honeywell_logo.webp' },
-      { name: 'Vibez', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Vibez-Logo.webp' },
-      { name: 'HouzQuest', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Houzquest_logo.webp' },
-      { name: 'Trinity', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/trinity_logo.webp' },
-      { name: 'Merkle Science', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Merkel_science_logo-.webp' },
-      { name: 'Brand Logo', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2025/07/logo2-1.png' },
-      { name: 'Primally Nourished', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/Primally_nourished_logo.webp' },
-      { name: 'LPGA', logo: 'https://webmobtechcdn.nyc3.cdn.digitaloceanspaces.com/wmt_v4/2023/04/LPGA_logo.webp' }
-    ]
+import "./index.css";
+export default function BrandsSection(props) {
+  console.log(props, "DDDFDFSDGDFGDF");
+
+  if (!props?.logos || props.logos.length === 0) {
+    return null;
+  }
+
+  const formatTitle = (title) => {
+    if (!title) return null;
+    const words = title.split(" ");
+    return words
+      .map((word, index) => {
+        if (word === "Trusted" || word === "Together") {
+          return (
+            <span key={index} className="text-gradient-primary font-medium">
+              {word}
+            </span>
+          );
+        }
+        return word;
+      })
+      .reduce((prev, curr, index) => {
+        return index === 0 ? [curr] : [...prev, " ", curr];
+      }, []);
+  };
+
+  const brands = props.logos;
+
+  const brandsRows = [
+    brands.slice(0, Math.ceil(brands.length / 2)),
+    brands.slice(Math.ceil(brands.length / 2)),
   ];
 
   return (
     <section className="w-full bg-white section-padding-y px-4 sm:px-6 lg:px-8">
       <div className="w-full mx-auto text-center  lg:px-8 xl:px-32">
         {/* Header */}
-        <h2 className="h2-heading font-light text-gray-900 mb-6 leading-tight ">
-          Brands That{' '}
-          <span className="text-gradient-primary font-medium">Trusted</span>{' '}
-          Us & We Succeeded{' '}
-          <span className="text-gradient-primary font-medium">Together</span>
-        </h2>
-        
+        {props?.title && (
+          <h2 className="h2-heading font-light text-gray-900 mb-6 leading-tight ">
+            {formatTitle(props.title)}
+          </h2>
+        )}
+
         {/* Subtitle */}
-        <p className="h2-description text-text-primary mb-16 max-w-4xl mx-auto leading-relaxed">
-          We empower startups and Fortune 500+ with solutions that redefine retail through partnerships.
-        </p>
+        {props?.subtitle && (
+          <p className="h2-description text-text-primary mb-16 max-w-4xl mx-auto leading-relaxed">
+            {props.subtitle}
+          </p>
+        )}
 
         {/* Brands Grid with Scrolling Animation */}
         <div className="space-y-6 overflow-hidden">
@@ -48,17 +56,17 @@ export default function BrandsSection() {
           <div className="relative">
             <div className="flex animate-scroll-left gap-2 sm:gap-4 lg:gap-6">
               {/* Duplicate brands for seamless loop */}
-              {[...brands[0], ...brands[0]].map((brand, index) => (
+              {[...brandsRows[0], ...brandsRows[0]].map((brand, index) => (
                 <div
                   key={`row1-${index}`}
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
                   <div className="h-20 flex items-center justify-center">
-                    <Image 
-                     height={100}
-                     width={100} 
-                      src={brand.logo} 
-                      alt={brand.name}
+                    <Image
+                      height={100}
+                      width={100}
+                      src={brand.logo?.node?.mediaItemUrl || brand.logo}
+                      alt={brand.brandName || brand.name}
                       className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
@@ -74,17 +82,17 @@ export default function BrandsSection() {
           <div className="relative">
             <div className="flex animate-scroll-right gap-2 sm:gap-4 lg:gap-6">
               {/* Duplicate brands for seamless loop */}
-              {[...brands[1], ...brands[1]].map((brand, index) => (
+              {[...brandsRows[1], ...brandsRows[1]].map((brand, index) => (
                 <div
                   key={`row2-${index}`}
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
                   <div className="h-20 flex items-center justify-center">
                     <Image
-                    height={100}
-                    width={100} 
-                      src={brand.logo} 
-                      alt={brand.name}
+                      height={100}
+                      width={100}
+                      src={brand.logo?.node?.mediaItemUrl || brand.logo}
+                      alt={brand.brandName || brand.name}
                       className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
