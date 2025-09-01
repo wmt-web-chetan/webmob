@@ -45,7 +45,7 @@ const BlogCard = ({
             <Image
               src={image}
               alt={title}
-              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[800px] rounded-2xl md:rounded-3xl object-cover"
+              className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[800px] rounded-2xl md:rounded-3xl object-cover  shadow-2xl"
             />
             <p className="text-text-secondary opacity-50 text-sm sm:text-base md:text-lg lg:text-xl font-normal">
               {description}
