@@ -87,7 +87,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-8 sm:py-12 md:py-16">
+    <div className="min-h-screen bg-white section-padding-y">
       <div className="w-full mx-auto lg:px-24">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 md:px-12 lg:px-16">
@@ -169,7 +169,7 @@ const ServicesSection = () => {
                 }`}
               >
                 <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-6 sm:pb-8">
-                  <div className="flex items-start">
+                  <div className="flex items-start -ml-0">
                     {/* Spacer to align with title */}
                     <div className="w-8 sm:w-10 md:w-16 lg:w-20 xl:w-28 flex-shrink-0"></div>
                     
@@ -185,11 +185,11 @@ const ServicesSection = () => {
                           </p>
                           
                           {/* Tags */}
-                          <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5 md:mb-6">
+                          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 lg:gap-2 xl:gap-2 2xl:gap-2.5 mb-4 sm:mb-5 md:mb-6">
                             {service.tags.map((tag, tagIndex) => (
                               <span
                                 key={tagIndex}
-                                className="px-2 sm:px-3 py-1 bg-white text-black border border-gray-300 text-xs sm:text-sm rounded-full hover:bg-gray-50 transition-colors duration-200"
+                                className="flex justify-center items-center h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 2xl:h-13 px-2 sm:px-3 md:px-3.5 lg:px-4 xl:px-4 2xl:px-5 py-1 sm:py-1.5 md:py-2 lg:py-2 xl:py-2 2xl:py-2.5 bg-white text-black border border-gray-300 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-base rounded-full hover:bg-gray-50 transition-colors duration-200"
                               >
                                 {tag}
                               </span>
@@ -215,7 +215,7 @@ const ServicesSection = () => {
                                 </svg>
                               </>
                             }
-                            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-all duration-200 flex items-center space-x-2 w-fit text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer !h-10 sm:!h-11 md:!h-12 lg:!h-12 xl:!h-13 2xl:!h-14 !max-w-80 sm:!max-w-90 md:!max-w-96 lg:!max-w-104 xl:!max-w-110 2xl:!max-w-116 !px-3 sm:!px-4 md:!px-5 lg:!px-5 xl:!px-6 2xl:!px-7 !gap-1 sm:!gap-1.5 md:!gap-2 lg:!gap-2 xl:!gap-2 2xl:!gap-2.5 !min-w-0 !text-xs sm:!text-sm md:!text-sm lg:!text-base xl:!text-base 2xl:!text-lg"
                           />
                         </div>
                         
@@ -242,10 +242,10 @@ const ServicesSection = () => {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-12 lg:px-16">
+        <div className="flex justify-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-12 lg:px-16">
           <PrimaryButton 
             text="View All Services"
-            className="bg-gradient-primary text-white hover:cursor-pointer px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-medium transition-all duration-200 text-sm sm:text-base shadow-lg hover:shadow-xl transform"
+            className="bg-gradient-primary text-white hover:cursor-pointer font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
           />
         </div>
       </div>

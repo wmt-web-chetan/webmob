@@ -114,3 +114,8 @@ body {
   @apply text-sm md:text-lg xl:text-lg text-text-secondary;
 }
 
+/* by yash */
+.section-padding-y{
+  @apply py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 2xl:py-24;
+}
+

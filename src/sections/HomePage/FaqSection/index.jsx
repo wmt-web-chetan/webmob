@@ -67,7 +67,7 @@ export default function FaqSection() {
   )
 
   return (
-    <div className="h-auto bg-background py-8 sm:py-12 lg:py-16">
+    <div className="border-b bg-background section-padding-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">

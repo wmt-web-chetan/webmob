@@ -105,7 +105,7 @@ const AwardsSection = () => {
      
 
       <section 
-        className="h-auto py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32" 
+        className="h-auto section-padding-y" 
         style={{ backgroundColor: "#1B1B35" }}
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -125,11 +125,11 @@ const AwardsSection = () => {
               </div>
 
               {/* Clutch Review Section */}
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center ml-8 sm:ml-0 md:justify-start">
                 <Image 
                   src={clutchReview} 
                   alt="Clutch Review" 
-                  className="w-32 h-auto sm:w-40 md:w-56 lg:w-64 xl:w-80 2xl:w-96"
+                  className="w-48 h-auto sm:w-48 md:w-56 lg:w-64 xl:w-80 2xl:w-96"
                 />
               </div>
             </div>

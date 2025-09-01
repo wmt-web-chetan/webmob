@@ -26,10 +26,10 @@ export default function BrandsSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="w-full mx-auto text-center">
+    <section className="w-full bg-white section-padding-y px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto text-center  lg:px-8 xl:px-32">
         {/* Header */}
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+        <h2 className="h2-heading font-light text-gray-900 mb-6 leading-tight ">
           Brands That{' '}
           <span className="text-gradient-primary font-medium">Trusted</span>{' '}
           Us & We Succeeded{' '}
@@ -37,28 +37,26 @@ export default function BrandsSection() {
         </h2>
         
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-gray-600 mb-16 max-w-3xl mx-auto leading-relaxed">
-          We empower startups and Fortune 500+ with solutions
-          <br className="hidden sm:block" />
-          that redefine retail through partnerships.
+        <p className="h2-description text-text-primary mb-16 max-w-4xl mx-auto leading-relaxed">
+          We empower startups and Fortune 500+ with solutions that redefine retail through partnerships.
         </p>
 
         {/* Brands Grid with Scrolling Animation */}
         <div className="space-y-6 overflow-hidden">
           {/* First Row - Moving Right to Left */}
           <div className="relative">
-            <div className="flex animate-scroll-left gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex animate-scroll-left gap-2 sm:gap-4 lg:gap-6">
               {/* Duplicate brands for seamless loop */}
               {[...brands[0], ...brands[0]].map((brand, index) => (
                 <div
                   key={`row1-${index}`}
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
-                  <div className="h-20 flex items-center justify-center min-w-[180px] px-6">
+                  <div className="h-20 flex items-center justify-center">
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -71,18 +69,18 @@ export default function BrandsSection() {
 
           {/* Second Row - Moving Left to Right */}
           <div className="relative">
-            <div className="flex animate-scroll-right gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex animate-scroll-right gap-2 sm:gap-4 lg:gap-6">
               {/* Duplicate brands for seamless loop */}
               {[...brands[1], ...brands[1]].map((brand, index) => (
                 <div
                   key={`row2-${index}`}
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
-                  <div className="h-20 flex items-center justify-center min-w-[180px] px-6">
+                  <div className="h-20 flex items-center justify-center">
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
                 </div>

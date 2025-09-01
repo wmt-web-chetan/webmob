@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import colon from "../../../assets/SVGs/collon.svg";
 import blue_colon from "../../../assets/SVGs/blue_colon.svg";
+import arrow from "@/assets/SVGs/arrow-up.svg";
 import Image from "next/image";
 import PrimaryButton from "@/components/PrimaryButton";
 
@@ -74,7 +75,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
+    <section className="bg-white section-padding-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-14 lg:mb-20">
@@ -87,8 +88,8 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Desktop Layout (hidden on mobile, adjusted for tablets) */}
-        <div className="hidden md:block overflow-hidden">
-          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
+        <div className="hidden md:block">
+          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2 py-4">
             {[0, 1, 2].map((offset) => {
               const testimonialIndex = (currentSlide + offset) % testimonials.length;
               const testimonial = testimonials[testimonialIndex];
@@ -100,7 +101,7 @@ const TestimonialsSection = () => {
                   className={`flex-shrink-0 relative transition-all duration-500 ease-in-out ${
                     isCenter
                       ? "w-64 md:w-56 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128"
-                      : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-3 lg:translate-y-6"
+                      : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-8 lg:translate-y-6"
                   }`}
                 >
                   <div
@@ -180,7 +181,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Desktop Navigation Dots */}
-          <div className="flex justify-center mt-8 md:mt-10 lg:mt-12 space-x-3 md:space-x-2.5 lg:space-x-3">
+          <div className="flex justify-center mt-12 md:mt-16 lg:mt-12 space-x-3 md:space-x-2.5 lg:space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -286,27 +287,15 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
+        <div className="flex justify-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
           <PrimaryButton
             text={
               <>
                 View All Testimonials
-                <svg
-                  className="ml-2 w-4 h-4 sm:w-4 sm:h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
               </>
             }
-            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base md:text-base lg:text-base transition-colors duration-200 flex items-center mx-auto"
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
           />
         </div>
       </div>

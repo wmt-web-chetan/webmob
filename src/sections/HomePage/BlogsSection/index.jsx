@@ -111,10 +111,10 @@ export function BlogsSection() {
       </div>
 
       {/* View All Blogs Button */}
-      <div className="text-center">
+      <div className="flex justify-center">
         <PrimaryButton
           text="View All Blogs"
-          className="bg-gradient-primary text-white px-6 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 shadow-sm hover:shadow-md"
+          className="bg-gradient-primary text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md"
         />
       </div>
     </section>
