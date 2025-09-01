@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./index.css"
 export default function BrandsSection() {
   const brands = [
@@ -53,7 +54,9 @@ export default function BrandsSection() {
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
                   <div className="h-20 flex items-center justify-center">
-                    <img 
+                    <Image 
+                     height={100}
+                     width={100} 
                       src={brand.logo} 
                       alt={brand.name}
                       className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
@@ -77,7 +80,9 @@ export default function BrandsSection() {
                   className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-300"
                 >
                   <div className="h-20 flex items-center justify-center">
-                    <img 
+                    <Image
+                    height={100}
+                    width={100} 
                       src={brand.logo} 
                       alt={brand.name}
                       className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"

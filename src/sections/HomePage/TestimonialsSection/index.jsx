@@ -138,7 +138,9 @@ const TestimonialsSection = () => {
                   <div
                     className={`absolute left-1/2 bottom-20 md:bottom-16 lg:bottom-24 transform -translate-x-1/2 transition-all duration-500`}
                   >
-                    <img
+                    <Image
+                     height={100}
+                     width={100}
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       className={`rounded-full shadow-lg transition-all duration-500 ${
@@ -240,7 +242,9 @@ const TestimonialsSection = () => {
                     </p>
                   </div>
                   <div className="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2">
-                    <img
+                    <Image
+                     height={100}
+                     width={100}
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       className={`rounded-full shadow-lg transition-all duration-500 ${

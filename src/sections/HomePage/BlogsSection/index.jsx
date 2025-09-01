@@ -1,5 +1,6 @@
 import { BlogCard } from "@/components/BlogCard";
 import PrimaryButton from "@/components/PrimaryButton";
+import Image from "next/image";
 
 export function BlogsSection() {
   const featuredBlog = {
@@ -77,7 +78,9 @@ export function BlogsSection() {
             >
               <div className="flex gap-3 sm:gap-4">
                 <div className="flex-shrink-0">
-                  <img
+                  <Image
+                   height={100}
+                   width={100}
                     src={blog.thumbnailSrc || "/placeholder.svg"}
                     alt="Blog thumbnail"
                     className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-lg object-cover"

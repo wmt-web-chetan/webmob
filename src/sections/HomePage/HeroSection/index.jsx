@@ -61,19 +61,25 @@ const HeroSection = (props) => {
         </div>
         <div className="flex items-center gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 2xl:gap-3 bg-transparent py-2 px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 2xl:px-10">
           <div className="flex relative w-16 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 lg:w-26 lg:h-13 xl:w-28 xl:h-14 2xl:w-32 2xl:h-16">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop"
+              height={100}
+              width={100}
               alt="Happy client"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 rounded-full border-2 border-blue-100 absolute z-0"
             />
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop"
               alt="Happy client"
+              height={100}
+              width={100}
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 rounded-full border-2 border-blue-100 absolute left-4 sm:left-5 md:left-6 lg:left-6.5 xl:left-7 2xl:left-8 z-10"
             />
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop"
               alt="Happy client"
+              height={100}
+              width={100}
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 rounded-full border-2 border-blue-100 absolute left-8 sm:left-10 md:left-12 lg:left-13 xl:left-14 2xl:left-16 z-20"
             />
           </div>
@@ -82,7 +88,8 @@ const HeroSection = (props) => {
           </p>
         </div>
         <div className="pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 2xl:pb-10">
-          <Image src={backdropImage} alt="backdrop-img" className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36" />
+          <Image src={backdropImage} alt="backdrop-img" className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36"  height={100}
+              width={100} />
         </div>
       </div>
     </div>

@@ -15,11 +15,11 @@ const AICTASection = () => {
     <section className="relative h-auto flex items-center justify-start overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 custom-bg">
-      <Image src={bg1} />
-      <Image src={bg2} className='right-[20%] absolute bottom-0' />
-      <Image src={ellipse} className='right-[2%] absolute bottom-0' />
-      <Image src={spark} className='right-[10%] absolute top-24' />
-      <Image src={bg3} className='right-0 absolute top-0 rotate-180 ' />
+      <Image src={bg1} alt='design icon' />
+      <Image src={bg2} className='right-[20%] absolute bottom-0' alt='design icon'  />
+      <Image src={ellipse} className='right-[2%] absolute bottom-0' alt='design icon' />
+      <Image src={spark} className='right-[10%] absolute top-24' alt='design icon' />
+      <Image src={bg3} className='right-0 absolute top-0 rotate-180 ' alt='design icon' />
 
         {/* <Image
           src={CTAImage}
