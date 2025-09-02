@@ -9,11 +9,11 @@ body {
 
 .section-background{
   background-image: url("../assets/images/double_corner.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; 
   z-index: 100;
   position: relative;
+  width: 100%;
 }
 
 @theme {
