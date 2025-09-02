@@ -113,12 +113,12 @@ const AwardsSection = () => {
             {/* Left Content */}
             <div className="flex-1 space-y-6 sm:space-y-8 md:space-y-6 lg:space-y-12 xl:space-y-14 2xl:space-y-16 text-center md:text-left">
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight text-balance">
+                <h1 className="h2-heading font-bold leading-tight text-balance">
                   <span className="text-blue-400">Awards</span>{" "}
                   <span className="text-white">That Define Our Journey</span>
                 </h1>
 
-                <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed text-pretty max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto lg:mx-0">
+                <p className="text-gray-300 h2-description leading-relaxed text-pretty max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto lg:mx-0">
                   From innovation to execution, our recognition speaks volumes about the quality, creativity, and
                   results we bring to every project.
                 </p>
