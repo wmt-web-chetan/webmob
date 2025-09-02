@@ -60,13 +60,13 @@ const AICTASection = (props) => {
       {/* Main Content */}
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 text-start text-white py-12 sm:py-16 lg:py-20">
         {props?.mainTitle && (
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+          <h1 className="h2-heading font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
             {formatTitle(props.mainTitle)}
           </h1>
         )}
         
         {props?.subtitle && (
-          <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-2xl mx-auto leading-lo16">
+          <p className="h2-description text-blue-100 mb-6 sm:mb-8 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-2xl mx-auto leading-lo16">
             {props.subtitle}
           </p>
         )}

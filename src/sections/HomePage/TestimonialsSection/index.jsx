@@ -65,10 +65,39 @@ const TestimonialsSection = () => {
 
   // Calculate max height of cards
   useEffect(() => {
-    const heights = cardRefs.current.map((ref) => ref?.getBoundingClientRect().height || 0);
-    const maxHeight = Math.max(...heights);
-    setMaxCardHeight(maxHeight);
-  }, [currentSlide]); // Recalculate when slide changes
+    const calculateMaxHeight = () => {
+      // Wait for next tick to ensure DOM is updated
+      setTimeout(() => {
+        const heights = cardRefs.current
+          .filter(ref => ref) // Filter out null refs
+          .map((ref) => ref.getBoundingClientRect().height);
+        if (heights.length > 0) {
+          const maxHeight = Math.max(...heights);
+          setMaxCardHeight(maxHeight);
+        }
+      }, 50);
+    };
+
+    calculateMaxHeight();
+  }, []); // Calculate once on mount
+
+  // Recalculate height when window resizes
+  useEffect(() => {
+    const handleResize = () => {
+      setTimeout(() => {
+        const heights = cardRefs.current
+          .filter(ref => ref)
+          .map((ref) => ref.getBoundingClientRect().height);
+        if (heights.length > 0) {
+          const maxHeight = Math.max(...heights);
+          setMaxCardHeight(maxHeight);
+        }
+      }, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Auto-slide effect
   useEffect(() => {
@@ -98,8 +127,8 @@ const TestimonialsSection = () => {
 
         {/* Desktop Layout (hidden on mobile, adjusted for tablets) */}
         <div className="hidden md:block overflow-hidden">
-          <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
-            {[0, 1, 2].map((offset, idx) => {
+          <div className="flex items-center justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
+            {[0, 1, 2].map((offset) => {
               const testimonialIndex = (currentSlide + offset) % testimonials.length;
               const testimonial = testimonials[testimonialIndex];
               const isCenter = offset === 1;
@@ -113,14 +142,14 @@ const TestimonialsSection = () => {
                       ? "w-64 md:w-56 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128"
                       : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-8 lg:translate-y-6"
                   }`}
-                  style={isCenter && maxCardHeight ? { height: `${maxCardHeight}px` } : {}} // Apply max height only to center card
+                  style={{ minHeight: maxCardHeight ? `${maxCardHeight}px` : 'auto' }} // Apply consistent min height to all cards
                 >
                   <div
-                    className={`rounded-2xl md:rounded-xl lg:rounded-3xl transition-all duration-500 ${
+                    className={`rounded-2xl md:rounded-xl lg:rounded-3xl transition-all duration-500 flex flex-col h-full ${
                       isCenter
                         ? "bg-blue-600 text-white p-3 md:p-3 lg:p-5 xl:p-6 2xl:p-8 3xl:p-10 transform scale-105 md:scale-100 lg:scale-105 shadow-2xl"
                         : "bg-gray-50 p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 3xl:p-8"
-                    } pb-6 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 3xl:pb-14 ${isCenter ? "h-full" : ""}`} // Apply h-full only to center card
+                    } pb-16 md:pb-16 lg:pb-20 xl:pb-24 2xl:pb-28 3xl:pb-32`}
                   >
                     <div
                       className={`transition-all duration-500 flex justify-center mb-3 md:mb-2.5 lg:mb-3 ${
@@ -136,7 +165,7 @@ const TestimonialsSection = () => {
                       )}
                     </div>
                     <p
-                      className={`leading-relaxed transition-all duration-500 ${
+                      className={`leading-relaxed transition-all duration-500 flex-grow ${
                         isCenter
                           ? "text-white text-sm md:text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
                           : "text-gray-700 text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
@@ -147,7 +176,11 @@ const TestimonialsSection = () => {
                   </div>
                   {/* Avatar positioned at bottom center */}
                   <div
-                    className={`absolute left-1/2 bottom-20 md:bottom-16 lg:bottom-24 transform -translate-x-1/2 transition-all duration-500`}
+                    className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-500 ${
+                      isCenter 
+                        ? "bottom-20 md:bottom-16 lg:bottom-20 xl:bottom-24 2xl:bottom-28 3xl:bottom-32" 
+                        : "bottom-16 md:bottom-12 lg:bottom-16 xl:bottom-20 2xl:bottom-24 3xl:bottom-28"
+                    }`}
                   >
                     <img
                       src={testimonial.avatar}

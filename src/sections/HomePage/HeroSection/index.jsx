@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useRef } from "react";
 import "./hero.css";
 import Image from "next/image";
 import backdropImage from "../../../assets/images/Group 74.png";
@@ -7,6 +8,16 @@ import arrow from "@/assets/SVGs/arrow-up.svg";
 
 const HeroSection = (props) => {
   console.log(props, "DFFFFFFFFF");
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch((error) => {
+        console.error("Video autoplay failed:", error);
+      });
+    }
+  }, []);
 
   if (!props?.title && !props?.content) {
     return null;
@@ -37,6 +48,19 @@ const HeroSection = (props) => {
 
   return (
     <div className="hero-background px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 h-screen">
+      <video
+        ref={videoRef}
+        className="hero-video"
+        autoPlay
+        muted
+        playsInline
+        onEnded={() => {
+          console.log("Video ended");
+        }}
+      >
+        <source src="/videos/hero-video.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
       <div className="flex flex-col items-center justify-center h-full px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:max-w-7xl mx-auto">
         {props?.title && (
           <h1 className="hero-heading-animate text-center h1-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
@@ -96,10 +120,7 @@ const HeroSection = (props) => {
             )}
           </div>
         )}
-        <div className="pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 2xl:pb-10">
-          <Image src={backdropImage} alt="backdrop-img" className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36"  height={100}
-              width={100} />
-        </div>
+       
       </div>
     </div>
   );

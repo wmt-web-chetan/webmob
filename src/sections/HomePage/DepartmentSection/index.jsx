@@ -224,12 +224,12 @@ const DepartmentSection = () => {
   return (
     <div className="section-padding-y ">
       <div className="flex flex-col justify-center items-center px-4 sm:px-6 md:px-8">
-        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+        <h2 className="text-center h2-heading font-bold">
           Unlock Growth with{" "}
           <span className="text-gradient-primary font-bold">AI-Powered</span>{" "}
           Innovation
         </h2>
-        <p className="pt-2 sm:pt-4 max-w-xl sm:max-w-2xl md:max-w-3xl text-center font-normal text-base sm:text-xl md:text-2xl">
+        <p className="pt-2 sm:pt-4 max-w-xl sm:max-w-2xl md:max-w-3xl text-center h2-description">
           Transform the way you work with intelligent, scalable solutions.
         </p>
 

@@ -1,4 +1,9 @@
 
+import AwardSection from "@/components/AwardSection";
+import AboutSection from "@/sections/HomePage/AboutSection";
+import { BlogsSection } from "@/sections/HomePage/BlogsSection";
+import FaqSection from "@/sections/HomePage/FaqSection";
+import TestimonialsSection from "@/sections/HomePage/TestimonialsSection";
 import { sectionRegistry } from "@/sections/sectionsRegistry";
 import { getPageData } from "@/utils/pageApi";
 
@@ -19,6 +24,11 @@ export default async function Home() {
 
         return <Component key={i} {...block[key]} />;
       })}
+      <AwardSection/>
+      <TestimonialsSection/>
+      <FaqSection />
+      <BlogsSection />
+      <AboutSection />
                                                                                                                               
     </>
   );

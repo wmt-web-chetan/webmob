@@ -51,12 +51,12 @@ export default function VideoSection(props) {
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14 2xl:mb-16 3xl:mb-18">
           {props?.title && (
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-7 3xl:mb-8">
+            <h2 className="h2-heading font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-7 3xl:mb-8">
               {formatTitle(props.title)}
             </h2>
           )}
           {props?.subtitle && (
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-gray-600">
+            <p className="h2-description text-gray-600">
               {props.subtitle}
             </p>
           )}

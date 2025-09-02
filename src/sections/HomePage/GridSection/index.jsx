@@ -43,12 +43,12 @@ export default function GridSection(props) {
           {/* Header */}
           <div className="mb-12">
             {props?.title && (
-              <h1 className="text-4xl md:text-5xl text-white mb-4 text-balance">
+              <h1 className="h2-heading text-white mb-4 text-balance">
                 {formatTitle(props.title)}
               </h1>
             )}
             {props?.subtitle && (
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              <p className="h2-description text-gray-300 max-w-2xl mx-auto">
                 {props.subtitle}
               </p>
             )}

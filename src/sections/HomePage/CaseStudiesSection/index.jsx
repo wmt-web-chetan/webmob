@@ -51,12 +51,12 @@ export default function CaseStudiesSection(props) {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           {props?.title && (
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+            <h2 className="h2-heading font-bold text-gray-900 mb-4 text-balance">
               {formatTitle(props.title)}
             </h2>
           )}
           {props?.subtitle && (
-            <p className="text-base sm:text-lg text-gray-600 w-full max-w-3xl mx-auto text-pretty">
+            <p className="h2-description text-gray-600 w-full max-w-3xl mx-auto text-pretty">
               {props.subtitle}
             </p>
           )}

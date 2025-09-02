@@ -82,16 +82,16 @@ export default function StatisticsSection(props) {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-12 sm:py-16 md:py-18 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Section */}
-          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left">
+          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-8">
             <div className="space-y-4 md:space-y-5">
               {props?.title && (
-                <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl  leading-tight">
+                <h1 className="h2-heading-large leading-tight">
                   {formatTitle(props.title)}
                 </h1>
               )}
 
               {props?.subtitle && (
-                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground max-w-sm sm:max-w-md md:max-w-lg mx-auto md:mx-0">
+                <p className="h2-description text-muted-foreground max-w-sm sm:max-w-md md:max-w-lg mx-auto md:mx-0">
                   {props.subtitle}
                 </p>
               )}
@@ -128,7 +128,7 @@ export default function StatisticsSection(props) {
 
             {/* Chart Illustration */}
             {props?.chartImage?.node?.mediaItemUrl && (
-              <div className="relative w-full flex flex-col max-w-sm sm:max-w-md md:max-w-sm mx-auto md:mx-0 lg:mx-0 pt-4 md:pt-6">
+              <div className="relative flex flex-col w-full mx-auto md:mx-0 lg:mx-0 pt-4 md:pt-6">
                 {/* Graph */}
                 <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full h-auto" />
 
