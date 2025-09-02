@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 
 const BlogCard = ({
   image,
@@ -14,6 +15,7 @@ const BlogCard = ({
   date,
   isFullWidth = false,
 }) => {
+  const router = useRouter();
   return (
     <>
       {isFullWidth ? (
@@ -103,7 +105,7 @@ const BlogCard = ({
                 <p className="text-text-primary text-sm sm:text-base md:text-lg font-normal line-clamp-3">
                   {description}
                 </p>
-                <button className="text-primary text-sm sm:text-base md:text-lg font-medium">
+                <button onClick={() => router.push(`/blog/${title}`)} className="text-primary text-sm sm:text-base md:text-lg font-medium">
                   Read more
                 </button>
               </div>
