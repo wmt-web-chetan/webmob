@@ -1,6 +1,8 @@
 // import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/caseStudiesSection";
 
+import { ABOUT_SECTION_FRAGMENT } from "./sectionsQuery/home/aboutSection";
 import { AI_CTA_SECTION, AI_CTA_SECTION_FRAGMENT } from "./sectionsQuery/home/AiCtaSection";
+import { BLOG_SECTION_FRAGMENT } from "./sectionsQuery/home/blogSection";
 import { BRAND_SECTION_FRAGMENT } from "./sectionsQuery/home/brandSection";
 import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/home/caseStudySection";
 import { HERO_SECTION_FRAGMENT } from "./sectionsQuery/home/heroSection";
@@ -29,6 +31,8 @@ export async function getPageData(slug) {
               ${STASTICS_FRAGMENT}
               ${MARQUEE_VIDEO_SECTION_FRAGMENT}
               ${VIDEO_FRAGMENT}
+              ${ABOUT_SECTION_FRAGMENT}
+              ${BLOG_SECTION_FRAGMENT}
             } 
           } 
         } 

@@ -10,5 +10,7 @@ export const sectionRegistry = {
   statisticsSection: dynamic(()=>import("./HomePage/StatisticsSection")),
   scrollingTicker: dynamic(()=>import("./HomePage/MarqueeSection")),
   clientTestimonials: dynamic(()=>import("./HomePage/VideoSection")),
+//   whyChooseFeatures:dynamic(()=>import("./HomePage/AboutSection"))
+// blogsGrid:dynamic(()=>import("./HomePage/BlogsSection"))
     
 };
