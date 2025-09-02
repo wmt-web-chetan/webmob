@@ -14,7 +14,7 @@ export default function CaseStudyCard({
       <div
         className={
           isFullWidth
-            ? "p-0 flex-1 flex flex-col"
+            ? "p-4 sm:p-6 md:p-8 lg:p-0 flex-1 flex flex-col"
             : "p-4 sm:p-6 md:p-8 flex-1 flex flex-col"
         }
       >
@@ -27,10 +27,23 @@ export default function CaseStudyCard({
         >
           {isFullWidth ? (
             <div className="w-full bg-white overflow-hidden transition-shadow duration-300 group case-study-card rounded-[42px]">
-              <div className="flex flex-col lg:flex-row justify-between h-full p-6 sm:p-8 lg:p-10 gap-8">
+              <div className="flex flex-col lg:flex-row justify-between h-full lg:p-6 xl:p-8 2xl:p-10 gap-8">
                 
-                {/* Content Section */}
-                <div className="w-full lg:w-[35%] flex flex-col justify-between min-h-[400px] sm:min-h-[500px]">
+                {/* Image Section - First on mobile, second on desktop */}
+                <div className="w-full lg:w-[65%] order-1 lg:order-2">
+                  <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-full relative rounded-[42px] overflow-hidden shadow-lg">
+                    <Image
+                      src={caseStudy.image || "/placeholder.svg"}
+                      alt={`${caseStudy.title} case study preview`}
+                      fill
+                      className="object-cover bg-white hover:scale-105 transition-transform duration-500"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                {/* Content Section - Second on mobile, first on desktop */}
+                <div className="w-full lg:w-[35%] flex flex-col justify-between min-h-[400px] sm:min-h-[500px] order-2 lg:order-1 pb-4 lg:pb-0">
                   <div>
                     {/* Our Latest Work Label */}
                     {isLatest && (
@@ -90,25 +103,12 @@ export default function CaseStudyCard({
                     />
                   </div>
                 </div>
-
-                {/* Image Section */}
-                <div className="w-full lg:w-[65%]">
-                  <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-full relative rounded-[42px] overflow-hidden shadow-lg">
-                    <Image
-                      src={caseStudy.image || "/placeholder.svg"}
-                      alt={`${caseStudy.title} case study preview`}
-                      fill
-                      className="object-cover bg-white hover:scale-105 transition-transform duration-500"
-                      priority
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           ) : (
             <>
               {/* Image Section */}
-              <div className="relative mb-6 w-full aspect-[4/3] sm:aspect-[16/10] rounded-[42px] overflow-hidden shadow-lg">
+              <div className="relative mb-6 w-full h-[250px] sm:h-[350px] md:h-[450px] rounded-[42px] overflow-hidden shadow-lg">
                 <Image
                   src={caseStudy.image || "/placeholder.svg"}
                   alt={`${caseStudy.title} case study preview`}

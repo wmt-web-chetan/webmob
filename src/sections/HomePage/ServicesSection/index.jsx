@@ -51,10 +51,10 @@ const ServicesSection = (props) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F0F4FF] section-padding-y">
+    <div className="bg-[#F0F4FF] section-padding-y px-wrapper">
       <div className="w-full mx-auto lg:px-24">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 md:px-12 lg:px-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 ">
           {props?.title && (
             <h2 className="h2-heading">
               {formatHeadingWithSpans(props.title)}
@@ -88,7 +88,7 @@ const ServicesSection = (props) => {
                   typeof window !== "undefined" &&
                   window.innerWidth >= 1024
                 ) {
-                  setExpandedSection(-1);
+                  setExpandedSection(0);
                 }
               }}
             >
@@ -158,10 +158,24 @@ const ServicesSection = (props) => {
 
                     {/* Content Container */}
                     <div className="flex-1">
-                      {/* Mobile: Stack vertically, Desktop: Side by side */}
+                      {/* Mobile: Stack vertically (image first), Desktop: Side by side */}
                       <div className="flex flex-col lg:flex-row lg:gap-8 xl:gap-12">
-                        {/* Content Section */}
-                        <div className="flex-1 lg:flex lg:flex-col lg:justify-start mb-6 lg:mb-0">
+                        {/* Image Section - First on mobile, second on desktop */}
+                        <div className="w-full lg:w-1/2 flex-shrink-0 order-1 lg:order-2 mb-6 lg:mb-0">
+                          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80">
+                            <Image
+                              src={service.image}
+                              alt={service.title}
+                              width={500}
+                              height={500}
+                              className="w-full h-full object-cover rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Content Section - Second on mobile, first on desktop */}
+                        <div className="flex-1 lg:flex lg:flex-col lg:justify-start order-2 lg:order-1">
                           <p className="text-gray-600 mb-4 sm:mb-5 md:mb-6 leading-relaxed text-sm sm:text-base lg:text-lg">
                             {service.description}
                           </p>
@@ -199,20 +213,6 @@ const ServicesSection = (props) => {
                             }
                             className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer !h-10 sm:!h-11 md:!h-12 lg:!h-12 xl:!h-13 2xl:!h-14 !max-w-80 sm:!max-w-90 md:!max-w-96 lg:!max-w-104 xl:!max-w-110 2xl:!max-w-116 !px-3 sm:!px-4 md:!px-5 lg:!px-5 xl:!px-6 2xl:!px-7 !gap-1 sm:!gap-1.5 md:!gap-2 lg:!gap-2 xl:!gap-2 2xl:!gap-2.5 !min-w-0 !text-xs sm:!text-sm md:!text-sm lg:!text-base xl:!text-base 2xl:!text-lg"
                           />
-                        </div>
-
-                        {/* Image Section */}
-                        <div className="w-full lg:w-1/2 flex-shrink-0">
-                          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80">
-                            <Image
-                              src={service.image}
-                              alt={service.title}
-                              width={500}
-                              height={500}
-                              className="w-full h-full object-cover rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                              loading="lazy"
-                            />
-                          </div>
                         </div>
                       </div>
                     </div>

@@ -104,7 +104,7 @@ const HeroSection = (props) => {
                     height={100}
                     width={100}
                     alt="Happy client"
-                    className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 rounded-full border-2 border-blue-100 absolute ${
+                    className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-13 lg:h-13 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 rounded-full border-2 border-[#D8EAFF] absolute ${
                       index === 0 ? 'z-0' : 
                       index === 1 ? 'left-4 sm:left-5 md:left-6 lg:left-6.5 xl:left-7 2xl:left-8 z-10' :
                       'left-8 sm:left-10 md:left-12 lg:left-13 xl:left-14 2xl:left-16 z-20'
@@ -114,7 +114,7 @@ const HeroSection = (props) => {
               </div>
             )}
             {props.happyClient.text && (
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl font-semibold text-gray-800">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl font-semibold text-text-secondary">
                 {props.happyClient.text}
               </p>
             )}

@@ -1,5 +1,6 @@
 
 import AwardSection from "@/components/AwardSection";
+import Header from "@/components/Header";
 import AboutSection from "@/sections/HomePage/AboutSection";
 import { BlogsSection } from "@/sections/HomePage/BlogsSection";
 import FaqSection from "@/sections/HomePage/FaqSection";
@@ -24,6 +25,7 @@ export default async function Home() {
 
         return <Component key={i} {...block[key]} />;
       })}
+      <Header />
       <AwardSection/>
       <TestimonialsSection/>
       <FaqSection />

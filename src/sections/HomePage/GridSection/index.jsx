@@ -39,16 +39,16 @@ export default function GridSection(props) {
   
   return (
     <section className="section-padding-y flex items-center justify-center p-8" style={{ backgroundColor: '#1b1b35' }}>
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="mx-48 text-center">
           {/* Header */}
           <div className="mb-12">
             {props?.title && (
-              <h1 className="h2-heading text-white mb-4 text-balance">
+              <h1 className="h2-heading text-white mb-4 ">
                 {formatTitle(props.title)}
               </h1>
             )}
             {props?.subtitle && (
-              <p className="h2-description text-gray-300 max-w-2xl mx-auto">
+              <p className="h2-description !text-text-disabled mx-auto">
                 {props.subtitle}
               </p>
             )}
@@ -86,7 +86,7 @@ export default function GridSection(props) {
                   <div className="flex justify-end">
                     <PrimaryButton 
                       text={props.viewallbutton.title}
-                      className="text-blue-600 border border-blue-200 hover:bg-blue-50 bg-transparent px-6 py-2"
+                      className="text-primary border border-blue-200 hover:bg-blue-50 bg-transparent"
                     />
                   </div>
                 )}
