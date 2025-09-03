@@ -78,10 +78,12 @@ export default function FaqSection() {
         </div>
 
         <div className="w-full space-y-0">
-          {faqData.map((faq) => (
+          {faqData.map((faq, index) => (
             <div
               key={faq.id}
-              className="border-b border-text-disabled bg-card hover:bg-accent/50 transition-colors"
+              className={`bg-card hover:bg-accent/50 transition-colors ${
+                index !== faqData.length - 1 ? 'border-b border-text-disabled' : ''
+              }`}
             >
               <button
                 onClick={() => toggleItem(faq.id)}

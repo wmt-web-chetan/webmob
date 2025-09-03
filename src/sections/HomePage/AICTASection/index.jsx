@@ -58,7 +58,7 @@ const AICTASection = (props) => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 px-4 sm:px-8 lg:px-48 text-center sm:text-start text-white flex flex-col items-start  py-12 sm:py-16 lg:py-20">
+      <div className="relative z-10 px-4 sm:px-8 lg:px-12 xl:px-24 2xl:px-48 text-center sm:text-start text-white flex flex-col items-start  py-12 sm:py-16 lg:py-20">
         <div className="mb-6 sm:mb-14">
           {props?.mainTitle && (
             <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-[40px] font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">

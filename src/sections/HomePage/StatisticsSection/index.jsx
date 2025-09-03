@@ -78,14 +78,14 @@ export default function StatisticsSection(props) {
   };
   
   return (
-    <main className="h-auto bg-background">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-12 sm:py-16 md:py-18 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+    <main className=" bg-background section-padding-y px-wrapper">
+      <div className="container mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-28 2xl:gap-48 ">
           {/* Left Section */}
-          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-8">
+          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-0 lg:px-8">
             <div className="space-y-4 md:space-y-5">
               {props?.title && (
-                <h1 className="h2-heading-large leading-tight">
+                <h1 className="h2-heading leading-tight">
                   {formatTitle(props.title)}
                 </h1>
               )}

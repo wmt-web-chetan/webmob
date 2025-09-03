@@ -2,7 +2,9 @@
 import AwardSection from "@/components/AwardSection";
 import Header from "@/components/Header";
 import AboutSection from "@/sections/HomePage/AboutSection";
+import AwardsSection from "@/sections/HomePage/AwardsSection";
 import { BlogsSection } from "@/sections/HomePage/BlogsSection";
+import DepartmentSection from "@/sections/HomePage/DepartmentSection";
 import FaqSection from "@/sections/HomePage/FaqSection";
 import TestimonialsSection from "@/sections/HomePage/TestimonialsSection";
 import { sectionRegistry } from "@/sections/sectionsRegistry";
@@ -25,7 +27,7 @@ export default async function Home() {
 
         return <Component key={i} {...block[key]} />;
       })}
-      <Header />
+      <DepartmentSection />
       <AwardSection/>
       <TestimonialsSection/>
       <FaqSection />

@@ -120,6 +120,10 @@ const HeroSection = (props) => {
             )}
           </div>
         )}
+
+        <div className="absolute bottom-0 lg:-bottom-4 hero-buttons-animate">
+          <Image src={backdropImage} alt="Group 74" className="h-32 w-32 sm:h-36 sm:w-36 md:h-40 md:w-40 lg:h-44 lg:w-44 xl:h-48 xl:w-48 2xl:h-52 2xl:w-52" />
+        </div>
        
       </div>
     </div>

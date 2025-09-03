@@ -45,13 +45,13 @@ export default function BrandsSection(props) {
 
         {/* Subtitle */}
         {props?.subtitle && (
-          <p className="h2-description text-text-secondary mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 2xl:mb-20 max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto leading-relaxed">
+          <p className="h2-description text-text-secondary mb-4 sm:mb-5 md:mb-6 lg:mb-7 xl:mb-8 2xl:mb-10 max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto leading-relaxed">
             {props.subtitle}
           </p>
         )}
 
         {/* Brands Grid with Scrolling Animation */}
-        <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-7 xl:space-y-8 2xl:space-y-10 overflow-hidden">
+        <div className="space-y-0 overflow-hidden">
           {/* First Row - Moving Right to Left */}
           <div className="relative">
             <div className="flex animate-scroll-left gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-20">

@@ -6,9 +6,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 
 const ServicesSection = (props) => {
   console.log(props, "propssssss");
-  const [expandedSection, setExpandedSection] = useState(
-    props?.defaultExpanded || 0
-  );
+  const [expandedSection, setExpandedSection] = useState(0);
 
   if (!props?.services || props.services.length === 0) {
     return null;
@@ -22,7 +20,7 @@ const ServicesSection = (props) => {
     tags: service.technologies?.map((tech) => tech.name) || [],
     buttonText: service.ctabutton?.title || "Get Started",
     image: service.image?.node?.mediaItemUrl || "/api/placeholder/400/200",
-    isExpanded: index === (props?.defaultExpanded || 0),
+    isExpanded: index === 0,
   }));
 
   const handleServiceToggle = (serviceId) => {
@@ -52,7 +50,7 @@ const ServicesSection = (props) => {
 
   return (
     <div className="bg-[#F0F4FF] section-padding-y px-wrapper">
-      <div className="w-full mx-auto lg:px-24">
+      <div className="w-full mx-auto px-0 sm:px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 ">
           {props?.title && (
