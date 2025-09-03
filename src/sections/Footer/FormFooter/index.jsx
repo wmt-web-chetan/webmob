@@ -1,7 +1,16 @@
+"use client";
 import ContactForm from "@/components/ContactForm";
-import React from "react";
+import { fetchCountry } from "@/utils/ipApi";
+import React, { useEffect, useState } from "react";
 
-const FormFooter = () => {
+const FormFooter = () => { 
+    const [countryCode, setCountryCode] = useState("");
+    useEffect(() => {
+        fetchCountry().then(data => {  
+            setCountryCode(data.country);
+        });
+    }, []);
+
   return (
     <div className="mb-8 md:mb-20 mx-4 sm:mx-8 md:mx-16 lg:mx-16 2xl:mx-32 rounded-t-4xl rounded-b-3xl bg-white relative">
       <div className="py-8 lg:py-12 2xl:py-16 w-full footer-header-bg rounded-3xl flex flex-col justify-center items-start px-6 md:ps-14 gap-4">
@@ -44,7 +53,7 @@ const FormFooter = () => {
         </div>
         {/* Desktop Form - Absolute positioning */}
         <div className="absolute top-8 lg:top-12 2xl:top-16 z-50 right-[2%] xl:right-[6%] bg-white rounded-3xl p-6 xl:p-8 w-80 xl:w-96 2xl:w-[40%] border border-text-disabled">
-          <ContactForm />
+          <ContactForm CountryCode={countryCode} />
         </div>
       </div>
 
@@ -78,7 +87,7 @@ const FormFooter = () => {
         {/* Mobile/Tablet Form - Relative positioning */}
         <div className="pb-3 sm:pb-6 bg-white rounded-3xl">
           <div className="mx-3 sm:mx-6 bg-white rounded-3xl p-4 sm:p-6 border border-text-disabled">
-            <ContactForm />
+            <ContactForm CountryCode={countryCode} />
           </div>
         </div>
       </div>
