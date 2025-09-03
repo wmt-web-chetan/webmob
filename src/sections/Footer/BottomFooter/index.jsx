@@ -6,32 +6,32 @@ import dayjs from "dayjs";
 const BottomFooter = () => {
   return (
     <>
-      <div className="px-8 sm:px-6 xl:px-24 py-8 sm:py-14 flex flex-col xl:flex-row justify-center gap-10 sm:justify-between items-center footer-gradient ">
-        <div className="w-full flex flex-col xl:flex-row gap-10 xl:gap-20">
-          <div className="text-xl sm:text-2xl lg:text-[32px] font-semibold">
+      <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 lg:py-14 flex flex-col xl:flex-row justify-center gap-8 sm:gap-10 sm:justify-between items-center footer-gradient">
+        <div className="w-full flex flex-col xl:flex-row gap-8 sm:gap-10 xl:gap-20">
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-semibold">
             Step into our portfolio to witness ideas turned into{" "}
             <br className="hidden sm:block" />
             meaningful experiences and success stories.
           </div>
           <div className="border-r border-text-disabled hidden lg:block"></div>
-          <div className="flex flex-col sm:gap-y-2 justify-center">
-            <h1 className="text-3xl sm:text-4xl font-extrabold">500+</h1>
-            <p className="text-xl sm:text-2xl text-text-disabled font-normal">
+          <div className="flex flex-col gap-y-1 sm:gap-y-2 justify-center">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">500+</h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-disabled font-normal">
               Projects Delivered
             </p>
           </div>
-          <div className="flex flex-col sm:gap-y-2 justify-center">
-            <h1 className="text-3xl sm:text-4xl  font-extrabold">99%</h1>
-            <p className="text-xl sm:text-2xl text-text-disabled font-normal">
+          <div className="flex flex-col gap-y-1 sm:gap-y-2 justify-center">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">99%</h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-disabled font-normal">
               Happy Clients
             </p>
           </div>
         </div>
-        <div className="xl:w-auto w-full flex xl:justify-center justify-start items-center gap-2 lg:gap-4 xl:gap-6">
-          <h1 className="text-lg xl:text-2xl font-normal">View</h1>
+        <div className="xl:w-auto w-full flex xl:justify-center justify-start items-center gap-2 md:gap-4 xl:gap-6">
+          <h1 className="text-base sm:text-lg md:text-xl xl:text-2xl font-normal">View</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 xl:w-10 xl:h-10"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 xl:w-10 xl:h-10"
             viewBox="0 0 40 41"
             fill="none"
           >
@@ -42,22 +42,22 @@ const BottomFooter = () => {
           </svg>
         </div>
       </div>
-      <div className="relative pt-8 sm:pt-16">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 pb-10 border-b border-text-disabled ">
+      <div className="relative pt-8 sm:pt-16 px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 pb-8 sm:pb-10 border-b border-text-disabled">
           <div>
             <Image
               src={Logo}
               alt="WebMobTech Logo"
-              className="h-14 sm:h-16 xl:h-24 w-auto"
+              className="h-12 sm:h-14 md:h-16 xl:h-24 w-auto"
             />
-            <h1 className="pt-6 sm:pt-14 text-xl sm:text-2xl font-medium">
+            <h1 className="pt-6 sm:pt-10 md:pt-12 lg:pt-14 text-lg sm:text-xl md:text-2xl font-medium">
               Contact
             </h1>
-            <div className="text-base flex gap-2 font-medium pt-3 sm:pt-6">
+            <div className="text-sm sm:text-base flex gap-2 font-medium pt-3 sm:pt-4 md:pt-6">
               <h4>IND</h4>
               <p className="text-text-disabled font-normal">+91-70438-66892</p>
             </div>
-            <div className="text-base flex gap-2 font-medium pt-2 sm:pt-4">
+            <div className="text-sm sm:text-base flex gap-2 font-medium pt-2 sm:pt-3 md:pt-4">
               <h4>USA</h4>
               <p className="text-text-disabled font-normal">+1-408-520-9597</p>
             </div>
@@ -163,13 +163,13 @@ const BottomFooter = () => {
             </div>
           </div>
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
               {/* Services */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6">
                   Services
                 </h3>
-                <ul className="space-y-2 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
+                <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
                   <li>Web Development</li>
                   <li>Mobile Development</li>
                   <li>Product Design and Development</li>
@@ -183,10 +183,10 @@ const BottomFooter = () => {
 
               {/* Tools & Tech */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6">
                   Tools &amp; Tech
                 </h3>
-                <ul className="space-y-2 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
+                <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
                   <li>
                     Laravel Development{" "}
                     <span className="hidden sm:inline">Services</span>
@@ -224,10 +224,10 @@ const BottomFooter = () => {
 
               {/* Work */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6">
                   Work
                 </h3>
-                <ul className="space-y-2 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
+                <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
                   <li>HouzQuest</li>
                   <li>Video Streaming App</li>
                   <li>Sterling Accuris</li>
@@ -241,10 +241,10 @@ const BottomFooter = () => {
 
               {/* Company */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6">
                   Company
                 </h3>
-                <ul className="space-y-2 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
+                <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-normal text-text-disabled">
                   <li>About Us</li>
                   <li>Career</li>
                   <li>Contact Us</li>
@@ -257,18 +257,18 @@ const BottomFooter = () => {
           </div>
         </div>
 
-        <div className="flex w-full flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-0 justify-between lg:items-center text-sm sm:text-base font-light pt-6 lg:pt-8">
-          <p className="text-light-bg xl:pl-4">
+        <div className="flex w-full flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-0 justify-between lg:items-center text-xs sm:text-sm md:text-base font-light pt-6 lg:pt-8">
+          <p className="text-light-bg">
             © {dayjs(new Date()).format("YYYY")} WebMobTech Solutions Pvt.Ltd.
             All Rights Reserved.
           </p>
-          <div className="sm:w-auto w-full flex flex-col sm:flex-row gap-2 sm:gap-4 justify-start sm:items-center text-text-disabled text-xs sm:text-sm lg:text-base">
+          <div className="sm:w-auto w-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-start sm:items-center text-text-disabled text-xs sm:text-sm">
             <p>D-U-N-S Number: 860386955</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="8"
-              height="9"
-              className="hidden sm:block"
+              width="6"
+              height="7"
+              className="hidden sm:block sm:w-6 sm:h-7 md:w-8 md:h-9"
               viewBox="0 0 8 9"
               fill="none"
             >

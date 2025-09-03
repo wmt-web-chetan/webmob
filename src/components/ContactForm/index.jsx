@@ -10,7 +10,7 @@ const ContactForm = () => {
     phone: "99812 25145",
     message: "",
     newsletter: false,
-    country_code: ""
+    country_code: "",
   });
 
   const handleChange = (e) => {
@@ -20,33 +20,33 @@ const ContactForm = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-  useEffect(() => { 
-
+  useEffect(() => {
     fetch("https://ipapi.co/json/") // free IP API
-        .then(res => res.json())
-        .then(data =>{
-          const foundCountry = AllCountry.find(country => country.code === data.country);
-          if (foundCountry) {
-            setFormData((prev) => ({
-              ...prev,
-              country_code: foundCountry.dial_code
-            }));
-          }
-        })
-        .catch(() => {
-          // Optionally handle error, e.g., set a default country code
-        });
-
-  }, [ ]);
+      .then((res) => res.json())
+      .then((data) => {
+        const foundCountry = AllCountry.find(
+          (country) => country.code === data.country
+        );
+        if (foundCountry) {
+          setFormData((prev) => ({
+            ...prev,
+            country_code: foundCountry.dial_code,
+          }));
+        }
+      })
+      .catch(() => {
+        // Optionally handle error, e.g., set a default country code
+      });
+  }, []);
 
   return (
     <div>
-      <form className="space-y-6">
+      <form className="space-y-2 md:space-y-4 2xl:space-y-6">
         {/* Full Name */}
         <div>
           <label
             htmlFor="fullName"
-            className="block text-base font-medium text-text-secondary opacity-50 mb-4"
+            className="block text-base font-medium text-text-secondary opacity-50 mb-2 2xl:mb-4"
           >
             Full Name
           </label>
@@ -56,7 +56,7 @@ const ContactForm = () => {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            className="w-full p-4 border border-text-disabled rounded-2xl text-text-primary 
+            className="w-full p-3 sm:p-4 border border-text-disabled rounded-2xl text-text-primary 
               focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent"
           />
         </div>
@@ -65,7 +65,7 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-base font-medium text-text-secondary opacity-50 mb-4"
+            className="block text-base font-medium text-text-secondary opacity-50 mb-2 2xl:mb-4"
           >
             Email Address
           </label>
@@ -75,7 +75,7 @@ const ContactForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-4 border border-text-disabled rounded-2xl text-text-primary 
+            className="w-full p-3 sm:p-4 border border-text-disabled rounded-2xl text-text-primary 
               focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent"
           />
         </div>
@@ -84,23 +84,23 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="phone"
-            className="block text-base font-medium text-text-secondary opacity-50 mb-4"
+            className="block text-base font-medium text-text-secondary opacity-50 mb-2 2xl:mb-4"
           >
             Phone Number
           </label>
           <div className="flex flex-row gap-2">
             <div className="relative">
               <select
-              value={formData.country_code}
-              onChange={handleChange}
-                className="w-28 p-4 border border-text-disabled rounded-2xl text-text-primary 
+                value={formData.country_code}
+                onChange={handleChange}
+                className="sm:w-28 p-3 sm:p-4 border border-text-disabled rounded-2xl text-text-primary 
               focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent appearance-none"
               >
                 {AllCountry.map((country, index) => (
                   <option key={index} value={country.dial_code}>
                     {country.flag} {country.dial_code}
                   </option>
-                ))} 
+                ))}
               </select>
               <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                 <svg
@@ -124,7 +124,7 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-4 border border-text-disabled rounded-2xl text-text-primary 
+              className="w-full p-3 sm:p-4 border border-text-disabled rounded-2xl text-text-primary 
               focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent"
             />
           </div>
@@ -134,7 +134,7 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="message"
-            className="block text-base font-medium text-text-secondary opacity-50 mb-4"
+            className="block text-base font-medium text-text-secondary opacity-50 mb-2 2xl:mb-4"
           >
             Message Box
           </label>
@@ -142,11 +142,10 @@ const ContactForm = () => {
             id="message"
             name="message"
             rows="4"
-            
             value={formData.message}
             onChange={handleChange}
             placeholder="Type a Message..."
-            className="w-full p-4 border border-text-disabled rounded-2xl text-text-primary 
+            className="w-full p-3 sm:p-4 border border-text-disabled rounded-2xl text-text-primary 
               focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent resize-none"
           ></textarea>
         </div>
@@ -172,9 +171,9 @@ const ContactForm = () => {
 
         <div>
           <PrimaryButton
-          text="Submit"
-          className="bg-gradient-primary text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md w-full !h-12"
-        />
+            text="Submit"
+            className="bg-gradient-primary text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md w-full !h-12"
+          />
         </div>
       </form>
     </div>
