@@ -113,8 +113,8 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section className="bg-white section-padding-y px-wrapper">
+      <div className="container mx-auto  w-full">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-14 lg:mb-20">
           <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-5 lg:mb-6">

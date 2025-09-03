@@ -68,12 +68,12 @@ const HeroSection = (props) => {
           </h1>
         )}
         {props?.content && (
-          <p className="hero-subtitle-animate pt-2 sm:pt-3 md:pt-4 lg:pt-5 xl:pt-6 2xl:pt-8 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl tracking-wide sm:tracking-wider">
+          <p className="hero-subtitle-animate pt-2 sm:pt-3 md:pt-4 lg:pt-5 xl:pt-6 2xl:pt-8 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl 2xl:max-w-3xl text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl tracking-wide sm:tracking-wider">
             {props.content}
           </p>
         )}
         {props?.buttons && props.buttons.length > 0 && (
-          <div className="hero-buttons-animate flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 mt-6 sm:mt-7 md:mt-8 lg:mt-9 xl:mt-10 2xl:mt-12 pb-3 sm:pb-4 md:pb-5 lg:pb-6 xl:pb-10 2xl:pb-16">
+          <div className="hero-buttons-animate flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-2 md:gap-3 lg:gap-3 xl:gap-4 2xl:gap-4 mt-6 sm:mt-7 md:mt-8 lg:mt-9 xl:mt-10 2xl:mt-12 pb-3 sm:pb-4 md:pb-5 lg:pb-6 xl:pb-10 2xl:pb-16">
             {props.buttons[0] && (
               <PrimaryButton
                 text={

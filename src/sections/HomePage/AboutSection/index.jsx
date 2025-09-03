@@ -65,12 +65,12 @@ export default function AboutSection({
                 className="bg-white/90 border-0 right-icon transition-all duration-300 hover:scale-105 rounded-2xl relative overflow-hidden h-full"
               >
                 
-                <CardContent className="p-5 flex flex-col space-y-4">
-                  <div className="w-18 h-18 bg-primary rounded-2xl flex items-center justify-center">
+                <CardContent className="p-3 sm:p-4 md:p-5 flex flex-col space-y-3 sm:space-y-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 bg-primary rounded-xl sm:rounded-2xl flex items-center justify-center">
                     <Image 
                       src={feature.icon} 
                       alt={feature.title}
-                      className="w-10 h-10"
+                      className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                     />
                   </div>
                   <div className="absolute right-0 top-0">
@@ -80,16 +80,16 @@ export default function AboutSection({
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-[28px] font-medium text-gray-900">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-[28px] font-medium text-gray-900">
                     {feature.highlighted ? (
-                      <span className=" px-2 py-1 rounded-full text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-[28px]">
+                      <span className="px-2 py-1 rounded-full text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-[28px]">
                         {feature.title}
                       </span>
                     ) : (
                       feature.title
                     )}
                   </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed max-w-md">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>
