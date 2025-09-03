@@ -38,31 +38,31 @@ export default function GridSection(props) {
   }));
   
   return (
-    <section className="section-padding-y flex items-center justify-center p-8" style={{ backgroundColor: '#1b1b35' }}>
-        <div className="max-w-6xl mx-auto text-center">
+    <section className="section-padding-y flex items-center justify-center px-wrapper bg-[#1b1b35]" >
+        <div className=" text-center">
           {/* Header */}
           <div className="mb-12">
             {props?.title && (
-              <h1 className="h2-heading text-white mb-4 text-balance">
+              <h1 className="h2-heading text-white mb-4 ">
                 {formatTitle(props.title)}
               </h1>
             )}
             {props?.subtitle && (
-              <p className="h2-description text-gray-300 max-w-2xl mx-auto">
+              <p className="h2-description !text-text-disabled mx-auto max-w-6xl">
                 {props.subtitle}
               </p>
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative  px-0 sm:px-8 md:px-4 lg:px-24 xl:px-28 2xl:px-32">
             <div className={`p-[8px] rounded-3xl ${styles['animate-gradient-border']} ${styles['white-shadow']}`}>
               {/* Content Container */}
               <div className="bg-white rounded-[calc(1.5rem-3px)] p-8 shadow-inner shadow-white/10">
                 {/* Technology Grid */}
                 <div className={`${styles['tech-grid']} mb-8`}>
                   {technologies.map((tech, index) => (
-                    <div key={index} className={`${styles['tech-card']} text-left p-6`}>
-                      <div className="flex items-center gap-3 mb-2">
+                    <div key={index} className={`${styles['tech-card']} text-left py-6 px-3 sm:px-6 sm:py-6`}>
+                      <div className="flex flex-col items-start gap-3 mb-0 sm:mb-2">
                         {tech.icon ? (
                           <Image 
                             src={tech.icon} 
@@ -70,23 +70,24 @@ export default function GridSection(props) {
                             width={24}
                             height={24}
                             className="w-6 h-6"
+                            priority
                           />
                         ) : (
                           <span className="text-2xl">🔧</span>
                         )}
-                        <h3 className="font-semibold text-gray-900">{tech.name}</h3>
+                        <h3 className="font-semibold text-text-primary">{tech.name}</h3>
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">{tech.description}</p>
+                      <p className="text-sm text-text-secondary leading-relaxed">{tech.description}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* View All Button */}
                 {props?.viewallbutton?.title && (
-                  <div className="flex justify-end">
+                  <div className="flex justify-center">
                     <PrimaryButton 
                       text={props.viewallbutton.title}
-                      className="text-blue-600 border border-blue-200 hover:bg-blue-50 bg-transparent px-6 py-2"
+                      className="text-primary border border-primary !h-12 bg-transparent"
                     />
                   </div>
                 )}

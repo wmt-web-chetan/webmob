@@ -1,14 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import colon from "../../../assets/SVGs/collon.svg";
-import blue_colon from "../../../assets/SVGs/blue_colon.svg";
-import Image from "next/image";
-import PrimaryButton from "@/components/PrimaryButton";
+import React, { useState, useEffect } from "react";
 
-const TestimonialsSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [maxCardHeight, setMaxCardHeight] = useState(0); // State to store max height
-  const cardRefs = useRef([]); // Refs for all cards
+const TestimonialCarousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(1); // Start with middle slide for 3-card view
 
   const testimonials = [
     {
@@ -16,7 +10,7 @@ const TestimonialsSection = () => {
       name: "Ananya Mehra",
       position: "CEO & Founder Whitefield",
       avatar:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "DreamSquare made my home search so simple. I found a beautiful villa in Whitefield within days. The team was responsive and genuinely helpful!",
     },
     {
@@ -24,16 +18,15 @@ const TestimonialsSection = () => {
       name: "Andoni",
       position: "CEO & Founder @ Molly - UK",
       avatar:
-        "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "I was relocating from Mumbai and had no time to explore in person. DreamSquare's platform helped me shortlist great options, and their agent support was top-notch!",
-      featured: true,
     },
     {
       id: 3,
       name: "Priya Desai",
       position: "CTO RIC",
       avatar:
-        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "I loved how easy it was to compare properties and schedule visits. Within a week, I booked a 2BHK in Pune — all thanks to DreamSquare!",
     },
     {
@@ -41,7 +34,7 @@ const TestimonialsSection = () => {
       name: "Rahul Sharma",
       position: "Product Manager at TechCorp",
       avatar:
-        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "The virtual tours and detailed property information saved me countless hours. I could filter exactly what I needed and found my dream home in Bangalore effortlessly.",
     },
     {
@@ -49,191 +42,182 @@ const TestimonialsSection = () => {
       name: "Sarah Johnson",
       position: "Marketing Director at InnovateX",
       avatar:
-        "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "Moving to India for work was stressful, but DreamSquare's international relocation support made finding accommodation seamless. Highly recommended!",
-      featured: true,
     },
     {
       id: 6,
       name: "Vikram Patel",
       position: "Senior Developer at StartupHub",
       avatar:
-        "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop",
+        "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
       text: "Great platform with transparent pricing and no hidden fees. The customer service team was available 24/7 to answer all my queries during the home buying process.",
     },
   ];
 
-  // Calculate max height of cards
-  useEffect(() => {
-    const calculateMaxHeight = () => {
-      // Wait for next tick to ensure DOM is updated
-      setTimeout(() => {
-        const heights = cardRefs.current
-          .filter(ref => ref) // Filter out null refs
-          .map((ref) => ref.getBoundingClientRect().height);
-        if (heights.length > 0) {
-          const maxHeight = Math.max(...heights);
-          setMaxCardHeight(maxHeight);
-        }
-      }, 50);
-    };
+  // Quote SVG Component
+  const QuoteIcon = ({ isActive }) => (
+    <svg
+      width="48"
+      height="36"
+      viewBox="0 0 48 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`transition-all duration-500 ${
+        isActive ? "text-white" : "text-blue-500"
+      }`}
+    >
+      <path
+        d="M21.6 36H7.2C3.204 36 0 32.796 0 28.8V14.4C0 6.444 6.444 0 14.4 0H18c1.332 0 2.4 1.068 2.4 2.4s-1.068 2.4-2.4 2.4h-3.6c-5.292 0-9.6 4.308-9.6 9.6v2.4h7.2c3.996 0 7.2 3.204 7.2 7.2V28.8c0 3.996-3.204 7.2-7.2 7.2zm24 0h-14.4c-3.996 0-7.2-3.204-7.2-7.2V14.4C24 6.444 30.444 0 38.4 0H42c1.332 0 2.4 1.068 2.4 2.4s-1.068 2.4-2.4 2.4h-3.6c-5.292 0-9.6 4.308-9.6 9.6v2.4h7.2c3.996 0 7.2 3.204 7.2 7.2V28.8c0 3.996-3.204 7.2-7.2 7.2z"
+        fill="currentColor"
+      />
+    </svg>
+  );
 
-    calculateMaxHeight();
-  }, []); // Calculate once on mount
-
-  // Recalculate height when window resizes
-  useEffect(() => {
-    const handleResize = () => {
-      setTimeout(() => {
-        const heights = cardRefs.current
-          .filter(ref => ref)
-          .map((ref) => ref.getBoundingClientRect().height);
-        if (heights.length > 0) {
-          const maxHeight = Math.max(...heights);
-          setMaxCardHeight(maxHeight);
-        }
-      }, 100);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Auto-slide effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  const handleDotClick = (index) => {
+ 
+  const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
+  const getSlidePosition = (index) => {
+    const diff =
+      (index - currentSlide + testimonials.length) % testimonials.length;
+
+    if (diff === 0) {
+      // Center slide
+      return "translate-x-0 scale-100 z-30 opacity-100 bottom-50 ";
+    } else if (diff === 1 || diff === testimonials.length - 1) {
+      // Side slides
+      const isRight = diff === 1;
+      return `${
+        isRight ? "translate-x-160" : "-translate-x-160"
+      } scale-90 z-20 opacity-100`;
+    } else {
+      // Hidden slides
+      return "translate-x-0 scale-75 z-0 opacity-0";
+    }
+  };
+
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+      <div className="  px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-14 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-            What <span className="text-gradient-primary">Our Clients</span> Say
+        <div className="text-center ">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 sm:mb-2 md:mb-2 lg:mb-4">
+            What{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent font-bold">
+              Our Clients
+            </span>{" "}
+            Say
           </h2>
-          <p className="text-sm sm:text-base md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-gray-600 max-w-2xl mx-auto">
-            We've helped people turn houses into homes. See what they're saying about us.
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-text-secondary  mx-auto">
+            We've helped people turn houses into homes. See what they're saying
+            about us.
           </p>
         </div>
 
-        {/* Desktop Layout (hidden on mobile, adjusted for tablets) */}
-        <div className="hidden md:block overflow-hidden">
-          <div className="flex items-center justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 px-4 md:px-2">
-            {[0, 1, 2].map((offset) => {
-              const testimonialIndex = (currentSlide + offset) % testimonials.length;
-              const testimonial = testimonials[testimonialIndex];
-              const isCenter = offset === 1;
-
-              return (
+        {/* Desktop Carousel Container */}
+        <div className="hidden md:block">
+          <div className="relative h-[500px] lg:h-[550px] xl:h-[600px] flex items-center justify-center overflow-hidden">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className={`absolute transition-all duration-700 ease-in-out transform cursor-pointer ${getSlidePosition(
+                  index
+                )}`}
+                onClick={() => goToSlide(index)}
+              >
                 <div
-                  key={`${testimonial.id}-${currentSlide}`}
-                  ref={(el) => (cardRefs.current[testimonialIndex] = el)} // Assign ref to card
-                  className={`flex-shrink-0 relative transition-all duration-500 ease-in-out ${
-                    isCenter
-                      ? "w-64 md:w-56 lg:w-80 xl:w-96 2xl:w-112 3xl:w-128"
-                      : "w-48 md:w-44 lg:w-64 xl:w-80 2xl:w-96 3xl:w-112 opacity-60 translate-y-4 md:translate-y-8 lg:translate-y-6"
+                  className={`relative transition-all duration-700 ${
+                    index === currentSlide
+                      ? "w-3xl"
+                      : "w-96"
                   }`}
-                  style={{ minHeight: maxCardHeight ? `${maxCardHeight}px` : 'auto' }} // Apply consistent min height to all cards
                 >
+                  {/* Main Card */}
                   <div
-                    className={`rounded-2xl md:rounded-xl lg:rounded-3xl transition-all duration-500 flex flex-col h-full ${
-                      isCenter
-                        ? "bg-blue-600 text-white p-3 md:p-3 lg:p-5 xl:p-6 2xl:p-8 3xl:p-10 transform scale-105 md:scale-100 lg:scale-105 shadow-2xl"
-                        : "bg-gray-50 p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 3xl:p-8"
-                    } pb-16 md:pb-16 lg:pb-20 xl:pb-24 2xl:pb-28 3xl:pb-32`}
+                    className={`rounded-2xl lg:rounded-3xl py-6 lg:py-8 xl:py-10 px-3 lg:px-3 xl:px-6 pb-24 lg:pb-28 xl:pb-32 transition-all duration-700 ${
+                      index === currentSlide
+                        ? "bg-primary text-white "
+                        : "bg-[#f2f2f2] text-text-primary   opacity-50"
+                    }`}
                   >
-                    <div
-                      className={`transition-all duration-500 flex justify-center mb-3 md:mb-2.5 lg:mb-3 ${
-                        isCenter
-                          ? "text-white text-4xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl"
-                          : "text-gradient-primary text-3xl md:text-2.5xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl"
-                      }`}
-                    >
-                      {isCenter ? (
-                        <Image src={colon} alt="colon" />
-                      ) : (
-                        <Image src={blue_colon} alt="blue colon" />
-                      )}
+                    {/* Quote Icon */}
+                    <div className="flex justify-center mb-6 lg:mb-8">
+                      <div
+                        className={`transition-all duration-700 ${
+                          index === currentSlide
+                            ? "scale-110 lg:scale-125"
+                            : "scale-90 lg:scale-100"
+                        }`}
+                      >
+                        <QuoteIcon isActive={index === currentSlide} />
+                      </div>
                     </div>
+
+                    {/* Testimonial Text */}
                     <p
-                      className={`leading-relaxed transition-all duration-500 flex-grow ${
-                        isCenter
-                          ? "text-white text-sm md:text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
-                          : "text-gray-700 text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
+                      className={`text-center transition-all duration-700 ${
+                        index === currentSlide
+                          ? "text-white text-base lg:text-lg xl:text-3xl font-medium"
+                          : "text-text-primary text-sm lg:text-base xl:text-lg font-normal"
                       }`}
                     >
                       {testimonial.text}
                     </p>
                   </div>
-                  {/* Avatar positioned at bottom center */}
-                  <div
-                    className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-500 ${
-                      isCenter 
-                        ? "bottom-20 md:bottom-16 lg:bottom-20 xl:bottom-24 2xl:bottom-28 3xl:bottom-32" 
-                        : "bottom-16 md:bottom-12 lg:bottom-16 xl:bottom-20 2xl:bottom-24 3xl:bottom-28"
-                    }`}
-                  >
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className={`rounded-full shadow-lg transition-all duration-500 ${
-                        isCenter
-                          ? "w-14 h-14 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 3xl:w-28 3xl:h-28"
-                          : "w-10 h-10 md:w-8 md:h-8 lg:w-12 lg:h-12 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 3xl:w-24 3xl:h-24"
-                      }`}
-                    />
-                  </div>
-                  {/* Name and position below avatar */}
-                  <div
-                    className={`text-center transition-all duration-500 ${
-                      isCenter
-                        ? "mt-16 md:mt-12 lg:mt-20 xl:mt-24 2xl:mt-28 3xl:mt-32"
-                        : "mt-12 md:mt-10 lg:mt-16 xl:mt-20 2xl:mt-24 3xl:mt-28"
-                    }`}
-                  >
-                    <h4
-                      className={`font-semibold text-gray-900 mb-1 transition-all duration-500 ${
-                        isCenter
-                          ? "text-sm md:text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl"
-                          : "text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
-                      }`}
-                    >
-                      {testimonial.name}
-                    </h4>
-                    <p
-                      className={`text-gray-600 transition-all duration-500 ${
-                        isCenter
-                          ? "text-xs md:text-2xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl"
-                          : "text-xs md:text-2xs lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg"
-                      }`}
-                    >
-                      {testimonial.position}
-                    </p>
+                  <div className="relative">
+                    {/* Profile Section - Positioned at bottom */}
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2  flex flex-col items-center">
+                      {/* Avatar */}
+                      <div
+                        className={`rounded-full overflow-hidden shadow-lg mb-4 transition-all duration-700 w-12 h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 `}
+                      >
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Name and Position */}
+                      <div className="text-center">
+                        <h4
+                          className={`font-semibold text-text-primary transition-all duration-700 ${
+                            index === currentSlide
+                              ? "text-base lg:text-lg xl:text-2xl font-medium"
+                              : "text-sm lg:text-base xl:text-base"
+                          }`}
+                        >
+                          {testimonial.name}
+                        </h4>
+                        <p
+                          className={`text-text-secondary transition-all duration-700 ${
+                            index === currentSlide
+                              ? "text-sm lg:text-base xl:text-base"
+                              : "text-xs lg:text-sm xl:text-sm"
+                          }`}
+                        >
+                          {testimonial.position}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
           {/* Desktop Navigation Dots */}
-          <div className="flex justify-center mt-12 md:mt-16 lg:mt-12 space-x-3 md:space-x-2.5 lg:space-x-3">
+          <div className="flex justify-center mt-3 lg:mt-6 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-2 h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full transition-all duration-300 ${
+                onClick={() => goToSlide(index)}
+                className={`w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 cursor-pointer rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "bg-blue-600"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "bg-primary scale-125"
+                    : "bg-[#bfbfbf] hover:scale-110"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -241,75 +225,50 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Mobile Carousel (visible only on mobile) */}
+        {/* Mobile Layout - Simple Slider */}
         <div className="md:hidden">
           <div className="relative overflow-hidden">
             <div
-              className="flex transition-transform duration-300 ease-in-out"
+              className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  ref={(el) => (cardRefs.current[index] = el)} // Assign ref to card
-                  className={`w-full flex-shrink-0 px-2 relative transition-all duration-500 ${
-                    index === currentSlide ? "" : "opacity-60 translate-y-4"
-                  }`}
-                >
+                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
                   <div
-                    className={`rounded-2xl p-3 sm:p-4 pb-8 sm:pb-10 transition-all duration-500 ${
+                    className={`rounded-2xl p-6 pb-20 relative ${
                       index === currentSlide
                         ? "bg-blue-600 text-white"
-                        : "bg-gray-50 text-gray-900"
+                        : "bg-gray-50 text-gray-700"
                     }`}
                   >
-                    <div
-                      className={`transition-all duration-500 flex justify-center mb-3 sm:mb-4 ${
-                        index === currentSlide
-                          ? "text-white text-3xl sm:text-4xl"
-                          : "text-gradient-primary text-3xl sm:text-4xl"
-                      }`}
-                    >
-                      {index === currentSlide ? (
-                        <Image src={colon} alt="colon" />
-                      ) : (
-                        <Image src={blue_colon} alt="blue colon" />
-                      )}
+                    {/* Quote Icon */}
+                    <div className="flex justify-center mb-6">
+                      <QuoteIcon isActive={index === currentSlide} />
                     </div>
+
+                    {/* Text */}
                     <p
-                      className={`leading-relaxed text-sm sm:text-base transition-all duration-500 ${
+                      className={`text-center leading-relaxed mb-8 ${
                         index === currentSlide ? "text-white" : "text-gray-700"
                       }`}
                     >
                       {testimonial.text}
                     </p>
-                  </div>
-                  <div className="absolute bottom-20 sm:bottom-8 left-1/2 transform -translate-x-1/2">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className={`rounded-full shadow-lg transition-all duration-500 ${
-                        index === currentSlide
-                          ? "w-10 h-10 sm:w-12 sm:h-12"
-                          : "w-8 h-8 sm:w-10 sm:h-10"
-                      }`}
-                    />
-                  </div>
-                  <div className="text-center mt-16 sm:mt-10 px-2">
-                    <h4
-                      className={`font-semibold text-sm sm:text-base mb-1 text-gray-900 transition-all duration-500 ${
-                        index === currentSlide ? "" : "text-xs sm:text-sm"
-                      }`}
-                    >
-                      {testimonial.name}
-                    </h4>
-                    <p
-                      className={`text-xs sm:text-sm text-gray-600 transition-all duration-500 ${
-                        index === currentSlide ? "" : "text-xs"
-                      }`}
-                    >
-                      {testimonial.position}
-                    </p>
+
+                    {/* Profile */}
+                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-14 h-14 rounded-full shadow-lg mb-3"
+                      />
+                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-gray-600 text-xs text-center">
+                        {testimonial.position}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -317,13 +276,15 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Mobile Navigation Dots */}
-          <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
+          <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? "bg-blue-600" : "bg-gray-300"
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -332,32 +293,27 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-12 sm:mt-16 md:mt-18 lg:mt-24">
-          <PrimaryButton
-            text={
-              <>
-                View All Testimonials
-                <svg
-                  className="ml-2 w-4 h-4 sm:w-4 sm:h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </>
-            }
-            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-full text-sm sm:text-base md:text-base lg:text-base transition-colors duration-200 flex items-center mx-auto"
-          />
+        <div className="text-center mt-16 lg:mt-24">
+          <button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium px-8 py-3 lg:px-10 lg:py-4 rounded-full text-base lg:text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl transform hover:scale-105">
+            View All Testimonials
+            <svg
+              className="ml-2 w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default TestimonialsSection;
+export default TestimonialCarousel;

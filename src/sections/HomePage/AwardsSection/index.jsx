@@ -2,6 +2,7 @@
 import Image from "next/image"
 import clutchReview from "../../../assets/images/clutch_review.svg"
 import "./index.css"
+import StarRating from "@/components/StarRating"
 
 const AwardsSection = () => {
  
@@ -111,28 +112,48 @@ const AwardsSection = () => {
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
           <div className="flex flex-col md:flex-row gap-8 sm:gap-10 md:gap-8 lg:gap-16 xl:gap-20 2xl:gap-24 items-center md:items-start">
             {/* Left Content */}
-            <div className="flex-1 space-y-6 sm:space-y-8 md:space-y-6 lg:space-y-12 xl:space-y-14 2xl:space-y-16 text-center md:text-left">
-              <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                <h1 className="h2-heading font-bold leading-tight text-balance">
-                  <span className="text-blue-400">Awards</span>{" "}
-                  <span className="text-white">That Define Our Journey</span>
-                </h1>
-
-                <p className="text-gray-300 h2-description leading-relaxed text-pretty max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto lg:mx-0">
-                  From innovation to execution, our recognition speaks volumes about the quality, creativity, and
-                  results we bring to every project.
-                </p>
-              </div>
-
-              {/* Clutch Review Section */}
-              <div className="flex justify-center ml-8 sm:ml-0 md:justify-start">
-                <Image 
-                  src={clutchReview} 
-                  alt="Clutch Review" 
-                  className="w-48 h-auto sm:w-48 md:w-56 lg:w-64 xl:w-80 2xl:w-96"
-                />
-              </div>
+            <div className="max-w-3xl flex flex-col gap-y-8 lg:gap-y-16 justify-center">
+        <div className="flex flex-col gap-y-4 lg:gap-y-6">
+          <h1 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+            <span className="text-gradient-secondry">Awards </span>
+            <span>That Define</span>
+            <br />
+            <span>Our Journey</span>
+          </h1>
+          <p className="text-white text-base sm:text-lg lg:text-2xl font-normal leading-relaxed">
+            From innovation to execution, our recognition speaks volumes about
+            the quality, creativity, and results we bring to every project.
+          </p>
+        </div>
+        <div className="flex flex-col gap-y-3 lg:gap-y-4">
+          <div className="flex items-center gap-x-3 lg:gap-x-6 text-white text-l sm:text-3xl lg:text-5xl font-bold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="45"
+              viewBox="0 0 71 80"
+              fill="none"
+              className="w-[40px] h-[45px] sm:w-[56px] sm:h-[64px] lg:w-[71px] lg:h-[80px] flex-shrink-0"
+            >
+              <path
+                d="M55.4943 56.3265C51.4138 59.5918 45.7012 62.0408 39.9885 62.0408C26.931 62.0408 17.954 52.2449 17.954 39.1837C17.954 26.1224 26.931 17.1428 39.9885 17.1428C45.7012 17.1428 51.4138 18.7755 55.4943 22.8571L57.9425 25.3061L71 13.0612L67.7356 10.6122C60.3908 4.08162 50.5977 0 39.9885 0C17.1379 0 0 17.1429 0 40C0 62.8571 17.1379 80 39.9885 80C50.5977 80 60.3908 75.9184 67.7356 69.3878L71 66.9388L57.9425 53.8775L55.4943 56.3265Z"
+                fill="white"
+              />
+              <path
+                d="M39.1725 53.0614C46.3839 53.0614 52.2299 47.2137 52.2299 40.0002C52.2299 32.7867 46.3839 26.939 39.1725 26.939C31.961 26.939 26.115 32.7867 26.115 40.0002C26.115 47.2137 31.961 53.0614 39.1725 53.0614Z"
+                fill="#EF4335"
+              />
+            </svg>
+            {4.2}
+            <div className="scale-75 sm:scale-90 lg:scale-100">
+              <StarRating rating={4.2} />
             </div>
+          </div>
+          <div className="text-lg sm:text-xl lg:text-2xl font-normal text-light-bg opacity-50">
+            42 reviews on Clutch
+          </div>
+        </div>
+      </div>
 
             <div className="flex-shrink-0 w-full sm:w-auto md:w-auto flex justify-center md:justify-start">
               <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-4 lg:gap-4 xl:gap-5 2xl:gap-6 justify-items-center md:justify-items-start">

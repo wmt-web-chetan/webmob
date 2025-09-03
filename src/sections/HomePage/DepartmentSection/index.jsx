@@ -32,7 +32,7 @@ const ToolItem = memo(({ tool }) => (
     <div className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 p-2 sm:p-4 rounded-full bg-white flex justify-center items-center">
       <Image
         src={tool.icon}
-        alt={`${tool.name} logo`} 
+        alt={`${tool.name} logo`}
         width={40}
         className="object-cover"
         loading="lazy"
@@ -198,31 +198,42 @@ const DepartmentSection = () => {
         { name: "TOGAF", icon: Tensor_Flow, color: "bg-orange-500" },
         { name: "ITIL", icon: Tensor_Flow, color: "bg-red-500" },
         { name: "COBIT", icon: Tensor_Flow, color: "bg-green-500" },
-        { name: "AWS Well-Architected", icon: Tensor_Flow, color: "bg-yellow-500" },
+        {
+          name: "AWS Well-Architected",
+          icon: Tensor_Flow,
+          color: "bg-yellow-500",
+        },
         { name: "Azure Advisor", icon: Tensor_Flow, color: "bg-blue-500" },
-        { name: "GCP Recommendations", icon: Tensor_Flow, color: "bg-purple-500" },
+        {
+          name: "GCP Recommendations",
+          icon: Tensor_Flow,
+          color: "bg-purple-500",
+        },
       ],
     },
   };
 
   // Debounced tab change handler with animation
-  const handleTabChange = useCallback((tab) => {
-    if (tab === activeTab) return;
-    
-    setIsTransitioning(true);
-    
-    setTimeout(() => {
-      setActiveTab(tab);
+  const handleTabChange = useCallback(
+    (tab) => {
+      if (tab === activeTab) return;
+
+      setIsTransitioning(true);
+
       setTimeout(() => {
-        setIsTransitioning(false);
-      }, 50);
-    }, 200);
-  }, [activeTab]);
+        setActiveTab(tab);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 50);
+      }, 200);
+    },
+    [activeTab]
+  );
 
   const currentContent = tabContent[activeTab] || tabContent.AI;
 
   return (
-    <div className="section-padding-y ">
+    <div className="section-padding-y px-wrapper">
       <div className="flex flex-col justify-center items-center px-4 sm:px-6 md:px-8">
         <h2 className="text-center h2-heading font-bold">
           Unlock Growth with{" "}
@@ -247,15 +258,24 @@ const DepartmentSection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 2xl:px-52 mt-6 sm:mt-8">
-        <div className={`bg-[#1B1B35] md:col-span-12 lg:col-span-8 flex flex-col md:flex-row py-4 sm:py-6 lg:py-8 px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out transform ${
-          isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-        }`} style={{ borderRadius: "40px" }}>
-          <div className="w-full sm:w-[45%] flex flex-col justify-between mt-4 sm:mt-6 md:mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 py-8">
+        <div
+          className={`bg-[#1B1B35] md:col-span-12 lg:col-span-8 flex flex-col md:flex-row py-4 sm:py-6 lg:py-8 px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out transform ${
+            isTransitioning
+              ? "opacity-0 translate-y-4"
+              : "opacity-100 translate-y-0"
+          }`}
+          style={{ borderRadius: "40px" }}
+        >
+          <div className="w-full sm:w-[45%] flex flex-col justify-between mt-4 sm:mt-6 md:mt-8 order-2 md:order-1">
             <div className="flex-grow">
-              <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-normal transition-all duration-700 ease-in-out mb-3 sm:mb-4 transform ${
-                isTransitioning ? 'opacity-0 translate-x-8' : 'opacity-100 translate-x-0'
-              }`}>
+              <h3
+                className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-normal transition-all duration-700 ease-in-out mb-3 sm:mb-4 transform ${
+                  isTransitioning
+                    ? "opacity-0 translate-x-8"
+                    : "opacity-100 translate-x-0"
+                }`}
+              >
                 {currentContent.title.includes("AI") ? (
                   <>
                     Smarter <br />
@@ -270,29 +290,45 @@ const DepartmentSection = () => {
                   </>
                 )}
               </h3>
-              <p className={`text-white text-sm sm:text-base md:text-lg font-normal transition-all duration-700 ease-in-out leading-relaxed transform delay-100 ${
-                isTransitioning ? 'opacity-0 translate-x-8' : 'opacity-100 translate-x-0'
-              }`}>
+              <p
+                className={`text-white text-sm sm:text-base md:text-lg font-normal transition-all duration-700 ease-in-out leading-relaxed transform delay-100 ${
+                  isTransitioning
+                    ? "opacity-0 translate-x-8"
+                    : "opacity-100 translate-x-0"
+                }`}
+              >
                 {currentContent.description}
               </p>
             </div>
-            <div className={`mt-4 sm:mt-6 md:mt-8 lg:mt-12 transition-all duration-700 ease-in-out transform delay-200 ${
-              isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-            }`}>
+            <div
+              className={`mt-4 sm:mt-6 md:mt-8 lg:mt-12 transition-all duration-700 ease-in-out transform delay-200 ${
+                isTransitioning
+                  ? "opacity-0 translate-y-4"
+                  : "opacity-100 translate-y-0"
+              }`}
+            >
               <PrimaryButton
                 text={
                   <span className="flex items-center gap-2">
                     Get Started
-                    <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 filter invert" />
+                    <Image
+                      src={arrow}
+                      alt="arrow"
+                      className="w-4 h-4 sm:w-5 sm:h-5 filter invert"
+                    />
                   </span>
                 }
-                className="bg-white hover:bg-gray-100 text-gray-900 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="bg-white text-text-primary px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
               />
             </div>
           </div>
-          <div className={`w-full sm:w-[55%] mt-4 sm:mt-6 md:mt-0 flex justify-center md:justify-end transition-all duration-700 ease-in-out transform delay-150 ${
-            isTransitioning ? 'opacity-0 scale-95 translate-x-8' : 'opacity-100 scale-100 translate-x-0'
-          }`}>
+          <div
+            className={`w-full order-1 md:order-2 sm:w-[55%] mt-4 sm:mt-6 md:mt-0 flex justify-center md:justify-end transition-all duration-700 ease-in-out transform delay-150 ${
+              isTransitioning
+                ? "opacity-0 scale-95 translate-x-8"
+                : "opacity-100 scale-100 translate-x-0"
+            }`}
+          >
             <Image
               src={Demo}
               alt="demo"
@@ -302,35 +338,49 @@ const DepartmentSection = () => {
           </div>
         </div>
 
-        <div className={`md:col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-6 transition-all duration-500 ease-in-out transform ${
-          isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-        }`}>
-          <div className={`bg-[#ebefff] text-lg sm:text-xl md:text-2xl p-4 sm:p-8 rounded-3xl flex items-center font-normal transition-all duration-700 ease-in-out transform ${
-            isTransitioning ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'
-          }`}>
+        <div
+          className={`md:col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-6 transition-all duration-500 ease-in-out transform ${
+            isTransitioning
+              ? "opacity-0 translate-y-4"
+              : "opacity-100 translate-y-0"
+          }`}
+        >
+          <div
+            className={`bg-[#ebefff] text-lg sm:text-xl md:text-2xl p-4 sm:p-8 rounded-3xl flex items-center font-normal transition-all duration-700 ease-in-out transform ${
+              isTransitioning
+                ? "opacity-0 translate-x-4"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
             <div className="text-start w-full leading-tight">
               {currentContent.cardText}
             </div>
           </div>
 
-          <div className={`bg-[#ebefff] p-4 sm:p-8 rounded-3xl flex flex-col gap-14 text-sm sm:text-base flex-1 transition-all duration-700 ease-in-out transform delay-100 ${
-            isTransitioning ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'
-          }`}>
+          <div
+            className={`bg-[#ebefff] p-4 sm:p-8 rounded-3xl flex flex-col gap-4 lg:gap-14 text-sm sm:text-base flex-1 transition-all duration-700 ease-in-out transform delay-100 ${
+              isTransitioning
+                ? "opacity-0 translate-x-4"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
             <div className="flex flex-col gap-4 px-2">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold">
-              {currentContent.toolsTitle}
-            </div>
-            <p className="mt-1 sm:mt-2 text-sm sm:text-sm md:text-base mb-4 sm:mb-6">
-              {currentContent.toolsDescription}
-            </p>
+                {currentContent.toolsTitle}
+              </div>
+              <p className="mt-1 sm:mt-2 text-sm sm:text-sm md:text-base mb-4 sm:mb-6">
+                {currentContent.toolsDescription}
+              </p>
             </div>
 
             <div className="w-full flex flex-wrap  sm:gap-4 md:gap-6   justify-center px-0 lg:px-0 xl:px-0 ">
               {currentContent.tools.map((tool, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`transition-all duration-500 ease-in-out transform ${
-                    isTransitioning ? 'opacity-0 translate-y-4 scale-95' : 'opacity-100 translate-y-0 scale-100'
+                    isTransitioning
+                      ? "opacity-0 translate-y-4 scale-95"
+                      : "opacity-100 translate-y-0 scale-100"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >

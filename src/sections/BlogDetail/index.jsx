@@ -51,7 +51,7 @@ const BlogDetail = () => {
           <Image
             src={Blog.image}
             alt={Blog.title}
-            className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[800px] rounded-2xl md:rounded-3xl object-cover  shadow-2xl"
+            className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[800px] rounded-2xl md:rounded-3xl object-fill  shadow-2xl"
           />
           <p className="text-text-secondary text-sm sm:text-base md:text-lg lg:text-xl font-normal">
             {Blog.description}

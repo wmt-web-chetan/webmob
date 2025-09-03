@@ -47,7 +47,7 @@ export default function CaseStudiesSection(props) {
 
   return (
     <div className="bg-white">
-      <section className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
+      <section className="w-full px-wrapper section-padding-y">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           {props?.title && (

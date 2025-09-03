@@ -84,7 +84,7 @@ export function BlogsSection() {
                       width={100}
                       src={blog.thumbnailSrc || "/placeholder.svg"}
                       alt="Blog thumbnail"
-                      className="w-24 sm:w-28 lg:w-24 xl:w-36 aspect-square rounded-lg object-cover border border-disabled-text"
+                      className="w-24 sm:w-28 lg:w-24 xl:w-36 aspect-square rounded-lg object-fill border border-disabled-text"
                     />
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
