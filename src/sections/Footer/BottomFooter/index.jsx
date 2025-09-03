@@ -262,13 +262,13 @@ const BottomFooter = () => {
             © {dayjs(new Date()).format("YYYY")} WebMobTech Solutions Pvt.Ltd.
             All Rights Reserved.
           </p>
-          <div className="sm:w-auto w-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-start sm:items-center text-text-disabled text-xs sm:text-sm">
+          <div className="sm:w-auto w-full flex flex-col sm:flex-row gap-2 sm:gap-2 lg:gap-4 justify-start sm:items-center text-text-disabled text-xs sm:text-sm">
             <p>D-U-N-S Number: 860386955</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="6"
               height="7"
-              className="hidden sm:block sm:w-6 sm:h-7 md:w-8 md:h-9"
+              className="hidden sm:block w-6  "
               viewBox="0 0 8 9"
               fill="none"
             >
