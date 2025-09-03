@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <Footer />
         {children}
+        <Footer />
       </body>
     </html>
   );
