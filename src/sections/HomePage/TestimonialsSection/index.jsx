@@ -99,10 +99,10 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
-      <div className="  px-4 sm:px-6 lg:px-8 w-full">
+    <section className="bg-white section-padding-y">
+      <div className="container mx-auto  w-full">
         {/* Header */}
-        <div className="text-center ">
+        <div className="text-center mb-12 ">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 sm:mb-2 md:mb-2 lg:mb-4">
             What{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent font-bold">
@@ -118,7 +118,7 @@ const TestimonialCarousel = () => {
 
         {/* Desktop Carousel Container */}
         <div className="hidden md:block">
-          <div className="relative h-[500px] lg:h-[550px] xl:h-[600px] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[500px] lg:h-[550px] xl:h-[600px] flex items-center justify-center ">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
@@ -256,16 +256,16 @@ const TestimonialCarousel = () => {
                     </p>
 
                     {/* Profile */}
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                    <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-5">
                       <img
                         src={testimonial.avatar}
                         alt={testimonial.name}
-                        className="w-14 h-14 rounded-full shadow-lg mb-3"
+                        className="w-16 h-16 rounded-full shadow-lg mb-3"
                       />
-                      <h4 className="font-semibold text-gray-900 text-sm mb-1">
+                      <h4 className="font-semibold text-gray-900 text-base mb-1">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-600 text-xs text-center">
+                      <p className="text-gray-600 text-sm text-center">
                         {testimonial.position}
                       </p>
                     </div>
@@ -276,7 +276,7 @@ const TestimonialCarousel = () => {
           </div>
 
           {/* Mobile Navigation Dots */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-16 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -293,7 +293,7 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-16 lg:mt-24">
+        <div className="text-center mt-4 lg:mt-8">
           <button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium px-8 py-3 lg:px-10 lg:py-4 rounded-full text-base lg:text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl transform hover:scale-105">
             View All Testimonials
             <svg

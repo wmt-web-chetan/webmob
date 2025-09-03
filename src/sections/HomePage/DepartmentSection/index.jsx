@@ -373,7 +373,7 @@ const DepartmentSection = () => {
               </p>
             </div>
 
-            <div className="w-full flex flex-wrap  sm:gap-4 md:gap-6   justify-center px-0 lg:px-0 xl:px-0 ">
+            <div className="w-full flex flex-wrap gap-3  sm:gap-4 md:gap-6   justify-center px-0 lg:px-0 xl:px-0 ">
               {currentContent.tools.map((tool, index) => (
                 <div
                   key={index}

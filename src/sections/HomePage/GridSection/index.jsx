@@ -55,9 +55,9 @@ export default function GridSection(props) {
           </div>
 
           <div className="relative  px-0 sm:px-8 md:px-4 lg:px-24 xl:px-28 2xl:px-32">
-            <div className={`p-[8px] rounded-3xl ${styles['animate-gradient-border']} ${styles['white-shadow']}`}>
+            <div className={`rounded-2xl ${styles.box}`}>
               {/* Content Container */}
-              <div className="bg-white rounded-[calc(1.5rem-3px)] p-8 shadow-inner shadow-white/10">
+              <div className="bg-white rounded-[calc(1rem-10px)] p-8 shadow-inner shadow-white/10">
                 {/* Technology Grid */}
                 <div className={`${styles['tech-grid']} mb-8`}>
                   {technologies.map((tech, index) => (

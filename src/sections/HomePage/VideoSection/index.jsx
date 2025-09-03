@@ -69,13 +69,17 @@ export default function VideoSection(props) {
         {/* Video Container */}
         {shouldShow && (
           <div className="mx-auto px-wrapper">
-            <div className="relative rounded-xl overflow-hidden group aspect-video">
+            <div className="bg-[#f0f4ff] rounded-3xl p-2 sm:p-3 md:p-3 lg:p-3 xl:p-4 2xl:p-4">
+              <div className="relative rounded-3xl overflow-hidden group aspect-video">
               <video
                 ref={videoRef}
-                className="w-full h-full rounded-2xl object-cover"
+                className="w-full h-full object-cover"
                 poster={props?.videoImage?.node?.mediaItemUrl || defaultThumbnail}
-                controls
-                onPlay={() => setIsPlaying(true)}
+                controls={hasPlayed}
+                onPlay={() => {
+                  setIsPlaying(true)
+                  setHasPlayed(true)
+                }}
                 onPause={() => setIsPlaying(false)}
                 onEnded={() => setIsPlaying(false)}
                 onLoadedMetadata={() => {
@@ -111,7 +115,7 @@ export default function VideoSection(props) {
 
               {/* Pause Button Overlay - only show on hover when playing */}
               {isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <button
                     onClick={handlePlayVideo}
                     className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 pointer-events-auto"
@@ -123,6 +127,7 @@ export default function VideoSection(props) {
                   </button>
                 </div>
               )}
+              </div>
             </div>
           </div>
         )}

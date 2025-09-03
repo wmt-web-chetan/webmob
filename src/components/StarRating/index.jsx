@@ -5,11 +5,9 @@ const Star = ({ filled = 0 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
       viewBox="0 0 56 56"
       fill="none"
-      className="inline-block"
+      className="inline-block h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-16 w-auto"
     >
       <defs>
         <linearGradient id="starGradient" x1="4.13963" y1="2.7501" x2="51.3945" y2="15.661" gradientUnits="userSpaceOnUse">

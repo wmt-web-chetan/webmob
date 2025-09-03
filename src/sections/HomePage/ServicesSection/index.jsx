@@ -118,16 +118,14 @@ const ServicesSection = (props) => {
 
                 {/* Expand/Collapse Icon */}
                 <div
-                  className={`flex-shrink-0 ml-2 transition-colors duration-300 ${
+                  className={`flex-shrink-0 ml-2 transition-all duration-300 ${
                     expandedSection === service.id
-                      ? "text-gradient-primary"
-                      : "text-gray-400"
+                      ? "opacity-0 invisible"
+                      : "opacity-100 visible text-gray-400"
                   }`}
                 >
                   <svg
-                    className={`w-6 h-5 sm:w-7 sm:h-6 transform transition-transform duration-300 ${
-                      expandedSection === service.id ? "rotate-90" : ""
-                    }`}
+                    className="w-6 h-5 sm:w-7 sm:h-6 transform transition-transform duration-300"
                     viewBox="0 0 33 28"
                     fill="none"
                   >
@@ -151,16 +149,16 @@ const ServicesSection = (props) => {
               >
                 <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-6 sm:pb-8">
                   <div className="flex items-start -ml-0">
-                    {/* Spacer to align with title */}
+                    {/* Spacer to align with title - extends to where arrow was */}
                     <div className="w-8 sm:w-10 md:w-16 lg:w-20 xl:w-28 flex-shrink-0"></div>
 
                     {/* Content Container */}
                     <div className="flex-1">
                       {/* Mobile: Stack vertically (image first), Desktop: Side by side */}
-                      <div className="flex flex-col lg:flex-row lg:gap-8 xl:gap-12">
+                      <div className="flex flex-col lg:flex-row lg:gap-8 xl:gap-12 lg:items-stretch">
                         {/* Image Section - First on mobile, second on desktop */}
-                        <div className="w-full lg:w-1/2 flex-shrink-0 order-1 lg:order-2 mb-6 lg:mb-0">
-                          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80">
+                        <div className="w-full lg:w-1/2 flex-shrink-0 order-1 lg:order-2 mb-6 lg:mb-0 lg:flex">
+                          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-auto lg:flex-1">
                             <Image
                               src={service.image}
                               alt={service.title}

@@ -28,7 +28,7 @@ const AwardSection = ({ rating = 4.2, count = 144 }) => {
             the quality, creativity, and results we bring to every project.
           </p>
         </div>
-       <div className="flex flex-col gap-y-2 sm:gap-y-3 lg:gap-y-4 items-center sm:items-start">
+       <div className="flex flex-col gap-y-2 sm:gap-y-3 lg:gap-y-4 items-center xl:items-start">
   <div className="flex items-center gap-x-2 sm:gap-x-4 lg:gap-x-6 text-white text-lg sm:text-2xl lg:text-4xl font-bold">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const AwardSection = ({ rating = 4.2, count = 144 }) => {
       />
     </svg>
     {rating}
-    <div className="scale-75 sm:scale-90 lg:scale-100">
+    <div className="">
       <StarRating rating={rating} aria-label={`Rating of ${rating} stars`} />
     </div>
   </div>
