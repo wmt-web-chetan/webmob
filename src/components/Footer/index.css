@@ -15,3 +15,13 @@
                   <li>React Native <span className="hidden sm:inline">Services</span></li>
                   <li>Django development <span className="hidden sm:inline">Services</span></li>
                   <li>Python development <span className="hidden sm:inline">Services</span></li> */
+.footer-header-bg{
+  background: 
+  url("../../assets/images/footer_bg.png"),
+    linear-gradient(109deg, #2A9FFF -8.12%, #2C23E8 83.86%);
+  background-size: cover;
+  background-repeat: no-repeat; 
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
