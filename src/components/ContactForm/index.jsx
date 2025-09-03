@@ -33,7 +33,7 @@ const ContactForm = () => {
     setIsDropdownOpen(false);
   };
   useEffect(() => {
-    fetch("https://ipinfo.io/json/") // free IP API
+    fetch(`https://ipinfo.io/json/?token=${process.env.NEXT_PUBLIC_IP_TOKEN}`) // free IP API
       .then((res) => res.json())
       .then((data) => {
         const foundCountry = AllCountry.find(
