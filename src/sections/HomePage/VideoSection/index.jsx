@@ -96,37 +96,37 @@ export default function VideoSection(props) {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Play Button Overlay - only show when not playing */}
-              {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <button
-                    onClick={handlePlayVideo}
-                    className={`bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center pointer-events-auto ${
-                      hasPlayed ? 'p-4' : 'px-6 py-3'
-                    }`}
-                  >
-                    <svg className={`fill-current ${hasPlayed ? 'w-8 h-8' : 'w-6 h-6 mr-2'}`} viewBox="0 0 24 24">
-                      <polygon points="5,3 19,12 5,21" />
-                    </svg>
-                    {!hasPlayed && <span>{props?.videourl?.title || "Play Video"}</span>}
-                  </button>
-                </div>
-              )}
+              // Play Button Overlay - only show when not playing
+{!isPlaying && (
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <button
+      onClick={handlePlayVideo}
+      className={`bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center pointer-events-auto ${
+        hasPlayed ? 'p-3 sm:p-4' : 'px-4 py-2 sm:px-6 sm:py-3'
+      }`}
+    >
+      <svg className={`fill-current ${hasPlayed ? 'w-6 h-6 sm:w-8 sm:h-8' : 'w-5 h-5 sm:w-6 sm:h-6 mr-2'}`} viewBox="0 0 24 24">
+        <polygon points="5,3 19,12 5,21" />
+      </svg>
+      {!hasPlayed && <span>{props?.videourl?.title || "Play Video"}</span>}
+    </button>
+  </div>
+)}
 
-              {/* Pause Button Overlay - only show on hover when playing */}
-              {isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <button
-                    onClick={handlePlayVideo}
-                    className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 pointer-events-auto"
-                  >
-                    <svg className="w-8 h-8 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                      <rect x="6" y="4" width="4" height="16" />
-                      <rect x="14" y="4" width="4" height="16" />
-                    </svg>
-                  </button>
-                </div>
-              )}
+// Pause Button Overlay - only show on hover when playing
+{isPlaying && (
+  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <button
+      onClick={handlePlayVideo}
+      className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-3 sm:p-4 shadow-lg transition-all duration-300 hover:scale-110 pointer-events-auto"
+    >
+      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+        <rect x="6" y="4" width="4" height="16" />
+        <rect x="14" y="4" width="4" height="16" />
+      </svg>
+    </button>
+  </div>
+)}
               </div>
             </div>
           </div>
