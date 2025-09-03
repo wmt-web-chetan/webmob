@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, use } from "react";
 import PrimaryButton from "../PrimaryButton";
 import { AllCountry } from "@/assets/Json/country";
 
-const ContactForm = () => {
+const ContactForm = ({CountryCode}) => {
   const [formData, setFormData] = useState({
     fullName: "Rajesh",
     email: "rajeshsharma1241@gmail.com",
@@ -32,25 +32,7 @@ const ContactForm = () => {
     }));
     setIsDropdownOpen(false);
   };
-  useEffect(() => {
-    fetch(`https://ipinfo.io/json/?token=${process.env.NEXT_PUBLIC_IP_TOKEN}`) // free IP API
-      .then((res) => res.json())
-      .then((data) => {
-        const foundCountry = AllCountry.find(
-          (country) => country.code === data.country
-        );
-        if (foundCountry) {
-          setSelectedCountry(foundCountry);
-          setFormData((prev) => ({
-            ...prev,
-            country_code: foundCountry.dial_code,
-          }));
-        }
-      })
-      .catch(() => {
-        // Optionally handle error, e.g., set a default country code
-      });
-  }, []);
+ 
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -65,6 +47,18 @@ const ContactForm = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+ 
+  useEffect(() => {
+    if(CountryCode){  
+      const country = AllCountry.find(country => country.code === CountryCode);
+      console.log('country',country);
+      setFormData((prev) => ({
+        ...prev,
+        country_code: country?.dial_code,
+      }));
+      setSelectedCountry(country);
+    }
+  }, [CountryCode]);
 
   return (
     <div>
@@ -121,7 +115,7 @@ const ContactForm = () => {
               <button
                 type="button"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="w-20 sm:w-28 py-3 px-2 sm:p-4 border border-text-disabled rounded-2xl text-text-primary text-sm
+                className="w-24 sm:w-28 py-3 px-2 sm:p-4 border border-text-disabled rounded-2xl text-text-primary text-sm
                 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent bg-white cursor-pointer
                 flex items-center justify-between h-12 sm:h-14"
               >
