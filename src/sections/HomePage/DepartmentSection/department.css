@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* Custom Color Variables */
+@theme {
+  --color-primary: #335fff;
+  --color-secondary: #2c23e8;
+  --color-accent-green: #280873;
+  --color-accent-yellow: #ffd333;
+  
+  --color-dark-bg: #1b1b35;
+  --color-functional-red: #db264d;
+  --color-functional-orange: #ff744d;
+  --color-light-bg: #f0f4ff;
+  
+  --color-primary-text: #24262b;
+  --color-secondary-text: #3d4048;
+  --color-disabled-text: #c4c7ce;
+  
+  --color-gradient-start: #335fff;
+  --color-gradient-end: #2c23e8;
+}
+
+/* Custom Utility Classes */
+.bg-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.group:hover .group-hover\:text-gradient-primary {
+  background: linear-gradient(181deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.button-background-gradient{
+  background: linear-gradient(49deg,rgba(42, 159, 255, 1) 0%, rgba(44, 35, 232, 1) 67%);
+}
+
+/* Hero Heading Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-heading-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.hero-subtitle-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.hero-buttons-animate {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+/* Marquee Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

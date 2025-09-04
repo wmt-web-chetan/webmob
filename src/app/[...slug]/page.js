@@ -1,21 +1,35 @@
-import React from 'react'
+import React from "react";
 import { notFound } from "next/navigation";
-import { sectionRegistry } from '@/sections/sectionsRegistry';
-import { getPageData } from '@/utils/pageApi';
+import { sectionRegistry } from "@/sections/sectionsRegistry";
+import { getPageData } from "@/utils/pageApi";
 
-export const revalidate = 60
-const DynamicPage = async ({params}) => {
+export const revalidate = 60;
+const DynamicPage = async ({ params }) => {
   const resolvedParams = await params;
   const slugArray = resolvedParams?.slug || [];
   const slugPath = slugArray.join("/");
   let finalSlug = slugPath === "" ? "home" : `${slugPath}`;
   const data = await getPageData(finalSlug);
-  console.log(data)
+  if (data?.data?.pageBy === null) {
+    notFound();
+  }
+  const pageBlocks = data?.data?.pageBy?.pageBuilder?.pageBuilder || [];
+
   return (
     <div>
-      
-    </div>
-  )
-}
+      {pageBlocks.map((block, i) => {
+        const key = Object.keys(block)[0];
+        const Component = sectionRegistry[key];
 
-export default DynamicPage
+        if (!Component) {
+          console.warn(`No component found for ${key}`);
+          return null;
+        }
+
+        return <Component key={i} {...block[key]} />;
+      })}
+    </div>
+  );
+};
+
+export default DynamicPage;

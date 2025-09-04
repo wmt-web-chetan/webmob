@@ -1,4 +1,19 @@
-import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/caseStudiesSection";
+// import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/caseStudiesSection";
+
+import { ABOUT_SECTION_FRAGMENT } from "./sectionsQuery/home/aboutSection";
+import { AI_CTA_SECTION, AI_CTA_SECTION_FRAGMENT } from "./sectionsQuery/home/AiCtaSection";
+import { AWARDS_SECTION_FRAGMENT } from "./sectionsQuery/home/awardSection";
+import { BLOG_SECTION_FRAGMENT } from "./sectionsQuery/home/blogSection";
+import { BRAND_SECTION_FRAGMENT } from "./sectionsQuery/home/brandSection";
+import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/home/caseStudySection";
+import { DEPARTMENT_FRAGMENT } from "./sectionsQuery/home/DepartmentSection";
+import { FAQ_SECTION_FRAGMENT } from "./sectionsQuery/home/faqSection";
+import { HERO_SECTION_FRAGMENT } from "./sectionsQuery/home/heroSection";
+import { MARQUEE_VIDEO_SECTION_FRAGMENT, VIDEO_FRAGMENT } from "./sectionsQuery/home/marqueeVideoSection";
+import { SERVICE_SECTION_FRAGMENT } from "./sectionsQuery/home/serviceSection";
+import { STASTICS_FRAGMENT } from "./sectionsQuery/home/statistics";
+import { TECHNOLOGY_QUERY_FRAGMENT } from "./sectionsQuery/home/technologyQuery";
+import { TESTIMONIALS_SECTION_FRAGMENT } from "./sectionsQuery/home/testimonialsSection";
 
 export async function getPageData(slug) {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
@@ -6,12 +21,27 @@ export async function getPageData(slug) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: `query { 
-        pageBy(uri: "${slug}") { 
+        pageBy(uri: "${sl
+        ug}") { 
           title
           slug
           pageBuilder { 
             pageBuilder { 
+              ${HERO_SECTION_FRAGMENT}
+              ${BRAND_SECTION_FRAGMENT}
+              ${SERVICE_SECTION_FRAGMENT}
+              ${AI_CTA_SECTION_FRAGMENT}
               ${CASE_STUDIES_FRAGMENT}
+              ${TECHNOLOGY_QUERY_FRAGMENT}
+              ${STASTICS_FRAGMENT}
+              ${MARQUEE_VIDEO_SECTION_FRAGMENT}
+              ${VIDEO_FRAGMENT}
+              ${DEPARTMENT_FRAGMENT}
+              ${AWARDS_SECTION_FRAGMENT}
+              ${FAQ_SECTION_FRAGMENT}
+              ${ABOUT_SECTION_FRAGMENT}
+              ${BLOG_SECTION_FRAGMENT}
+              ${TESTIMONIALS_SECTION_FRAGMENT}
             } 
           } 
         } 
