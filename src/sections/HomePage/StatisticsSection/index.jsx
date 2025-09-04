@@ -130,10 +130,10 @@ export default function StatisticsSection(props) {
             {props?.chartImage?.node?.mediaItemUrl && (
               <div className="relative flex flex-col w-full mx-auto md:mx-0 xl:mx-0 pt-4 md:pt-6">
                 {/* Graph */}
-                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full md:w-full xl:w-auto h-auto max-w-sm md:max-w-md xl:max-w-lg" />
+                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full md:w-full xl:w-auto h-auto max-w-sm md:max-w-md xl:max-w-xl" />
 
                 {/* Spark on top-right of graph */}
-                <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4">
+                <div className="absolute -top-2 md:-top-4 right-0 md:-right-4 xl:right-2">
                   <Image
                     src={spark}
                     alt="Spark"
