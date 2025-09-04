@@ -14,24 +14,24 @@ export default function CaseStudyCard({
       <div
         className={
           isFullWidth
-            ? "p-4 sm:p-6 md:p-8 lg:p-0 flex-1 flex flex-col"
+            ? "p-4 sm:p-6 md:p-8 xl:p-0 flex-1 flex flex-col"
             : "p-4 sm:p-6 md:p-8 flex-1 flex flex-col"
         }
       >
         <div
           className={
             isFullWidth
-              ? "flex flex-col lg:flex-row h-full flex-1 gap-8"
+              ? "flex flex-col xl:flex-row h-full flex-1 gap-8"
               : "flex-1 flex flex-col"
           }
         >
           {isFullWidth ? (
             <div className="w-full bg-white overflow-hidden transition-shadow duration-300 group case-study-card rounded-[42px]">
-              <div className="flex flex-col lg:flex-row justify-between h-full lg:p-6 xl:p-8 2xl:p-10 gap-8">
+              <div className="flex flex-col xl:flex-row justify-between h-full xl:p-8 2xl:p-10 gap-8">
                 
                 {/* Image Section - First on mobile, second on desktop */}
-                <div className="w-full lg:w-[65%] order-1 lg:order-2">
-                  <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-full relative rounded-[42px] overflow-hidden shadow-lg">
+                <div className="w-full xl:w-[65%] order-1 xl:order-2">
+                  <div className="h-[250px] sm:h-[350px] md:h-[450px] xl:h-full relative rounded-[42px] overflow-hidden shadow-lg">
                     <Image
                       src={caseStudy.image || "/placeholder.svg"}
                       alt={`${caseStudy.title} case study preview`}
@@ -43,7 +43,7 @@ export default function CaseStudyCard({
                 </div>
 
                 {/* Content Section - Second on mobile, first on desktop */}
-                <div className="w-full lg:w-[35%] flex flex-col justify-between min-h-[400px] sm:min-h-[500px] order-2 lg:order-1 pb-4 lg:pb-0">
+                <div className="w-full xl:w-[35%] flex flex-col justify-between min-h-[400px] sm:min-h-[500px] order-2 xl:order-1 pb-4 xl:pb-0">
                   <div>
                     {/* Our Latest Work Label */}
                     {isLatest && (
@@ -77,7 +77,7 @@ export default function CaseStudyCard({
                   </div>
 
                   {/* View Case Study Button */}
-                  <div className="mt-6 sm:mt-10 lg:mt-12">
+                  <div className="mt-6 sm:mt-10 xl:mt-12">
                     <PrimaryButton
                       text={
                         <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2">
@@ -141,7 +141,7 @@ export default function CaseStudyCard({
               </div>
 
               {/* Button */}
-              <div className="flex justify-start sm:justify-between items-center mt-6 sm:mt-10 lg:mt-12">
+              <div className="flex justify-start sm:justify-between items-center mt-6 sm:mt-10 xl:mt-12">
                 <PrimaryButton
                   text={
                     <div className="flex items-center gap-1 text-base sm:text-lg font-medium px-2 ">

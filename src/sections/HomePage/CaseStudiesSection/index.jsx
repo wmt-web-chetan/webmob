@@ -49,7 +49,7 @@ export default function CaseStudiesSection(props) {
     <div className="bg-white">
       <section className="w-full px-wrapper section-padding-y">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="text-center mb-8 sm:mb-12 xl:mb-16">
           {props?.title && (
             <h2 className="h2-heading font-bold text-gray-900 mb-4 text-balance">
               {formatTitle(props.title)}
@@ -63,11 +63,11 @@ export default function CaseStudiesSection(props) {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-1 xl:grid-cols-2">
           {caseStudies.map((caseStudy) => (
             <div
               key={caseStudy.id}
-              className={caseStudy.isFullWidth ? "md:col-span-full lg:col-span-full" : ""}
+              className={caseStudy.isFullWidth ? "md:col-span-full xl:col-span-full" : ""}
             >
               <CaseStudyCard
                 caseStudy={caseStudy}

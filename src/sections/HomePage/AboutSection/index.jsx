@@ -56,7 +56,7 @@ export default function AboutSection(props) {
     <section className="bg-[#EBEFFF]">
       <div className="w-full max-w-none mx-auto px-wrapper section-padding-y">
         {/* Mobile & Tablet Layout: Stack content and cards */}
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           {/* Content Section - Full Width & Centered */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12 flex-col items-center">
             <div className="space-y-4 sm:space-y-5 md:space-y-6">
@@ -121,9 +121,9 @@ export default function AboutSection(props) {
         </div>
 
         {/* Desktop Layout: Side by side */}
-        <div className="hidden lg:flex flex-row gap-8 items-center">
+        <div className="hidden xl:flex flex-row gap-8 items-center">
           {/* Left Column - Main Content */}
-          <div className="lg:w-1/3 space-y-8">
+          <div className="xl:w-1/3 space-y-8">
             <div className="space-y-6">
               <h1 className="h2-heading-large font-bold text-gray-900 leading-tight">
                 {title.includes('WebMob Technologies') ? (
@@ -143,7 +143,7 @@ export default function AboutSection(props) {
           </div>
 
           {/* Right Column - Dynamic Feature Cards Grid */}
-          <div className="lg:w-2/3 grid grid-cols-2 gap-6 auto-rows-fr">
+          <div className="xl:w-2/3 grid grid-cols-2 gap-6 auto-rows-fr">
             {features.map((feature) => (
               <Card
                 key={feature.id}

@@ -54,7 +54,7 @@ export default function GridSection(props) {
             )}
           </div>
 
-          <div className="relative  px-0 sm:px-8 md:px-4 lg:px-24 xl:px-28 2xl:px-32">
+          <div className="relative  px-0 sm:px-8 md:px-4 xl:px-28 2xl:px-32">
             <div className={`rounded-2xl ${styles.box}`}>
               {/* Content Container */}
               <div className="bg-white rounded-[calc(1rem-10px)] p-8 shadow-inner shadow-white/10">

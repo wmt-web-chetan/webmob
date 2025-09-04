@@ -40,11 +40,11 @@ const AICTASection = (props) => {
     <section className="relative h-auto flex items-center justify-start overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 custom-bg">
-      <Image src={bg1} alt='design icon' className='hidden lg:block' />
-      <Image src={bg2} className='right-[20%] absolute bottom-0 hidden lg:block' alt='design icon'  />
-      <Image src={ellipse} className='right-[2%] absolute bottom-0 hidden lg:block' alt='design icon' />
-      <Image src={spark} className='right-[10%] absolute top-24 hidden lg:block' alt='design icon' />
-      <Image src={bg3} className='right-0 absolute top-0 rotate-180 hidden lg:block' alt='design icon' />
+      <Image src={bg1} alt='design icon' className='hidden xl:block' />
+      <Image src={bg2} className='right-[20%] absolute bottom-0 hidden xl:block' alt='design icon'  />
+      <Image src={ellipse} className='right-[2%] absolute bottom-0 hidden xl:block' alt='design icon' />
+      <Image src={spark} className='right-[10%] absolute top-24 hidden xl:block' alt='design icon' />
+      <Image src={bg3} className='right-0 absolute top-0 rotate-180 hidden xl:block' alt='design icon' />
 
         {/* <Image
           src={CTAImage}
@@ -58,16 +58,16 @@ const AICTASection = (props) => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 px-4 sm:px-8 lg:px-12 xl:px-24 2xl:px-48 text-center sm:text-center md:text-center lg:text-start text-white flex flex-col items-center lg:items-start py-12 sm:py-16 lg:py-20 mx-auto lg:mx-0">
+      <div className="relative z-10 px-4 sm:px-8 xl:px-24 2xl:px-48 text-center sm:text-center md:text-center xl:text-start text-white flex flex-col items-center xl:items-start py-12 sm:py-16 xl:py-20 mx-auto xl:mx-0">
         <div className="mb-6 sm:mb-14">
           {props?.mainTitle && (
-            <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-[40px] font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-3xl xl:text-4xl 2xl:text-[40px] font-bold mb-4 sm:mb-6 xl:mb-8 leading-tight">
               {formatTitle(props.mainTitle)}
             </h1>
           )}
           
           {props?.subtitle && (
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-[24px] !text-white max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-6xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-[24px] !text-white max-w-sm sm:max-w-md md:max-w-2xl xl:max-w-6xl mx-auto xl:mx-0 leading-relaxed">
               {props.subtitle}
             </p>
           )}
@@ -75,7 +75,7 @@ const AICTASection = (props) => {
         
         {/* CTA Buttons */}
         {(props?.primaryButton || props?.secondaryButton) && (
-          <div className="flex flex-row gap-3 sm:gap-4 lg:gap-6 justify-center lg:justify-start items-center mx-auto lg:mx-0">
+          <div className="flex flex-row gap-3 sm:gap-4 xl:gap-6 justify-center xl:justify-start items-center mx-auto xl:mx-0">
             {props?.primaryButton && (
               <PrimaryButton
                 text={

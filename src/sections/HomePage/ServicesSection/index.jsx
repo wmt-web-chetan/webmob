@@ -50,7 +50,7 @@ const ServicesSection = (props) => {
 
   return (
     <div className="bg-[#F0F4FF] section-padding-y px-wrapper">
-      <div className="w-full mx-auto px-0 sm:px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+      <div className="w-full mx-auto ">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 ">
           {props?.title && (
@@ -76,7 +76,7 @@ const ServicesSection = (props) => {
               onMouseEnter={() => {
                 if (
                   typeof window !== "undefined" &&
-                  window.innerWidth >= 1024
+                  window.innerWidth >= 1280
                 ) {
                   setExpandedSection(service.id);
                 }
@@ -84,7 +84,7 @@ const ServicesSection = (props) => {
               onMouseLeave={() => {
                 if (
                   typeof window !== "undefined" &&
-                  window.innerWidth >= 1024
+                  window.innerWidth >= 1280
                 ) {
                   setExpandedSection(0);
                 }
@@ -92,12 +92,12 @@ const ServicesSection = (props) => {
             >
               {/* Service Header - Always visible */}
               <div
-                className="px-4 sm:px-6 md:px-12 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center cursor-pointer relative  transition-colors duration-200"
+                className="px-4 sm:px-6 md:px-12 xl:px-16 py-4 sm:py-5 md:py-6 flex items-center cursor-pointer relative  transition-colors duration-200"
                 onClick={() => handleServiceToggle(service.id)}
               >
                 <div className="flex items-center flex-1 min-w-0">
                   <span
-                    className={`font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mr-3 sm:mr-4 md:mr-6 lg:mr-8 transition-colors duration-300 flex-shrink-0 ${
+                    className={`font-bold text-2xl sm:text-3xl md:text-4xl xl:text-5xl mr-3 sm:mr-4 md:mr-6 xl:mr-8 transition-colors duration-300 flex-shrink-0 ${
                       expandedSection === service.id
                         ? "text-gradient-primary"
                         : "text-gray-400"
@@ -143,22 +143,22 @@ const ServicesSection = (props) => {
               <div
                 className={`transition-all duration-500 ease-in-out overflow-hidden ${
                   expandedSection === service.id
-                    ? "max-h-[800px] sm:max-h-[600px] md:max-h-96 opacity-100"
+                    ? "max-h-[2000px] opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-6 sm:pb-8">
+                <div className="px-4 sm:px-6 md:px-12 xl:px-16 pb-6 sm:pb-8">
                   <div className="flex items-start -ml-0">
                     {/* Spacer to align with title - extends to where arrow was */}
-                    <div className="w-8 sm:w-10 md:w-16 lg:w-20 xl:w-28 flex-shrink-0"></div>
+                    <div className="w-8 sm:w-10 md:w-16 xl:w-28 flex-shrink-0"></div>
 
                     {/* Content Container */}
                     <div className="flex-1">
                       {/* Mobile: Stack vertically (image first), Desktop: Side by side */}
-                      <div className="flex flex-col lg:flex-row lg:gap-8 xl:gap-12 lg:items-stretch">
+                      <div className="flex flex-col xl:flex-row xl:gap-12 xl:items-stretch">
                         {/* Image Section - First on mobile, second on desktop */}
-                        <div className="w-full lg:w-1/2 flex-shrink-0 order-1 lg:order-2 mb-6 lg:mb-0 lg:flex">
-                          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-auto lg:flex-1">
+                        <div className="w-full xl:w-1/2 flex-shrink-0 order-1 xl:order-2 mb-6 xl:mb-0 xl:flex">
+                          <div className="w-full h-48 sm:h-56 md:h-64 xl:h-80 xl:flex-1">
                             <Image
                               src={service.image}
                               alt={service.title}
@@ -171,17 +171,17 @@ const ServicesSection = (props) => {
                         </div>
 
                         {/* Content Section - Second on mobile, first on desktop */}
-                        <div className="flex-1 lg:flex lg:flex-col lg:justify-start order-2 lg:order-1">
-                          <p className="text-gray-600 mb-4 sm:mb-5 md:mb-6 leading-relaxed text-sm sm:text-base lg:text-lg">
+                        <div className="flex-1 xl:flex xl:flex-col xl:justify-start order-2 xl:order-1">
+                          <p className="text-gray-600 mb-4 sm:mb-5 md:mb-6 leading-relaxed text-sm sm:text-base xl:text-lg">
                             {service.description}
                           </p>
 
                           {/* Tags */}
-                          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 lg:gap-2 xl:gap-2 2xl:gap-2.5 mb-4 sm:mb-5 md:mb-6">
+                          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 xl:gap-2 2xl:gap-2.5 mb-4 sm:mb-5 md:mb-6">
                             {service.tags.map((tag, tagIndex) => (
                               <span
                                 key={tagIndex}
-                                className="flex justify-center items-center h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 2xl:h-13 px-2 sm:px-3 md:px-3.5 lg:px-4 xl:px-4 2xl:px-5 py-1 sm:py-1.5 md:py-2 lg:py-2 xl:py-2 2xl:py-2.5 bg-[#F0F4FF] text-black border border-gray-300 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-base rounded-full hover:bg-gray-50 transition-colors duration-200"
+                                className="flex justify-center items-center h-8 sm:h-9 md:h-10 xl:h-12 2xl:h-13 px-2 sm:px-3 md:px-3.5 xl:px-4 2xl:px-5 py-1 sm:py-1.5 md:py-2 xl:py-2 2xl:py-2.5 bg-[#F0F4FF] text-black border border-gray-300 text-xs sm:text-xs md:text-sm xl:text-sm 2xl:text-base rounded-full hover:bg-gray-50 transition-colors duration-200"
                               >
                                 {tag}
                               </span>
@@ -207,7 +207,7 @@ const ServicesSection = (props) => {
                                 </svg>
                               </>
                             }
-                            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer !h-10 sm:!h-11 md:!h-12 lg:!h-12 xl:!h-13 2xl:!h-14 !max-w-80 sm:!max-w-90 md:!max-w-96 lg:!max-w-104 xl:!max-w-110 2xl:!max-w-116 !px-3 sm:!px-4 md:!px-5 lg:!px-5 xl:!px-6 2xl:!px-7 !gap-1 sm:!gap-1.5 md:!gap-2 lg:!gap-2 xl:!gap-2 2xl:!gap-2.5 !min-w-0 !text-xs sm:!text-sm md:!text-sm lg:!text-base xl:!text-base 2xl:!text-lg"
+                            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer !h-10 sm:!h-11 md:!h-12 xl:!h-13 2xl:!h-14 !max-w-80 sm:!max-w-90 md:!max-w-96 xl:!max-w-110 2xl:!max-w-116 !px-3 sm:!px-4 md:!px-5 xl:!px-6 2xl:!px-7 !gap-1 sm:!gap-1.5 md:!gap-2 xl:!gap-2 2xl:!gap-2.5 !min-w-0 !text-xs sm:!text-sm md:!text-sm xl:!text-base 2xl:!text-lg"
                           />
                         </div>
                       </div>
@@ -221,7 +221,7 @@ const ServicesSection = (props) => {
 
         {/* View All Button */}
         {props?.viewallbutton?.title && (
-          <div className="flex justify-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-12 lg:px-16">
+          <div className="flex justify-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-12 xl:px-16">
             <PrimaryButton
               text={props.viewallbutton.title}
               className="bg-gradient-primary text-white hover:cursor-pointer font-medium transition-all duration-200  border-none shadow-none outline-none"

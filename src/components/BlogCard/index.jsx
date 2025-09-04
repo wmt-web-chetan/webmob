@@ -2,18 +2,18 @@ import Image from "next/image"
 
 export function BlogCard({ title, highlightedText, description, author, date, tags, imageSrc, readMoreLink }) {
   return (
-    <div className="relative overflow-hidden bg-white p-6 sm:p-8 lg:p-4 xl:p-6 2xl:p-6 3xl:p-6 rounded-3xl border border-text-disabled">
-      <div className="mb-6 sm:mb-8 lg:mb-10 rounded-2xl border-1 border-text-disabled">
+    <div className="relative overflow-hidden bg-white p-6 sm:p-8 xl:p-6 2xl:p-6 3xl:p-6 rounded-3xl border border-text-disabled">
+      <div className="mb-6 sm:mb-8 xl:mb-10 rounded-2xl border-1 border-text-disabled">
         <Image
           src={imageSrc || "/placeholder.svg?height=300&width=800&query=healthcare technology main image"}
           alt="Featured Article Image"
           width={800}
           height={400}
-          className="w-full h-56 sm:h-64 lg:h-72 xl:h-96 object-fill rounded-2xl"
+          className="w-full h-56 sm:h-64 md:h-96 xl:h-96 object-fill rounded-2xl"
         />
       </div>
 
-      <div className="space-y-3 sm:space-y-4 lg:space-y-5">
+      <div className="space-y-3 sm:space-y-4 xl:space-y-5">
         <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-gray-900 leading-tight">
           {title}
         </h2>
