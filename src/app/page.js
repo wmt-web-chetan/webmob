@@ -1,5 +1,5 @@
 
-import AwardSection from "@/components/AwardSection";
+import AwardSection from "@/components/AwardComponent";
 import Header from "@/components/Header";
 import AboutSection from "@/sections/HomePage/AboutSection";
 import AwardsSection from "@/sections/HomePage/AwardsSection";

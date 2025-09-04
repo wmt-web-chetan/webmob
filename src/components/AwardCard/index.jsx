@@ -8,7 +8,7 @@ const AwardCard = ({ image, text }) => {
       <div className="rounded-full flex items-center justify-center relative"> 
         <div className="w-16 sm:w-18 lg:w-20 rounded-full bg-white flex items-center justify-center">
           {image ? (
-            <Image src={image} alt="Award Logo" className="w-full object-contain" />
+            <img src={image} alt="Award Logo" className="w-full object-contain" />
           ) : (
             <span className="text-orange-500 font-bold text-lg sm:text-xl">∞</span>
           )}

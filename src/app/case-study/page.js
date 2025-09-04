@@ -2,9 +2,9 @@
 import CaseStudyCard from "@/components/CaseStudyCard";
 import CaseStudyFilter from "@/sections/CaseStudyPage/CaseStudyFilter/CaseStudyFilter";
 import Image from "next/image";
-import backdropImage from "@/assets/images/Group 74.png";
-import AwardSection from "@/components/AwardSection";
+import backdropImage from "@/assets/images/Group 74.png"; 
 import FaqSection from "@/sections/HomePage/FaqSection";
+import AwardSection from "@/sections/CaseStudyPage/AwardsSection";
 
 const latestStudy = {
   id: 1,
@@ -53,7 +53,7 @@ const CaseStudy = () => {
       </div>
 
       <CaseStudyFilter />
-      <AwardSection count={144} rating={3.6} />
+      <AwardSection />
       <FaqSection />
 
       <style jsx>{`
