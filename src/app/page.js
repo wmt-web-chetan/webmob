@@ -28,7 +28,7 @@ export default async function Home() {
         return <Component key={i} {...block[key]} />;
       })}
       {/* <DepartmentSection /> */}
-      <AwardSection/>
+      {/* <AwardSection/> */}
       <TestimonialsSection/>
       <FaqSection />
       <BlogsSection />

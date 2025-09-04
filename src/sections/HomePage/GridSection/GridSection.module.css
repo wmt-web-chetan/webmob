@@ -200,8 +200,10 @@
 
   background-position: center center;
 
-  /* Rotation animation */
-  animation: bg-spin 3s linear infinite;
+  /* Rotation animation - will-change improves performance */
+  will-change: background;
+  animation: bg-spin 4s linear infinite;
+  animation-fill-mode: both;
   
   /* Box shadow */
   box-shadow: 
@@ -211,12 +213,15 @@
 }
 
 @keyframes bg-spin {
-  to {
+  0% {
+    --border-angle: 0turn;
+  }
+  100% {
     --border-angle: 1turn;
   }
 }
 
-/* Pause on hover */
-.box:hover {
+/* Optional: Pause on hover - remove this if you want continuous animation */
+/* .box:hover {
   animation-play-state: paused;
-}
+} */

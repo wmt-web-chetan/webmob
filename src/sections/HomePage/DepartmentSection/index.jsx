@@ -34,6 +34,7 @@ const ToolItem = memo(({ tool }) => (
         src={tool.icon}
         alt={`${tool.name} logo`}
         width={40}
+        height={40}
         className="object-cover"
         loading="lazy"
       />
@@ -45,7 +46,6 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs?.[0]?.tabKey || "");
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const items = tabs?.map(tab => tab.tabLabel) || [];
 
   // Create dynamic tab content from the query data
   const tabContent = {};
@@ -58,7 +58,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
       toolsDescription: tab.toolsDescription,
       tools: tab.toolIcons?.map((toolIcon, index) => ({
         name: `Tool ${index + 1}`, // You may want to add tool names to your GraphQL schema
-        icon: Tensor_Flow, // Default icon - you may want to use the actual icon from toolIcon.icon.node
+        icon: toolIcon.icon?.node?.mediaItemUrl || Tensor_Flow, // Use actual icon URL or fallback
         color: `bg-${['orange', 'red', 'green', 'yellow', 'blue', 'purple'][index % 6]}-500`
       })) || [],
       ctaButton: tab.ctabutton
@@ -158,7 +158,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
                     </span>
                   }
                   className="bg-white text-text-primary px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  onClick={() => {
+                  method={() => {
                     if (currentContent.ctaButton.url) {
                       const target = currentContent.ctaButton.target || '_self';
                       if (target === '_blank') {
