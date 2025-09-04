@@ -3,13 +3,13 @@ import Image from "next/image"
 export function BlogCard({ title, highlightedText, description, author, date, tags, imageSrc, readMoreLink }) {
   return (
     <div className="relative overflow-hidden bg-white p-6 sm:p-8 lg:p-4 xl:p-6 2xl:p-6 3xl:p-6 rounded-3xl border border-text-disabled">
-      <div className="mb-6 sm:mb-8 lg:mb-10">
+      <div className="mb-6 sm:mb-8 lg:mb-10 rounded-2xl border-1 border-text-disabled">
         <Image
           src={imageSrc || "/placeholder.svg?height=300&width=800&query=healthcare technology main image"}
           alt="Featured Article Image"
           width={800}
           height={400}
-          className="w-full h-56 sm:h-64 lg:h-72 xl:h-96 object-fill rounded-lg"
+          className="w-full h-56 sm:h-64 lg:h-72 xl:h-96 object-fill rounded-2xl"
         />
       </div>
 

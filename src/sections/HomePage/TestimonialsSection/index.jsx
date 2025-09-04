@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import blue_colon from "@/assets/images/blue_colon.svg"
 import colon from "@/assets/images/collon.svg"
+import PrimaryButton from "@/components/PrimaryButton";
+import arrow from '@/assets/SVGs/arrow-up.svg';
 
 const TestimonialCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(1); // Start with middle slide for 3-card view
@@ -112,7 +114,7 @@ const TestimonialCarousel = () => {
         <div className="text-center mb-12 ">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 sm:mb-2 md:mb-2 lg:mb-4">
             What{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent font-bold">
+            <span className="text-gradient-primary bg-clip-text text-transparent font-bold">
               Our Clients
             </span>{" "}
             Say
@@ -328,23 +330,16 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-8 lg:mt-8">
-          <button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium px-8 py-3 lg:px-10 lg:py-4 rounded-full text-base lg:text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl transform hover:scale-105">
-            View All Testimonials
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+        <div className="flex justify-center mt-8 sm:mt-10 md:mt-12 lg:mt-12">
+          <PrimaryButton
+            text={
+              <>
+                View All Testimonials
+                <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
+              </>
+            }
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
+          />
         </div>
       </div>
     </section>
