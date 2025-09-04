@@ -3,6 +3,7 @@
 import { AI_CTA_SECTION, AI_CTA_SECTION_FRAGMENT } from "./sectionsQuery/home/AiCtaSection";
 import { BRAND_SECTION_FRAGMENT } from "./sectionsQuery/home/brandSection";
 import { CASE_STUDIES_FRAGMENT } from "./sectionsQuery/home/caseStudySection";
+import { DEPARTMENT_FRAGMENT } from "./sectionsQuery/home/DepartmentSection";
 import { HERO_SECTION_FRAGMENT } from "./sectionsQuery/home/heroSection";
 import { MARQUEE_VIDEO_SECTION_FRAGMENT, VIDEO_FRAGMENT } from "./sectionsQuery/home/marqueeVideoSection";
 import { SERVICE_SECTION_FRAGMENT } from "./sectionsQuery/home/serviceSection";
@@ -29,6 +30,7 @@ export async function getPageData(slug) {
               ${STASTICS_FRAGMENT}
               ${MARQUEE_VIDEO_SECTION_FRAGMENT}
               ${VIDEO_FRAGMENT}
+              ${DEPARTMENT_FRAGMENT}
             } 
           } 
         } 

@@ -1,5 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import blue_colon from "@/assets/images/blue_colon.svg"
+import colon from "@/assets/images/collon.svg"
+import PrimaryButton from "@/components/PrimaryButton";
+import arrow from '@/assets/SVGs/arrow-up.svg';
 
 const TestimonialCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(1); // Start with middle slide for 3-card view
@@ -79,6 +84,10 @@ const TestimonialCarousel = () => {
     setCurrentSlide(index);
   };
 
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+  };
+
   const getSlidePosition = (index) => {
     const diff =
       (index - currentSlide + testimonials.length) % testimonials.length;
@@ -105,7 +114,7 @@ const TestimonialCarousel = () => {
         <div className="text-center mb-12 ">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 sm:mb-2 md:mb-2 lg:mb-4">
             What{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent font-bold">
+            <span className="text-gradient-primary bg-clip-text text-transparent font-bold">
               Our Clients
             </span>{" "}
             Say
@@ -117,7 +126,7 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Desktop Carousel Container */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <div className="relative h-[500px] lg:h-[550px] xl:h-[600px] flex items-center justify-center ">
             {testimonials.map((testimonial, index) => (
               <div
@@ -151,7 +160,11 @@ const TestimonialCarousel = () => {
                             : "scale-90 lg:scale-100"
                         }`}
                       >
-                        <QuoteIcon isActive={index === currentSlide} />
+                        {index === currentSlide ? (
+                          <Image src={colon} alt="colon" width={48} height={36} />
+                        ) : (
+                          <Image src={blue_colon} alt="blue colon" width={48} height={36} />
+                        )}
                       </div>
                     </div>
 
@@ -225,50 +238,76 @@ const TestimonialCarousel = () => {
           </div>
         </div>
 
-        {/* Mobile Layout - Simple Slider */}
-        <div className="md:hidden">
+       {/* Mobile Carousel (visible only on mobile) */}
+       <div className="lg:hidden">
           <div className="relative overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-out"
+              className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
+                <div
+                  key={testimonial.id}
+                  className={`w-full flex-shrink-0 px-2 relative transition-all duration-500 ${
+                    index === currentSlide ? "" : "opacity-60 translate-y-4"
+                  }`}
+                >
                   <div
-                    className={`rounded-2xl p-6 pb-20 relative ${
+                    className={`rounded-2xl p-3 sm:p-4 pb-8 sm:pb-10 transition-all duration-500 ${
                       index === currentSlide
                         ? "bg-blue-600 text-white"
-                        : "bg-gray-50 text-gray-700"
+                        : "bg-gray-50 text-gray-900"
                     }`}
                   >
-                    {/* Quote Icon */}
-                    <div className="flex justify-center mb-6">
-                      <QuoteIcon isActive={index === currentSlide} />
+                    <div
+                      className={`transition-all duration-500 flex justify-center mb-3 sm:mb-4 ${
+                        index === currentSlide
+                          ? "text-white text-3xl sm:text-4xl"
+                          : "text-gradient-primary text-3xl sm:text-4xl"
+                      }`}
+                    >
+                      {index === currentSlide ? (
+                        <Image src={colon} alt="colon" />
+                      ) : (
+                        <Image src={blue_colon} alt="blue colon" />
+                      )}
                     </div>
-
-                    {/* Text */}
                     <p
-                      className={`text-center leading-relaxed mb-8 ${
+                      className={`leading-relaxed text-sm sm:text-base transition-all duration-500 ${
                         index === currentSlide ? "text-white" : "text-gray-700"
                       }`}
                     >
                       {testimonial.text}
                     </p>
-
-                    {/* Profile */}
-                    <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-5">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-16 h-16 rounded-full shadow-lg mb-3"
-                      />
-                      <h4 className="font-semibold text-gray-900 text-base mb-1">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-gray-600 text-sm text-center">
-                        {testimonial.position}
-                      </p>
-                    </div>
+                  </div>
+                  <div className="absolute bottom-18 sm:bottom-16 left-1/2 transform -translate-x-1/2">
+                    <Image
+                     height={100}
+                     width={100}
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className={`rounded-full shadow-lg transition-all duration-500 ${
+                        index === currentSlide
+                          ? "w-10 h-10 sm:w-12 sm:h-12"
+                          : "w-8 h-8 sm:w-10 sm:h-10"
+                      }`}
+                    />
+                  </div>
+                  <div className="text-center mt-12 sm:mt-10 px-2">
+                    <h4
+                      className={`font-semibold text-sm sm:text-base mb-1 text-gray-900 transition-all duration-500 ${
+                        index === currentSlide ? "" : "text-xs sm:text-sm"
+                      }`}
+                    >
+                      {testimonial.name}
+                    </h4>
+                    <p
+                      className={`text-xs sm:text-sm text-gray-600 transition-all duration-500 ${
+                        index === currentSlide ? "" : "text-xs"
+                      }`}
+                    >
+                      {testimonial.position}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -276,15 +315,13 @@ const TestimonialCarousel = () => {
           </div>
 
           {/* Mobile Navigation Dots */}
-          <div className="flex justify-center mt-16 space-x-2">
+          <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index
-                    ? "bg-blue-600 scale-125"
-                    : "bg-gray-300"
+                onClick={() => handleDotClick(index)}
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-blue-600" : "bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -293,23 +330,16 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="text-center mt-4 lg:mt-8">
-          <button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium px-8 py-3 lg:px-10 lg:py-4 rounded-full text-base lg:text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl transform hover:scale-105">
-            View All Testimonials
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+        <div className="flex justify-center mt-8 sm:mt-10 md:mt-12 lg:mt-12">
+          <PrimaryButton
+            text={
+              <>
+                View All Testimonials
+                <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
+              </>
+            }
+            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
+          />
         </div>
       </div>
     </section>

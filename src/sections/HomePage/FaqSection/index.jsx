@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react";
 
 export default function FaqSection() {
-  const [openItem, setOpenItem] = useState("item-1")
+  const [openItem, setOpenItem] = useState("item-1");
 
   const faqData = [
     {
@@ -36,88 +36,107 @@ export default function FaqSection() {
       answer:
         "We offer dedicated developer hiring models where you can work directly with our skilled developers on your projects.",
     },
-  ]
+  ];
 
   const toggleItem = (itemId) => {
-    setOpenItem(openItem === itemId ? "" : itemId)
-  }
+    setOpenItem(openItem === itemId ? "" : itemId);
+  };
 
   const PlusIcon = () => (
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground transition-transform"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+      <path
+        d="M12 5V19M5 12H19"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
-  )
+  );
 
   const XIcon = () => (
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground transition-transform"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+      <path
+        d="M18 6L6 18M6 6L18 18"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
-  )
+  );
 
   return (
-    <div className="border-b bg-background section-padding-y">
+    <div className="bg-background section-padding-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        {/* Header Section */}
+        {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className=" h2-heading font-bold  mb-2">
+          <h2 className="h2-heading font-bold mb-2">
             <span className="text-balance">Your Questions, </span>
             <span className="text-gradient-primary">Answered</span>
           </h2>
         </div>
 
         <div className="w-full space-y-0">
-          {faqData.map((faq, index) => (
-            <div
-              key={faq.id}
-              className={`bg-card hover:bg-accent/50 transition-colors ${
-                index !== faqData.length - 1 ? 'border-b border-text-disabled' : ''
-              }`}
-            >
-              <button
-                onClick={() => toggleItem(faq.id)}
-                className="w-full text-left text-sm sm:text-base lg:text-lg font-medium py-4 sm:py-5 lg:py-6 focus:outline-none"
+          {faqData.map((faq, index) => {
+            const contentRef = useRef(null);
+            const [height, setHeight] = useState("0px");
+
+            useEffect(() => {
+              if (openItem === faq.id && contentRef.current) {
+                setHeight(`${contentRef.current.scrollHeight}px`);
+              } else {
+                setHeight("0px");
+              }
+            }, [openItem]);
+
+            return (
+              <div
+                key={faq.id}
+                className="bg-card hover:bg-accent/50 transition-colors"
               >
-                <div className="flex items-center justify-between w-full">
-                  <span className={`pr-4 text-pretty transition-colors ${openItem === faq.id ? 'text-secondary' : 'text-foreground'}`}>{faq.question}</span>
-                  <div className="flex-shrink-0 ml-4">
-                    {openItem === faq.id ? (
-                      <div className="border  rounded-full p-1 sm:p-1.5">
-                        <XIcon />
+                <div className="flex flex-col gap-2 lg:gap-4">
+                  <button
+                    onClick={() => toggleItem(faq.id)}
+                    className="w-full text-left font-medium focus:outline-none"
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <span
+                        className={`pr-4 font-medium text-lg sm:text-xl lg:text-2xl transition-colors ${
+                          openItem === faq.id
+                            ? "text-secondary"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {faq.question}
+                      </span>
+                      <div className="flex-shrink-0 ml-4 border rounded-full p-1 sm:p-1.5">
+                        {openItem === faq.id ? <XIcon /> : <PlusIcon />}
                       </div>
-                    ) : (
-                      <div className="border  rounded-full p-1 sm:p-1.5">
-                        <PlusIcon />
-                      </div>
-                    )}
+                    </div>
+                  </button>
+
+                  {/* Answer with transition */}
+                  <div
+                    ref={contentRef}
+                    style={{ maxHeight: height }}
+                    className={`overflow-hidden transition-[max-height] duration-500 ease-in-out`}
+                  >
+                    <div className="text-lg sm:text-xl lg:text-2xl font-light">
+                       
+                        {faq.answer}
+                       
+                    </div>
                   </div>
                 </div>
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openItem === faq.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="text-sm sm:text-base text-muted-foreground pb-4 sm:pb-5 lg:pb-6 pt-0">
-                  <div className="text-pretty leading-relaxed">{faq.answer}</div>
-                </div>
+                {index !== faqData.length - 1 && (
+                  <div className="w-full border-b border-text-disabled my-2 sm:my-4 lg:my-8"></div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
-  )
+  );
 }
