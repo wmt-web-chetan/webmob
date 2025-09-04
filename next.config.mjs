@@ -1,32 +1,18 @@
+// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "api.webmob.webmobtech.biz",
+        pathname: "/wp-content/uploads/**", // WordPress uploads
       },
       {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "webmobtechcdn.nyc3.cdn.digitaloceanspaces.com",
+        pathname: "/wmt_v4/**", // CDN assets
       },
-      {
-        protocol: 'https',
-        hostname: 'webmobtechcdn.nyc3.cdn.digitaloceanspaces.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'http',
-        hostname: '192.168.1.60',
-        port: '',
-        pathname: '/**',
-        
-      }
     ],
   },
 };
