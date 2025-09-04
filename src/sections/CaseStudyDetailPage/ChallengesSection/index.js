@@ -66,7 +66,7 @@ const ChallengesSection = () => {
         <ul className="ps-4 list-disc list-outside flex flex-col gap-2 sm:gap-4 md:gap-6 lg:gap-6 text-base sm:text-xl md:text-2xl">
           <li>Handle multiple languages</li>
           <li>Provide real-time responses</li>
-          <li>Integrate with ShopSphere's existing systems</li>
+          <li>{`Integrate with ShopSphere's existing systems`}</li>
           <li>Be scalable and cost-effective</li>
         </ul>
       </div>
