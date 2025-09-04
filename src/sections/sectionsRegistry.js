@@ -10,5 +10,5 @@ export const sectionRegistry = {
   statisticsSection: dynamic(()=>import("./HomePage/StatisticsSection")),
   scrollingTicker: dynamic(()=>import("./HomePage/MarqueeSection")),
   clientTestimonials: dynamic(()=>import("./HomePage/VideoSection")),
-    
+  awardsRecognition:dynamic(()=>import("./HomePage/AwardsSection"))
 };
