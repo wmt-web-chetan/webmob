@@ -108,7 +108,7 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="bg-white section-padding-y">
+    <section className="bg-white section-padding-y overflow-hidden">
       <div className="container mx-auto  w-full">
         {/* Header */}
         <div className="text-center mb-12 ">
