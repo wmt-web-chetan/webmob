@@ -2,10 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 
-export default function FaqSection() {
+export default function FaqSection({ title, faqs }) {
   const [openItem, setOpenItem] = useState("item-1");
 
-  const faqData = [
+  // Default FAQ data as fallback
+  const defaultFaqData = [
     {
       id: "item-1",
       question: "What services does WebMob Technologies provide?",
@@ -37,6 +38,17 @@ export default function FaqSection() {
         "We offer dedicated developer hiring models where you can work directly with our skilled developers on your projects.",
     },
   ];
+
+  // Use dynamic data if available, otherwise use default data
+  const faqData = faqs && faqs.length > 0 
+    ? faqs.map((faq, index) => ({
+        id: `item-${index + 1}`,
+        question: faq.question,
+        answer: faq.answer,
+      }))
+    : defaultFaqData;
+
+  const displayTitle = title || "Your Questions, Answered";
 
   const toggleItem = (itemId) => {
     setOpenItem(openItem === itemId ? "" : itemId);
@@ -72,8 +84,14 @@ export default function FaqSection() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="h2-heading font-bold mb-2">
-            <span className="text-balance">Your Questions, </span>
-            <span className="text-gradient-primary">Answered</span>
+            {displayTitle.includes(' ') ? (
+              <>
+                <span className="text-balance">{displayTitle.split(' ').slice(0, -1).join(' ')} </span>
+                <span className="text-gradient-primary">{displayTitle.split(' ').slice(-1)[0]}</span>
+              </>
+            ) : (
+              <span className="text-gradient-primary">{displayTitle}</span>
+            )}
           </h2>
         </div>
 

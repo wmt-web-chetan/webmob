@@ -6,10 +6,14 @@ import colon from "@/assets/images/collon.svg"
 import PrimaryButton from "@/components/PrimaryButton";
 import arrow from '@/assets/SVGs/arrow-up.svg';
 
-const TestimonialCarousel = () => {
+const TestimonialCarousel = (props) => {
   const [currentSlide, setCurrentSlide] = useState(1); // Start with middle slide for 3-card view
 
-  const testimonials = [
+  // Handle both direct props and nested clientTestimonialsCarousel structure
+  const data = props?.clientTestimonialsCarousel || props;
+  
+  // Default testimonials as fallback
+  const defaultTestimonials = [
     {
       id: 1,
       name: "Ananya Mehra",
@@ -59,6 +63,25 @@ const TestimonialCarousel = () => {
       text: "Great platform with transparent pricing and no hidden fees. The customer service team was available 24/7 to answer all my queries during the home buying process.",
     },
   ];
+
+  // Extract dynamic data
+  const title = data?.title || "What Our Clients Say";
+  const subtitle = data?.subtitle || "We've helped people turn houses into homes. See what they're saying about us.";
+  const viewAllButton = data?.viewallbutton || { title: "View All Testimonials", url: "#" };
+
+  // Transform testimonials data from GraphQL structure
+  const testimonialsNodes = data?.testimonials?.nodes || [];
+  const dynamicTestimonials = testimonialsNodes.length > 0 ? testimonialsNodes.map((node, index) => ({
+    id: index + 1,
+    name: node.testimonials?.clientName || "Anonymous",
+    position: node.testimonials?.clientPosition || "Client",
+    avatar: node.testimonials?.clientImage?.node?.mediaItemUrl || "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
+    text: node.testimonials?.clientQuote || "Great service!",
+    featured: node.testimonials?.isfeatured || false,
+  })) : defaultTestimonials;
+
+  // Use dynamic testimonials if available, otherwise use default
+  const testimonials = dynamicTestimonials;
 
   // Quote SVG Component
   const QuoteIcon = ({ isActive }) => (
@@ -113,15 +136,21 @@ const TestimonialCarousel = () => {
         {/* Header */}
         <div className="text-center mb-12 ">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 sm:mb-2 md:mb-2 lg:mb-4">
-            What{" "}
-            <span className="text-gradient-primary bg-clip-text text-transparent font-bold">
-              Our Clients
-            </span>{" "}
-            Say
+            {title.includes(' ') ? (
+              <>
+                {title.split(' ').slice(0, -2).join(' ')}{" "}
+                <span className="text-gradient-primary bg-clip-text text-transparent font-bold">
+                  {title.split(' ').slice(-2, -1).join(' ')} {title.split(' ').slice(-1).join(' ')}
+                </span>
+              </>
+            ) : (
+              <span className="text-gradient-primary bg-clip-text text-transparent font-bold">
+                {title}
+              </span>
+            )}
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-text-secondary  mx-auto">
-            We've helped people turn houses into homes. See what they're saying
-            about us.
+            {subtitle}
           </p>
         </div>
 
@@ -331,15 +360,17 @@ const TestimonialCarousel = () => {
 
         {/* Call to Action Button */}
         <div className="flex justify-center mt-8 sm:mt-10 md:mt-12 lg:mt-12">
-          <PrimaryButton
-            text={
-              <>
-                View All Testimonials
-                <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
-              </>
-            }
-            className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
-          />
+          <a href={viewAllButton.url} target="_blank" rel="noopener noreferrer">
+            <PrimaryButton
+              text={
+                <>
+                  {viewAllButton.title}
+                  <Image src={arrow} alt="arrow" className="w-4 h-4 sm:w-5 sm:h-5 " />
+                </>
+              }
+              className="bg-gradient-primary hover:bg-gradient-primary-hover text-white font-medium transition-colors duration-200"
+            />
+          </a>
         </div>
       </div>
     </section>

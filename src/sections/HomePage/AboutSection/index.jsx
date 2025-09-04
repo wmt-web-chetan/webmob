@@ -35,11 +35,23 @@ const defaultFeatures = [
   },
 ]
 
-export default function AboutSection({
-  title = "Why Choose WebMob Technologies?",
-  subtitle = "With a team of well-trained, experienced, quick learners we have the ability to crack every software complexity & challenges to build a seamless custom solution for you",
-  features = defaultFeatures,
-}) {
+export default function AboutSection(props) {
+  // Handle both direct props and nested whyChooseFeatures structure
+  const data = props?.whyChooseFeatures || props;
+  
+  const title = data?.title || "Why Choose WebMob Technologies?";
+  const subtitle = data?.description || "With a team of well-trained, experienced, quick learners we have the ability to crack every software complexity & challenges to build a seamless custom solution for you";
+  
+  // Transform dynamic features to match expected format
+  const dynamicFeatures = data?.features?.map((feature, index) => ({
+    id: `dynamic-feature-${index + 1}`,
+    title: feature.title,
+    description: feature.description,
+    icon: feature.icon?.node?.mediaItemUrl || defaultFeatures[index % defaultFeatures.length].icon,
+    highlighted: index === 1, // Keep second item highlighted for consistency
+  })) || [];
+  
+  const features = dynamicFeatures.length > 0 ? dynamicFeatures : defaultFeatures;
   return (
     <section className="bg-[#EBEFFF]">
       <div className="w-full max-w-none mx-auto px-wrapper section-padding-y">
@@ -49,7 +61,15 @@ export default function AboutSection({
           <div className="text-center mb-8 sm:mb-10 md:mb-12 flex-col items-center">
             <div className="space-y-4 sm:space-y-5 md:space-y-6">
               <h1 className="h2-heading-large font-bold text-gray-900 leading-tight">
-                Why Choose <span className="text-gradient-primary">WebMob Technologies</span>?
+                {title.includes('WebMob Technologies') ? (
+                  <>
+                    Why Choose <span className="text-gradient-primary">WebMob Technologies</span>?
+                  </>
+                ) : (
+                  <>
+                    {title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-primary">{title.split(' ').slice(-1)[0]}</span>
+                  </>
+                )}
               </h1>
               <p className="h2-description text-gray-700 leading-relaxed max-w-2xl md:max-w-2xl mx-auto">
                 {subtitle}
@@ -70,6 +90,8 @@ export default function AboutSection({
                     <Image 
                       src={feature.icon} 
                       alt={feature.title}
+                      width={40}
+                      height={40}
                       className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                     />
                   </div>
@@ -104,7 +126,15 @@ export default function AboutSection({
           <div className="lg:w-1/3 space-y-8">
             <div className="space-y-6">
               <h1 className="h2-heading-large font-bold text-gray-900 leading-tight">
-                Why Choose <span className="text-gradient-primary">WebMob Technologies</span>?
+                {title.includes('WebMob Technologies') ? (
+                  <>
+                    Why Choose <span className="text-gradient-primary">WebMob Technologies</span>?
+                  </>
+                ) : (
+                  <>
+                    {title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-primary">{title.split(' ').slice(-1)[0]}</span>
+                  </>
+                )}
               </h1>
               <p className="text-2xl text-gray-700 leading-relaxed !max-w-lg">
                 {subtitle}
@@ -125,6 +155,8 @@ export default function AboutSection({
                     <Image 
                       src={feature.icon} 
                       alt={feature.title}
+                      width={40}
+                      height={40}
                       className="w-10 h-10"
                     />
                   </div>
