@@ -16,7 +16,7 @@ import arrow from "@/assets/SVGs/arrow-up.svg";
 const TabButton = memo(({ tab, isActive, onClick }) => (
   <button
     onClick={onClick}
-    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 xl:px-12 xl:py-4 rounded-full transition-colors duration-300 text-sm sm:text-base md:text-lg font-normal ${
+    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 xl:px-6 xl:py-3 2xl:px-12 2xl:py-4 rounded-full transition-colors duration-300 text-sm sm:text-base md:text-lg font-normal ${
       isActive
         ? "button-background-gradient text-white font-medium"
         : "text-text-primary "
