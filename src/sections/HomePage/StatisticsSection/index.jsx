@@ -80,9 +80,9 @@ export default function StatisticsSection(props) {
   return (
     <main className=" bg-background section-padding-y px-wrapper">
       <div className="container mx-auto ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-28 2xl:gap-48 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 sm:gap-10 md:gap-12 xl:gap-28 2xl:gap-48 ">
           {/* Left Section */}
-          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-0 lg:px-8">
+          <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-0 xl:px-8">
             <div className="space-y-4 md:space-y-5">
               {props?.title && (
                 <h1 className="h2-heading leading-tight">
@@ -128,9 +128,9 @@ export default function StatisticsSection(props) {
 
             {/* Chart Illustration */}
             {props?.chartImage?.node?.mediaItemUrl && (
-              <div className="relative flex flex-col w-full mx-auto md:mx-0 lg:mx-0 pt-4 md:pt-6">
+              <div className="relative flex flex-col w-full mx-auto md:mx-0 xl:mx-0 pt-4 md:pt-6">
                 {/* Graph */}
-                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full md:w-full lg:w-auto h-auto max-w-sm md:max-w-md lg:max-w-lg" />
+                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full md:w-full xl:w-auto h-auto max-w-sm md:max-w-md xl:max-w-lg" />
 
                 {/* Spark on top-right of graph */}
                 <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4">
@@ -145,7 +145,7 @@ export default function StatisticsSection(props) {
           </div>
 
           {/* Right Section - Stats */}
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:gap-8 xl:gap-10">
             {/* First two metrics */}
             <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 border-b border-gray-400 pb-6 sm:pb-7 md:pb-8">
               {props.metrics.slice(0, 2).map((metric, index) => (

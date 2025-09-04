@@ -61,8 +61,8 @@ export default function VideoSection(props) {
     <div className="bg-white section-padding-y px-wrapper">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14 2xl:mb-16 3xl:mb-18">
-          <h2 className="h2-heading text-gradient-primary font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-7 3xl:mb-8">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 xl:mb-14 2xl:mb-16 3xl:mb-18">
+          <h2 className="h2-heading text-gradient-primary font-bold mb-2 sm:mb-3 md:mb-4 xl:mb-6 2xl:mb-7 3xl:mb-8">
             {formatTitle(title)}
           </h2>
           <p className="h2-description text-text-secondary">
@@ -72,7 +72,7 @@ export default function VideoSection(props) {
         {/* Video Container */}
         {shouldShow && (
           <div className="mx-auto px-wrapper">
-            <div className="bg-[#f0f4ff] rounded-3xl p-2 sm:p-3 md:p-3 lg:p-3 xl:p-4 2xl:p-4">
+            <div className="bg-[#f0f4ff] rounded-3xl p-2 sm:p-3 md:p-3 xl:p-4 2xl:p-4">
               <div className="relative rounded-3xl overflow-hidden group aspect-video">
               <video
                 ref={videoRef}

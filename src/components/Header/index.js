@@ -44,7 +44,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] bg-white shadow-sm">
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-18 w-full">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 xl:px-12 2xl:px-18 w-full">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <div className="flex items-center">
@@ -54,19 +54,19 @@ export default function Header() {
                 height={120} // Base height for mobile
                 width={120}  // Base width for mobile
                 alt="Logo"
-                className="object-contain sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36 xl:h-40 xl:w-40 2xl:h-44 2xl:w-44"
+                className="object-contain sm:h-28 sm:w-28 md:h-32 md:w-32 xl:h-40 xl:w-40 2xl:h-44 2xl:w-44"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center lg:space-x-2 xl:space-x-4 2xl:space-x-6 flex-1 justify-end">
-            <nav className="flex items-center lg:space-x-1 xl:space-x-2 2xl:space-x-3">
+          <div className="hidden xl:flex items-center xl:space-x-4 2xl:space-x-6 flex-1 justify-end">
+            <nav className="flex items-center xl:space-x-2 2xl:space-x-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`lg:px-3 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full lg:text-sm xl:text-sm 2xl:text-base font-medium transition-all duration-200 ${
+                  className={`xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full xl:text-sm 2xl:text-base font-medium transition-all duration-200 ${
                     activeSection === item.id
                       ? "bg-gradient-primary text-white shadow-md"
                       : "text-text-secondary hover:text-primary hover:bg-text-disabled"
@@ -82,14 +82,14 @@ export default function Header() {
             <div className="hidden xl:block h-10 w-px bg-text-disabled"></div>
 
             {/* Desktop Buttons */}
-            <div className="flex items-center lg:space-x-2 xl:space-x-3 2xl:space-x-4">
+            <div className="flex items-center xl:space-x-3 2xl:space-x-4">
               <Link href="#book-meeting">
-                <button className="cursor-pointer text-primary border border-primary hover:bg-text-disabled bg-white font-medium lg:px-3 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full transition-all duration-200 lg:text-sm xl:text-sm 2xl:text-base">
+                <button className="cursor-pointer text-primary border border-primary hover:bg-text-disabled bg-white font-medium xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full transition-all duration-200 xl:text-sm 2xl:text-base">
                   Book a Meeting
                 </button>
               </Link>
               <Link href="#contact">
-                <button className="bg-primary hover:bg-secondary cursor-pointer text-white font-medium lg:px-3 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full shadow-md transition-all duration-200 lg:text-sm xl:text-sm 2xl:text-base">
+                <button className="bg-primary hover:bg-secondary cursor-pointer text-white font-medium xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 rounded-full shadow-md transition-all duration-200 xl:text-sm 2xl:text-base">
                   Contact Us
                 </button>
               </Link>
@@ -98,7 +98,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md text-text-primary hover:text-blue-600 hover:bg-gray-50"
+            className="xl:hidden p-2 rounded-md text-text-primary hover:text-blue-600 hover:bg-gray-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -116,7 +116,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4 bg-white">
+          <div className="xl:hidden border-t border-gray-100 py-4 bg-white">
             <nav className="flex flex-col space-y-2 sm:space-y-3">
               {navItems.map((item) => (
                 <Link

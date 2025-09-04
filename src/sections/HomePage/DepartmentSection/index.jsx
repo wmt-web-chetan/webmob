@@ -16,7 +16,7 @@ import arrow from "@/assets/SVGs/arrow-up.svg";
 const TabButton = memo(({ tab, isActive, onClick }) => (
   <button
     onClick={onClick}
-    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-12 lg:py-4 rounded-full transition-colors duration-300 text-sm sm:text-base md:text-lg font-normal ${
+    className={`px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 xl:px-12 xl:py-4 rounded-full transition-colors duration-300 text-sm sm:text-base md:text-lg font-normal ${
       isActive
         ? "button-background-gradient text-white font-medium"
         : "text-text-primary "
@@ -95,7 +95,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
         </p>
 
         <div className="mt-4 sm:mt-8 md:mt-16">
-          <div className="flex flex-wrap gap-y-3 justify-center lg:border lg:border-text-disabled lg:rounded-full ">
+          <div className="flex flex-wrap gap-y-3 justify-center xl:border xl:border-text-disabled xl:rounded-full ">
             {tabs?.map((tab) => (
               <TabButton
                 key={tab.tabKey}
@@ -110,7 +110,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 py-8">
         <div
-          className={`bg-[#1B1B35] md:col-span-12 lg:col-span-8 flex flex-col md:flex-row py-4 sm:py-6 lg:py-8 px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out transform ${
+          className={`bg-[#1B1B35] md:col-span-12 xl:col-span-8 flex flex-col md:flex-row py-4 sm:py-6 xl:py-8 px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out transform ${
             isTransitioning
               ? "opacity-0 translate-y-4"
               : "opacity-100 translate-y-0"
@@ -120,7 +120,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
           <div className="w-full sm:w-[45%] flex flex-col justify-between mt-4 sm:mt-6 md:mt-8 order-2 md:order-1">
             <div className="flex-grow">
               <h3
-                className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-normal transition-all duration-700 ease-in-out mb-3 sm:mb-4 transform ${
+                className={`text-xl sm:text-2xl md:text-3xl xl:text-5xl text-white font-normal transition-all duration-700 ease-in-out mb-3 sm:mb-4 transform ${
                   isTransitioning
                     ? "opacity-0 translate-x-8"
                     : "opacity-100 translate-x-0"
@@ -139,7 +139,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
               </p>
             </div>
             <div
-              className={`mt-4 sm:mt-6 md:mt-8 lg:mt-12 transition-all duration-700 ease-in-out transform delay-200 ${
+              className={`mt-4 sm:mt-6 md:mt-8 xl:mt-12 transition-all duration-700 ease-in-out transform delay-200 ${
                 isTransitioning
                   ? "opacity-0 translate-y-4"
                   : "opacity-100 translate-y-0"
@@ -189,7 +189,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
         </div>
 
         <div
-          className={`md:col-span-12 lg:col-span-4 flex flex-col gap-4 sm:gap-6 transition-all duration-500 ease-in-out transform ${
+          className={`md:col-span-12 xl:col-span-4 flex flex-col gap-4 sm:gap-6 transition-all duration-500 ease-in-out transform ${
             isTransitioning
               ? "opacity-0 translate-y-4"
               : "opacity-100 translate-y-0"
@@ -208,7 +208,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
           </div>
 
           <div
-            className={`bg-[#ebefff] p-4 sm:p-8 rounded-3xl flex flex-col gap-4 lg:gap-14 text-sm sm:text-base flex-1 transition-all duration-700 ease-in-out transform delay-100 ${
+            className={`bg-[#ebefff] p-4 sm:p-8 rounded-3xl flex flex-col gap-4 xl:gap-14 text-sm sm:text-base flex-1 transition-all duration-700 ease-in-out transform delay-100 ${
               isTransitioning
                 ? "opacity-0 translate-x-4"
                 : "opacity-100 translate-x-0"
@@ -223,7 +223,7 @@ const DepartmentSection = ({ defaultTab, mainTitle, subtitle, tabs }) => {
               </p>
             </div>
 
-            <div className="w-full flex flex-wrap gap-3  sm:gap-4 md:gap-6   justify-center px-0 lg:px-0 xl:px-0 ">
+            <div className="w-full flex flex-wrap gap-3  sm:gap-4 md:gap-6   justify-center px-0 xl:px-0 ">
               {currentContent.tools?.map((tool, index) => (
                 <div
                   key={index}

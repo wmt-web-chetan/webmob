@@ -26,6 +26,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
         
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.webmob.webmobtech.biz',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

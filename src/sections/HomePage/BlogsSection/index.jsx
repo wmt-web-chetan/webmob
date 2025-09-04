@@ -89,9 +89,9 @@ export default function BlogsSection(props) {
   const viewAllButton = { title: "View All Blogs", url: "/blog" };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-24 w-full mx-auto">
+    <section className="py-8 sm:py-12 xl:py-16 px-4 sm:px-6 xl:px-24 w-full mx-auto">
       {/* Header */}
-      <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+      <div className="text-center mb-8 sm:mb-12 xl:mb-16">
         <h1 className="h2-heading font-bold text-gray-900 mb-4 sm:mb-6">
           {title.includes(' ') ? (
             <>
@@ -107,28 +107,28 @@ export default function BlogsSection(props) {
       </div>
 
       {/* Blog Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 items-stretch">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 xl:gap-8 mb-8 sm:mb-12 xl:mb-16 items-stretch">
         {/* Featured Blog - Left 50% */}
-        <div className="lg:col-span-1">
+        <div className="xl:col-span-1">
           <BlogCard {...featuredBlog} className="h-full" />
         </div>
 
         {/* Smaller Blog Cards - Right 50% */}
-        <div className="lg:col-span-1 flex flex-col">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-1 gap-4 sm:gap-6 lg:gap-4 xl:gap-4 h-full content-stretch">
+        <div className="xl:col-span-1 flex flex-col">
+          <div className="grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-1 gap-4 sm:gap-6 xl:gap-4 h-full content-stretch">
             {blogCards.slice(0, 4).map((blog, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-4 sm:p-5 lg:p-4 xl:p-5 border border-text-disabled flex flex-col"
+                className="bg-white rounded-3xl p-4 sm:p-5 xl:p-5 border border-text-disabled flex flex-col"
               >
-                <div className="flex gap-3 sm:gap-4 lg:gap-3 xl:gap-4 flex-1">
+                <div className="flex gap-3 sm:gap-4 xl:gap-4 flex-1">
                   <div className="flex-shrink-0">
                     <Image
                       height={100}
                       width={100}
                       src={blog.thumbnailSrc || "/placeholder.svg"}
                       alt="Blog thumbnail"
-                      className="w-24 sm:w-28 lg:w-24 xl:w-36 aspect-square rounded-lg  border border-disabled-text"
+                      className="w-24 sm:w-28 xl:w-36 aspect-square rounded-lg  border border-disabled-text"
                     />
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
@@ -143,7 +143,7 @@ export default function BlogsSection(props) {
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-sm sm:text-base lg:text-sm xl:text-base font-semibold text-gray-900 mb-2 line-clamp-2 lg:line-clamp-3 leading-tight">
+                      <h3 className="text-sm sm:text-base xl:text-base font-semibold text-gray-900 mb-2 line-clamp-2 xl:line-clamp-3 leading-tight">
                         {blog.title}
                       </h3>
                     </div>

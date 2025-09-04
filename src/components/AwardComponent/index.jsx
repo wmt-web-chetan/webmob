@@ -39,9 +39,9 @@ const AwardComponent = (props) => {
       }, []);
   };
   return (
-    <div className="bg-dark-bg  flex flex-col lg:flrx-col xl:flex-row justify-between gap-8 lg:gap-16 py-12 xl:py-0 px-4 sm:px-24 md:px-30 lg:px-36 xl:px-42 2xl:!px-48">
-      <div className="w-full lg:max-w-3xl flex flex-col gap-y-8 lg:gap-y-16 justify-center">
-        <div className="flex flex-col gap-y-4 lg:gap-y-6">
+    <div className="bg-dark-bg  flex flex-col xl:flex-row justify-between gap-8 xl:gap-16 py-12 xl:py-0 px-4 sm:px-24 md:px-30 xl:px-42 2xl:!px-48">
+      <div className="w-full xl:max-w-3xl flex flex-col gap-y-8 xl:gap-y-16 justify-center">
+        <div className="flex flex-col gap-y-4 xl:gap-y-6">
           <h1 className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-center xl:text-start">
             {formatTitle(props?.title)}
           </h1>
@@ -49,15 +49,15 @@ const AwardComponent = (props) => {
             {props?.description}
           </p>
         </div>
-        <div className="flex flex-col gap-y-2 sm:gap-y-3 lg:gap-y-4 items-center xl:items-start">
-          <div className="flex items-center gap-x-2 sm:gap-x-4 lg:gap-x-6 text-white text-lg sm:text-2xl lg:text-4xl font-bold">
+        <div className="flex flex-col gap-y-2 sm:gap-y-3 xl:gap-y-4 items-center xl:items-start">
+          <div className="flex items-center gap-x-2 sm:gap-x-4 xl:gap-x-6 text-white text-lg sm:text-2xl lg:text-4xl font-bold">
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="36"
               viewBox="0 0 71 80"
               fill="none"
-              className="w-8 h-9 sm:w-10 sm:h-12 lg:w-12 lg:h-14 flex-shrink-0"
+              className="w-8 h-9 sm:w-10 sm:h-12 xl:w-12 xl:h-14 flex-shrink-0"
               aria-label="Clutch logo"
             >
               <path
@@ -89,7 +89,7 @@ const AwardComponent = (props) => {
       </div>
 
       {/* Award Cards - responsive layout */}
-      <div className="flex gap-x-6 sm:gap-x-8 lg:gap-x-14 justify-center xl:justify-end mt-8 lg:mt-0">
+      <div className="flex gap-x-6 sm:gap-x-8 xl:gap-x-14 justify-center xl:justify-end mt-8 xl:mt-0">
         <VerticalAwardScroll>
           {props?.awards?.map((award, idx) => (
             <AwardCard key={idx} image={award?.image?.node?.mediaItemUrl} text={award?.title} />
