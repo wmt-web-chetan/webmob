@@ -80,7 +80,7 @@ export default function StatisticsSection(props) {
   return (
     <main className=" bg-background section-padding-y px-wrapper">
       <div className="container mx-auto ">
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-28 2xl:gap-48 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-28 2xl:gap-48 ">
           {/* Left Section */}
           <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left sm:px-0 lg:px-8">
             <div className="space-y-4 md:space-y-5">
@@ -130,7 +130,7 @@ export default function StatisticsSection(props) {
             {props?.chartImage?.node?.mediaItemUrl && (
               <div className="relative flex flex-col w-full mx-auto md:mx-0 lg:mx-0 pt-4 md:pt-6">
                 {/* Graph */}
-                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full h-auto" />
+                <Image src={props.chartImage.node.mediaItemUrl} alt="Chart" width={400} height={300} className="w-full md:w-full lg:w-auto h-auto max-w-sm md:max-w-md lg:max-w-lg" />
 
                 {/* Spark on top-right of graph */}
                 <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4">

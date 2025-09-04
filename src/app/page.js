@@ -29,10 +29,10 @@ export default async function Home() {
       })}
       {/* <DepartmentSection /> */}
       {/* <AwardSection/> */}
-      <TestimonialsSection/>
-      <FaqSection />
-      <BlogsSection />
-      <AboutSection />
+      {/* <TestimonialsSection/> */}
+      {/* <FaqSection /> */}
+      {/* <BlogsSection /> */}
+      {/* <AboutSection /> */}
                                                                                                                               
     </>
   );

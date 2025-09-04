@@ -2,8 +2,12 @@ import { BlogCard } from "@/components/BlogCard";
 import PrimaryButton from "@/components/PrimaryButton";
 import Image from "next/image";
 
-export function BlogsSection() {
-  const featuredBlog = {
+export default function BlogsSection(props) {
+  // Handle both direct props and nested blogsGrid structure
+  const data = props?.blogsGrid || props;
+  
+  // Default data as fallback
+  const defaultFeaturedBlog = {
     title: "The Founder's Checklist: 7 Steps to Ensuring Your HealthTech App is HIPAA Compliant from Day One",
     highlightedText: "Ensuring Your HealthTech App",
     description:
@@ -15,7 +19,7 @@ export function BlogsSection() {
     readMoreLink: "#",
   };
 
-  const blogCards = [
+  const defaultBlogCards = [
     {
       title:
         "The Founder's Checklist: 7 Steps to Ensuring Your HealthTech App is HIPAA Compliant from Day One",
@@ -50,15 +54,55 @@ export function BlogsSection() {
     },
   ];
 
+  // Extract dynamic data
+  const title = data?.title || "Explore Our Latest Insights";
+  const subtitle = data?.subtitle || "Exploring the latest insights and trends in your industry.";
+  
+  // Transform blog data from new structure
+  const blogNodes = data?.blogList?.nodes || [];
+  
+  // Find featured post (isfeatured: true)
+  const featuredPost = blogNodes.find(node => node.blogCardFields?.isfeatured === true);
+  
+  // Transform featured post data
+  const featuredBlog = featuredPost ? {
+    title: featuredPost.title,
+    highlightedText: featuredPost.title?.split(' ').slice(-3).join(' ') || "Latest Insights",
+    description: featuredPost.blogCardFields?.shortDescription || defaultFeaturedBlog.description,
+    author: featuredPost.author?.node?.name || "Author",
+    date: new Date().toLocaleDateString(), // Date not provided in new structure
+    tags: ["Latest"], // Tags not provided in new structure
+    imageSrc: featuredPost.blogCardFields?.cardImage?.node?.mediaItemUrl || defaultFeaturedBlog.imageSrc,
+    readMoreLink: `/blog/${featuredPost.slug}` || "#",
+  } : defaultFeaturedBlog;
+
+  // Transform non-featured posts for grid
+  const nonFeaturedPosts = blogNodes.filter(node => node.blogCardFields?.isfeatured !== true);
+  const blogCards = nonFeaturedPosts.length > 0 ? nonFeaturedPosts.map(post => ({
+    title: post.title,
+    tags: ["Latest"], // Tags not provided in new structure
+    thumbnailSrc: post.blogCardFields?.cardImage?.node?.mediaItemUrl || defaultBlogCards[0].thumbnailSrc,
+    readMoreLink: `/blog/${post.slug}` || "#",
+  })) : defaultBlogCards;
+
+  // View All button data (using default since not provided in new structure)
+  const viewAllButton = { title: "View All Blogs", url: "/blog" };
+
   return (
     <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-24 w-full mx-auto">
       {/* Header */}
       <div className="text-center mb-8 sm:mb-12 lg:mb-16">
         <h1 className="h2-heading font-bold text-gray-900 mb-4 sm:mb-6">
-          Explore Our Latest <span className="text-gradient-primary">Insights</span>
+          {title.includes(' ') ? (
+            <>
+              {title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-primary">{title.split(' ').slice(-1)[0]}</span>
+            </>
+          ) : (
+            <span className="text-gradient-primary">{title}</span>
+          )}
         </h1>
         <p className="h2-description text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Exploring the latest insights and trends in your industry.
+          {subtitle}
         </p>
       </div>
 
@@ -119,10 +163,15 @@ export function BlogsSection() {
 
       {/* View All Blogs Button */}
       <div className="flex justify-center">
-        <PrimaryButton
-          text="View All Blogs"
-          className="bg-gradient-primary text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md"
-        />
+        <a 
+          href={viewAllButton.url} 
+          target={viewAllButton.target || "_self"}
+        >
+          <PrimaryButton
+            text={viewAllButton.title}
+            className="bg-gradient-primary text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md"
+          />
+        </a>
       </div>
     </section>
   );

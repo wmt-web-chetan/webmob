@@ -6,10 +6,13 @@ import defaultThumbnail from "../../../assets/images/image.png"
 export default function VideoSection(props) {
   console.log(props, "video props")
   
+  // Handle both direct props and nested clientTestimonials structure
+  const data = props?.clientTestimonials || props;
+  
   // Always show video section, use defaults if no props
-  const title = props?.title || "Watch Our Demo Video"
-  const subtitle = props?.subtitle || "See how our solutions can transform your business"
-  const shouldShow = props?.videoImage || !props // Show if videoImage exists or no props at all
+  const title = data?.title || "Watch Our Demo Video"
+  const subtitle = data?.subtitle || "See how our solutions can transform your business"
+  const shouldShow = data?.videoImage || !props // Show if videoImage exists or no props at all
   
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasPlayed, setHasPlayed] = useState(false)
@@ -52,7 +55,7 @@ export default function VideoSection(props) {
     }, [])
   }
 
-  console.log(props?.videoImage?.node?.mediaItemUrl)
+  console.log(data?.videoImage?.node?.mediaItemUrl)
 
   return (
     <div className="bg-white section-padding-y px-wrapper">
@@ -74,7 +77,7 @@ export default function VideoSection(props) {
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover"
-                poster={props?.videoImage?.node?.mediaItemUrl || defaultThumbnail}
+                poster={data?.videoImage?.node?.mediaItemUrl || defaultThumbnail}
                 controls={hasPlayed}
                 onPlay={() => {
                   setIsPlaying(true)
@@ -90,7 +93,7 @@ export default function VideoSection(props) {
                 playsInline
               >
                 <source
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                  src={data?.videourl?.url || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -108,7 +111,7 @@ export default function VideoSection(props) {
       <svg className={`fill-current ${hasPlayed ? 'w-6 h-6 sm:w-8 sm:h-8' : 'w-5 h-5 sm:w-6 sm:h-6 mr-2'}`} viewBox="0 0 24 24">
         <polygon points="5,3 19,12 5,21" />
       </svg>
-      {!hasPlayed && <span>{props?.videourl?.title || "Play Video"}</span>}
+      {!hasPlayed && <span>{data?.videourl?.title || "Play Video"}</span>}
     </button>
   </div>
 )}
