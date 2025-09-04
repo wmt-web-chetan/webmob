@@ -18,6 +18,7 @@ export const DEPARTMENT_FRAGMENT=` ... on PageBuilderPageBuilderServicesTabsLayo
                 icon {
                   node {
                     id
+                    mediaItemUrl
                   }
                 }
               }

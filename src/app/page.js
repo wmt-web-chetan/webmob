@@ -1,5 +1,5 @@
 
-import AwardSection from "@/components/AwardSection";
+import AwardSection from "@/components/AwardComponent";
 import Header from "@/components/Header";
 import AboutSection from "@/sections/HomePage/AboutSection";
 import AwardsSection from "@/sections/HomePage/AwardsSection";
@@ -28,7 +28,7 @@ export default async function Home() {
         return <Component key={i} {...block[key]} />;
       })}
       {/* <DepartmentSection /> */}
-      <AwardSection/>
+      {/* <AwardSection/> */}
       <TestimonialsSection/>
       <FaqSection />
       <BlogsSection />
