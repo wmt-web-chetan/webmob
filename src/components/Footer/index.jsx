@@ -5,7 +5,7 @@ import FormFooter from "@/sections/Footer/FormFooter";
 
 const Footer = () => {
   return (
-    <div className="bg-dark-bg px-wrapper section-padding-y-v2  text-white ">
+    <div className="bg-dark-bg  section-padding-y-v2  text-white ">
       <FormFooter />
       <BottomFooter />
       
