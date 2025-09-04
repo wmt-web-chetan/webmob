@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: "webmobtechcdn.nyc3.cdn.digitaloceanspaces.com",
         pathname: "/wmt_v4/**", // CDN assets
       },
+      {
+        protocol: "http",
+        hostname: "192.168.1.60",
+        pathname: "/wp-content/uploads/**", // Local development WordPress uploads
+      },
     ],
   },
 };
