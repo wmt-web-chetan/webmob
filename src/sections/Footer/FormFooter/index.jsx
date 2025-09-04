@@ -12,7 +12,7 @@ const FormFooter = () => {
     }, []);
 
   return (
-    <div className="mb-8 md:mb-20 mx-4 sm:mx-8 md:mx-16 lg:mx-16 2xl:mx-32 rounded-t-4xl rounded-b-3xl bg-white relative">
+    <div className="mb-8 md:mb-20 mx-4 sm:mx-8 md:mx-16 lg:mx-10 xl:mx-16 2xl:mx-32 rounded-t-4xl rounded-b-3xl bg-white relative">
       <div className="py-8 lg:py-12 2xl:py-16 w-full footer-header-bg rounded-3xl flex flex-col justify-center items-start px-6 md:ps-14 gap-4">
         <div className="lg:max-w-md 2xl:max-w-max gap-4  flex flex-col justify-center items-start">
           <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
@@ -25,7 +25,7 @@ const FormFooter = () => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         <div className="pt-32 pb-10 ps-14 text-text-primary flex flex-col gap-20">
           <div>
             <h1 className="text-lg md:text-xl lg:text-2xl 2xl:text-[32px] font-bold">
@@ -58,7 +58,7 @@ const FormFooter = () => {
       </div>
 
       {/* Mobile and Tablet Layout */}
-      <div className="block lg:hidden">
+      <div className="block xl:hidden">
         <div className="pt-8 pb-6 px-6 text-text-primary flex flex-col gap-8">
           <div>
             <h1 className="text-lg md:text-xl lg:text-2xl 2xl:text-[32px] font-bold">

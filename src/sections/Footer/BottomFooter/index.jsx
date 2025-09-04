@@ -6,14 +6,14 @@ import dayjs from "dayjs";
 const BottomFooter = () => {
   return (
     <>
-      <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 lg:py-14 flex flex-col xl:flex-row justify-center gap-8 sm:gap-10 sm:justify-between items-center footer-gradient">
-        <div className="w-full flex flex-col xl:flex-row gap-8 sm:gap-10 xl:gap-20">
+      <div className="px-4 lg:mx-3.5 xl:mx-4 sm:px-8 md:px-16 py-8 sm:py-12 lg:py-14 flex flex-col xl:flex-row justify-center gap-8 sm:gap-10 sm:justify-between items-center footer-gradient">
+        <div className="w-full  flex flex-col xl:flex-row gap-8 sm:gap-10 xl:gap-20 ">
           <div className="text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-semibold">
             Step into our portfolio to witness ideas turned into{" "}
             <br className="hidden sm:block" />
             meaningful experiences and success stories.
           </div>
-          <div className="border-r border-text-disabled hidden lg:block"></div>
+          <div className="border-r border-text-disabled hidden xl:block"></div>
           <div className="flex flex-col gap-y-1 sm:gap-y-2 justify-center">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">500+</h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-disabled font-normal">
@@ -163,7 +163,7 @@ const BottomFooter = () => {
             </div>
           </div>
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
               {/* Services */}
               <div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6">
